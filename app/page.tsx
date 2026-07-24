@@ -6,14 +6,34 @@ export default function HomePage() {
         display: "grid",
         placeItems: "center",
         padding: "32px",
+        overflow: "hidden",
+        color: "white",
         background:
-          "radial-gradient(circle at 75% 20%, rgba(23,105,224,.14), transparent 30%), linear-gradient(180deg, #f7faff 0%, #ffffff 100%)",
+          "radial-gradient(circle at 82% 18%, rgba(119,184,42,.28), transparent 26%), linear-gradient(125deg, #061f37 0%, #092c4c 52%, #126392 100%)",
+        fontFamily: "Arial, Helvetica, sans-serif",
       }}
     >
+      <div
+        aria-hidden="true"
+        style={{
+          position: "fixed",
+          inset: "auto -10vw -32vh auto",
+          width: "62vw",
+          height: "62vw",
+          border: "1px solid rgba(255,255,255,.09)",
+          transform: "rotate(-16deg)",
+        }}
+      />
+
       <section
         style={{
-          width: "min(720px, 100%)",
-          textAlign: "center",
+          position: "relative",
+          width: "min(980px, 100%)",
+          borderTop: "6px solid #77b82a",
+          padding: "clamp(32px, 7vw, 78px)",
+          background: "rgba(6,31,55,.78)",
+          boxShadow: "0 34px 90px rgba(0,0,0,.30)",
+          backdropFilter: "blur(8px)",
         }}
       >
         <div
@@ -22,10 +42,10 @@ export default function HomePage() {
             display: "inline-flex",
             alignItems: "center",
             gap: "14px",
-            color: "#071b33",
-            fontSize: "24px",
-            fontWeight: 800,
-            letterSpacing: "-.04em",
+            fontSize: "clamp(18px, 3vw, 25px)",
+            fontWeight: 900,
+            letterSpacing: "-.035em",
+            textTransform: "uppercase",
           }}
         >
           <span
@@ -34,10 +54,10 @@ export default function HomePage() {
               placeItems: "center",
               width: "52px",
               height: "52px",
-              background: "#1769e0",
+              background: "#77b82a",
               color: "white",
-              fontSize: "16px",
-              letterSpacing: "-.02em",
+              fontSize: "15px",
+              fontWeight: 900,
             }}
           >
             CS
@@ -47,49 +67,80 @@ export default function HomePage() {
 
         <p
           style={{
-            margin: "56px 0 18px",
-            color: "#1769e0",
+            margin: "clamp(48px, 8vw, 86px) 0 18px",
+            color: "#bde17f",
             fontSize: "12px",
-            fontWeight: 850,
-            letterSpacing: ".16em",
+            fontWeight: 900,
+            letterSpacing: ".18em",
             textTransform: "uppercase",
           }}
         >
-          Municipal surplus management
+          Municipal surplus operations
         </p>
 
         <h1
           style={{
+            maxWidth: "850px",
             margin: 0,
-            color: "#071b33",
-            fontSize: "clamp(48px, 9vw, 82px)",
-            lineHeight: ".98",
-            letterSpacing: "-.065em",
+            color: "white",
+            fontSize: "clamp(48px, 9vw, 92px)",
+            lineHeight: ".94",
+            letterSpacing: "-.06em",
+            textTransform: "uppercase",
           }}
         >
-          In development.
+          Built for public service.
         </h1>
 
         <p
           style={{
-            maxWidth: "580px",
-            margin: "28px auto 0",
-            color: "#5d6b7a",
-            fontSize: "18px",
-            lineHeight: 1.7,
+            maxWidth: "680px",
+            margin: "30px 0 0",
+            color: "#d8e4ec",
+            fontSize: "clamp(16px, 2.2vw, 20px)",
+            lineHeight: 1.65,
           }}
         >
-          CivicSurplus is building a modern platform for public agencies to manage surplus property, documentation, disposal, and auctions.
+          CivicSurplus is developing a complete platform for government agencies to manage property intake, approvals, documentation, disposal, and auctions from one secure system.
         </p>
 
         <div
           style={{
-            width: "72px",
-            height: "3px",
-            margin: "46px auto 0",
-            background: "#1769e0",
+            display: "flex",
+            alignItems: "center",
+            gap: "16px",
+            marginTop: "42px",
+            flexWrap: "wrap",
           }}
-        />
+        >
+          <span
+            style={{
+              display: "inline-flex",
+              minHeight: "50px",
+              alignItems: "center",
+              padding: "0 24px",
+              background: "#77b82a",
+              color: "white",
+              fontSize: "12px",
+              fontWeight: 900,
+              letterSpacing: ".08em",
+              textTransform: "uppercase",
+            }}
+          >
+            In development
+          </span>
+          <span
+            style={{
+              color: "#b9c9d4",
+              fontSize: "12px",
+              fontWeight: 800,
+              letterSpacing: ".07em",
+              textTransform: "uppercase",
+            }}
+          >
+            Hosted municipal software
+          </span>
+        </div>
       </section>
     </main>
   );
