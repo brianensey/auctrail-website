@@ -1,47 +1,30 @@
 import Link from "next/link";
 
-const features = [
-  { number: "01", title: "Property Intake", description: "Import cases, capture asset details, assign departments, attach documentation, and keep every record organized from the start." },
-  { number: "02", title: "Approvals & Tracking", description: "Track each item through review, approval, auction, pickup, disposal, and closeout with a clear operational history." },
-  { number: "03", title: "Photos & Proof", description: "Store case photos, disposal proof, notes, and supporting documents directly with the asset disposition record." },
-  { number: "04", title: "Auction Management", description: "Prepare auction information, maintain sale details, and preserve buyer, payment, and pickup documentation." },
-  { number: "05", title: "Reports & Exports", description: "Search records, review department activity, and export clean Excel or CSV reports for administration and auditing." },
-  { number: "06", title: "Hosted & Supported", description: "A managed software package with hosting, updates, support, documentation, and onboarding for public agencies." },
-];
-
-const process = [
-  ["01", "Receive", "Enter or import property and supporting details."],
-  ["02", "Review", "Route the case through department and administrative review."],
-  ["03", "Dispose", "Sell, transfer, recycle, destroy, or otherwise dispose of the asset."],
-  ["04", "Document", "Preserve sale records, photos, proof, notes, and final reporting."],
+const highlights = [
+  ["▣", "Streamlined Workflow", "Manage every step of the surplus process in one intuitive platform."],
+  ["◆", "Maximize Value", "Reach more buyers and get the best return on your assets."],
+  ["▥", "Data & Reporting", "Powerful reports and insights for better decisions."],
+  ["◇", "Transparency & Trust", "Build public confidence with clear, accessible asset information."],
+  ["⚙", "Easy to Use", "Designed for municipalities and built for real-world use."],
 ];
 
 export default function HomePage() {
-  return (
-    <>
-      <header className="site-header">
-        <div className="shell nav-wrap">
-          <Link href="/" className="brand" aria-label="Auctrail home"><span className="brand-mark">A</span><span>Auctrail</span></Link>
-          <nav aria-label="Primary navigation"><a href="#features">Features</a><a href="#workflow">Workflow</a><a href="#hosting">Hosting</a><Link href="/support">Support</Link><a href="#contact" className="button button-small">Request Information</a></nav>
-        </div>
-      </header>
-      <main>
-        <section className="hero"><div className="shell hero-grid">
-          <div>
-            <img src="/auctrail-logo.svg" alt="Auctrail — Asset Disposition Management" style={{width:"min(500px,100%)",height:"auto",display:"block",marginBottom:"38px"}} />
-            <p className="eyebrow">Asset disposition management</p><h1>Control every asset from intake to final disposition.</h1>
-            <p className="hero-copy">Auctrail gives government agencies one secure system for property intake, approvals, auctions, disposal, documentation, and reporting.</p>
-            <div className="hero-actions"><a href="#features" className="button">Explore the Platform</a><Link href="/support" className="button button-ghost">View Support</Link></div>
-            <div className="trust-row"><span>Built for government workflows</span><span>Hosted and managed</span><span>Documentation included</span></div>
-          </div>
-          <div className="product-card" aria-label="Auctrail dashboard preview"><div className="product-topbar"><span className="mini-brand">Auctrail Operations</span><span className="status-dot">System active</span></div><div className="metric-grid"><article><small>Total cases</small><strong>284</strong><span>Current inventory</span></article><article><small>In review</small><strong>37</strong><span>Awaiting action</span></article><article><small>Disposed</small><strong>119</strong><span>Fully documented</span></article></div><div className="workflow-card"><div><strong>Case 2026-0148</strong><span>Public Works vehicle</span></div><div className="workflow-steps"><span className="done">Received</span><span className="done">Reviewed</span><span className="active">Auction</span><span>Closeout</span></div></div></div>
-        </div></section>
-        <section id="features" className="section"><div className="shell"><div className="section-heading"><p className="eyebrow">One connected system</p><h2>Everything needed to manage asset disposition.</h2><p>Replace scattered spreadsheets, email chains, shared folders, and paper records with a consistent operational process.</p></div><div className="feature-grid">{features.map((feature) => <article className="feature-card" key={feature.number}><span className="feature-number">{feature.number}</span><h3>{feature.title}</h3><p>{feature.description}</p></article>)}</div></div></section>
-        <section id="hosting" className="section section-dark"><div className="shell hosting-grid"><div className="section-heading left"><p className="eyebrow eyebrow-light">Managed software package</p><h2>Software, hosting, updates, and support together.</h2><p>Auctrail is designed as a complete hosted service. Agencies receive the application, secure cloud hosting, updates, onboarding, documentation, and ongoing support without managing infrastructure internally.</p></div><aside className="package-card"><p className="package-label">Full-service package</p><h3>Ready for agency operations</h3><ul><li>Secure hosted Auctrail application</li><li>Agency branding and configuration</li><li>User and department setup</li><li>Data import assistance</li><li>Documentation and training materials</li><li>Ongoing updates and support</li></ul><a href="#contact" className="button button-full">Request Information</a></aside></div></section>
-        <section id="workflow" className="section"><div className="shell workflow-grid"><div className="section-heading left"><p className="eyebrow">Operational workflow</p><h2>A clear record from receipt through closeout.</h2><p>Each case follows a traceable process, giving staff and administrators a shared view of status, responsibility, documents, and next actions.</p></div><ol className="process-list">{process.map(([number,title,description]) => <li key={number}><span>{number}</span><div><strong>{title}</strong><p>{description}</p></div></li>)}</ol></div></section>
-        <section id="contact" className="cta"><div className="shell cta-inner"><div><p className="eyebrow" style={{color:"white"}}>Built for public service</p><h2>Bring your asset disposition process into one managed system.</h2></div><Link href="/support" className="button button-light">Contact Auctrail</Link></div></section>
-      </main>
-      <footer><div className="shell"><div className="footer-grid"><div><Link href="/" className="brand footer-brand"><span className="brand-mark">A</span><span>Auctrail</span></Link><p>Hosted asset disposition management software for intake, approvals, auctions, disposal, documentation, and reporting.</p></div><div><strong>Platform</strong><a href="#features">Features</a><a href="#workflow">Workflow</a><a href="#hosting">Hosting</a></div><div><strong>Resources</strong><Link href="/support">Support</Link></div></div><div className="copyright">© {new Date().getFullYear()} Auctrail. Asset Disposition Management.</div></div></footer>
-    </>
-  );
+  return <main className="ref-site">
+    <header className="ref-header"><div className="ref-wide ref-nav">
+      <Link href="/" className="ref-logo" aria-label="Auctrail home"><span className="ref-logo-ring"><span className="ref-logo-a">A</span><span className="ref-logo-road">➚</span></span><span className="ref-wordmark"><b><span>Auc</span><i>trail</i></b><small>ASSET DISPOSITION MANAGEMENT</small></span></Link>
+      <nav className="ref-links"><a className="active" href="#home">Home</a><a href="#platform">Platform⌄</a><a href="#features">Features⌄</a><a href="#how">How It Works</a><a href="#hosting">Hosting</a><a href="#about">About Us</a><a href="#resources">Resources⌄</a><a href="#contact">Contact</a></nav>
+      <a className="ref-login" href="https://app.auctrail.com/login">▢ &nbsp; CLIENT LOGIN</a>
+    </div></header>
+
+    <section id="home" className="ref-hero"><div className="ref-wide ref-hero-grid">
+      <div className="ref-hero-copy"><h1>Smarter Surplus.<br/><span>Stronger Communities.</span></h1><p>Auctrail helps municipalities and organizations efficiently manage surplus assets from intake to disposition. Increase transparency, maximize value, and build public trust—all in one platform.</p><div className="ref-actions"><a className="ref-primary" href="#contact">REQUEST A DEMO <b>→</b></a><a className="ref-secondary" href="#features">EXPLORE FEATURES <b>→</b></a></div></div>
+      <div className="ref-devices" aria-label="Auctrail application preview"><div className="ref-laptop"><div className="ref-screen"><div className="ref-app-side"><strong>◉ Auctrail</strong><span className="selected">⌂ Dashboard</span><span>▣ Cases</span><span>◆ Assets</span><span>⚒ Auctions</span><span>▥ Reports</span><span>⚙ Administration</span></div><div className="ref-app-main"><div className="ref-app-top"><b>Welcome back, Administration</b><small>City of Example⌄</small></div><div className="ref-metrics"><article><small>Open Cases</small><b>24</b></article><article><small>Assets</small><b>1,248</b></article><article><small>Auctions</small><b>12</b></article><article><small>Sold This Month</small><b>$45,680</b></article></div><div className="ref-app-panels"><article><b>Recent Activity</b><p>Case #24-1035 created</p><p>Asset 100245 updated</p><p>Auction #A-25-009 published</p><p>Invoice #INV-1001 paid</p></article><article><b>Assets by Status</b><div className="ref-donut"></div><p>Available &nbsp; 642</p><p>Auction &nbsp; 128</p><p>Sold &nbsp; 356</p></article></div></div></div></div><div className="ref-phone"><div className="ref-phone-logo">◉ <b>Auc<span>trail</span></b></div><div className="ref-phone-grid"><b>▣<small>Cases</small></b><b>◆<small>Assets</small></b><b>⚒<small>Auctions</small></b><b>▥<small>Reports</small></b></div><strong>▣ &nbsp; Scan QR</strong></div></div>
+    </div></section>
+
+    <section id="features" className="ref-feature-strip"><div className="ref-wide ref-feature-grid">{highlights.map(([icon,title,text])=><article key={title}><span>{icon}</span><div><b>{title}</b><p>{text}</p></div></article>)}</div></section>
+
+    <section id="platform" className="ref-municipal"><div className="ref-wide ref-muni-grid"><div className="ref-muni-copy"><small>BUILT FOR MUNICIPALITIES</small><h2>Complete Asset Disposition<br/>Management</h2><p>Auctrail provides the tools you need to manage assets efficiently and responsibly.</p><div className="ref-checks"><span>● &nbsp; Intake & asset tracking</span><span>● &nbsp; Public portal for buyers</span><span>● &nbsp; Auction management</span><span>● &nbsp; Reporting & audit history</span></div><a href="#features">VIEW ALL FEATURES &nbsp; →</a></div><div className="ref-city"><div className="ref-city-sky"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></div><div className="ref-stat-grid"><article><b>▥ &nbsp; 500+</b><small>Municipalities</small></article><article><b>⚒ &nbsp; 250K+</b><small>Assets Managed</small></article><article><b>◎ &nbsp; 1M+</b><small>Auction Participants</small></article><article><b>ⓢ &nbsp; $250M+</b><small>Assets Sold</small></article></div></div></div></section>
+
+    <section id="contact" className="ref-bottom"><div className="ref-wide"><div><span>◉</span><p><b>Ready to see Auctrail in action?</b><small>Our team is here to help you get started.</small></p></div><Link href="/support">CONTACT US TODAY &nbsp; →</Link></div></section>
+  </main>;
 }
