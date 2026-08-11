@@ -25,7 +25,6 @@ export default function SupportPage() {
             <img src="/auctrail-logo-approved.jpg" alt="Auctrail — Asset Disposition Management" width="425" height="115" />
           </Link>
           <div className="header-actions support-header-actions" style={{ marginLeft: "auto", display: "flex" }}>
-            <Link className="text-link" href="/">Home</Link>
             <a className="button button-primary button-compact" href="https://app.auctrail.com/login">Client login</a>
           </div>
         </div>
