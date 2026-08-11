@@ -1,11 +1,11 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 190" role="img" aria-labelledby="title desc">
-  <title id="title">Auctrail</title><desc id="desc">Auctrail Asset Disposition Management</desc>
-  <rect x="10" y="15" width="150" height="150" rx="22" fill="#0C1F36"/>
-  <path d="M48 126 L84 48 H108 L137 110 H111 L96 77 L72 126 Z" fill="#fff"/>
-  <path d="M26 151 C62 107 93 106 151 58 L142 84 C105 116 83 127 66 165 H26 Z" fill="#669541"/>
-  <path d="M51 145 C85 115 116 108 160 67" fill="none" stroke="#fff" stroke-width="8" stroke-linecap="round"/>
-  <path d="M151 55 L174 47 L164 70 Z" fill="#669541"/>
-  <text x="195" y="112" font-family="Arial,Helvetica,sans-serif" font-size="76" font-weight="700" letter-spacing="-3"><tspan fill="#F5F7F4">Auc</tspan><tspan fill="#86B85D">trail</tspan></text>
-  <line x1="198" y1="137" x2="250" y2="137" stroke="#86B85D" stroke-width="3"/>
-  <text x="265" y="145" font-family="Arial,Helvetica,sans-serif" font-size="20" letter-spacing="4" fill="#C7DFA9">ASSET DISPOSITION MANAGEMENT</text>
+<title id="title">Auctrail</title><desc id="desc">Auctrail Asset Disposition Management</desc>
+<circle cx="94" cy="94" r="78" fill="#0b2741" stroke="#ffffff" stroke-width="5"/>
+<path d="M45 131 L78 48 H103 L135 131 H111 L101 104 H75 L65 131 Z M82 85 H95 L89 66 Z" fill="#ffffff"/>
+<path d="M39 139 C62 115 80 108 99 103 C119 97 136 84 154 60" fill="none" stroke="#67ad35" stroke-width="15" stroke-linecap="round"/>
+<path d="M144 55 L166 48 L159 70 Z" fill="#67ad35"/>
+<path d="M48 136 C70 116 84 111 101 107 C119 102 136 89 151 70" fill="none" stroke="#ffffff" stroke-width="5" stroke-linecap="round"/>
+<text x="190" y="105" font-family="Arial,Helvetica,sans-serif" font-size="76" font-weight="700" letter-spacing="-4"><tspan fill="#ffffff">Auc</tspan><tspan fill="#67ad35">trail</tspan></text>
+<line x1="193" y1="132" x2="245" y2="132" stroke="#67ad35" stroke-width="3"/>
+<text x="260" y="140" font-family="Arial,Helvetica,sans-serif" font-size="19" font-weight="700" letter-spacing="4" fill="#9fcd40">ASSET DISPOSITION MANAGEMENT</text>
 </svg>
