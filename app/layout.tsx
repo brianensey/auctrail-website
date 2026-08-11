@@ -2,9 +2,9 @@ import type { Metadata } from "next";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "CivicSurplus | Municipal Surplus Management",
+  title: "Auctrail | Asset Disposition Management",
   description:
-    "A managed municipal surplus platform for intake, approvals, documentation, auctions, disposal, and reporting.",
+    "Auctrail is a managed asset disposition platform for government agencies, covering property intake, approvals, documentation, auctions, disposal, and reporting.",
 };
 
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
