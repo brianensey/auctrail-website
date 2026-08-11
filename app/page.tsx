@@ -9,7 +9,7 @@ export default function HomePage() {
         overflow: "hidden",
         color: "white",
         background:
-          "radial-gradient(circle at 82% 18%, rgba(119,184,42,.28), transparent 26%), linear-gradient(125deg, #061f37 0%, #092c4c 52%, #126392 100%)",
+          "radial-gradient(circle at 82% 18%, rgba(102,149,65,.28), transparent 26%), linear-gradient(125deg, #081a2d 0%, #0c1f36 52%, #173b5d 100%)",
         fontFamily: "Arial, Helvetica, sans-serif",
       }}
     >
@@ -29,53 +29,36 @@ export default function HomePage() {
         style={{
           position: "relative",
           width: "min(980px, 100%)",
-          borderTop: "6px solid #77b82a",
+          borderTop: "6px solid #669541",
           padding: "clamp(32px, 7vw, 78px)",
-          background: "rgba(6,31,55,.78)",
+          background: "rgba(12,31,54,.84)",
           boxShadow: "0 34px 90px rgba(0,0,0,.30)",
           backdropFilter: "blur(8px)",
         }}
       >
-        <div
-          aria-label="CivicSurplus"
+        <img
+          src="/auctrail-logo.svg"
+          alt="Auctrail — Asset Disposition Management"
           style={{
-            display: "inline-flex",
-            alignItems: "center",
-            gap: "14px",
-            fontSize: "clamp(18px, 3vw, 25px)",
-            fontWeight: 900,
-            letterSpacing: "-.035em",
-            textTransform: "uppercase",
+            display: "block",
+            width: "min(560px, 100%)",
+            height: "auto",
+            background: "white",
+            padding: "10px 14px",
           }}
-        >
-          <span
-            style={{
-              display: "grid",
-              placeItems: "center",
-              width: "52px",
-              height: "52px",
-              background: "#77b82a",
-              color: "white",
-              fontSize: "15px",
-              fontWeight: 900,
-            }}
-          >
-            CS
-          </span>
-          <span>CivicSurplus</span>
-        </div>
+        />
 
         <p
           style={{
             margin: "clamp(48px, 8vw, 86px) 0 18px",
-            color: "#bde17f",
+            color: "#c7dfa9",
             fontSize: "12px",
             fontWeight: 900,
             letterSpacing: ".18em",
             textTransform: "uppercase",
           }}
         >
-          Municipal surplus operations
+          Asset disposition management
         </p>
 
         <h1
@@ -101,7 +84,7 @@ export default function HomePage() {
             lineHeight: 1.65,
           }}
         >
-          CivicSurplus is developing a complete platform for government agencies to manage property intake, approvals, documentation, disposal, and auctions from one secure system.
+          Auctrail is developing a complete asset disposition management platform for government agencies to manage property intake, approvals, documentation, disposal, and auctions from one secure system.
         </p>
 
         <div
@@ -119,7 +102,7 @@ export default function HomePage() {
               minHeight: "50px",
               alignItems: "center",
               padding: "0 24px",
-              background: "#77b82a",
+              background: "#669541",
               color: "white",
               fontSize: "12px",
               fontWeight: 900,
@@ -138,7 +121,7 @@ export default function HomePage() {
               textTransform: "uppercase",
             }}
           >
-            Hosted municipal software
+            Hosted government software
           </span>
         </div>
       </section>

@@ -1,0 +1,26 @@
+:root {
+  --navy: #0c1f36;
+  --navy-2: #173b5d;
+  --blue: #173b5d;
+  --blue-dark: #0c1f36;
+  --green: #669541;
+  --green-dark: #557d36;
+  --ink: #17222b;
+  --muted: #60707c;
+  --line: #d7e0e5;
+  --soft: #f5f7f4;
+  --white: #ffffff;
+}
+
+.site-header { background: rgba(12,31,54,.97); }
+nav > a:not(.button):hover,
+.eyebrow,
+.eyebrow-light,
+.footer-grid a:hover { color: #c7dfa9; }
+
+.hero {
+  background: radial-gradient(circle at 82% 20%, rgba(102,149,65,.25), transparent 28%), linear-gradient(125deg, #081a2d 0%, #0c1f36 56%, #173b5d 100%);
+}
+
+.product-card { background: #081a2d; }
+footer { background: #071827; }
