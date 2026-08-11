@@ -1,0 +1,3 @@
+Auctrail public-site redeploy marker.
+Target design: dark case workflow preview with live-style case details, status, workflow stages, and next action.
+Created to force the Render service connected to main to rebuild the current source.
