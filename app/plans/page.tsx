@@ -5,12 +5,13 @@ import styles from "./plans.module.css";
 export const metadata: Metadata = {
   title: "Plans and Pricing",
   description:
-    "Auctrail provides one complete, managed asset disposition platform for government agencies for $199 per month or $2,388 per year.",
+    "Compare Auctrail Essential, Professional, and Enterprise plans for government asset disposition management, starting at $99 per month.",
   keywords: [
     "Auctrail pricing",
     "government surplus software pricing",
     "municipal asset disposition software",
     "public agency surplus management",
+    "government asset management plans",
   ],
   alternates: {
     canonical: "https://auctrail.com/plans",
@@ -18,90 +19,142 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Auctrail Plans and Pricing",
     description:
-      "One complete asset disposition platform for government agencies, hosted and managed for $199 per month.",
+      "Three managed plans for government asset disposition workflows, starting at $99 per month.",
     url: "https://auctrail.com/plans",
     siteName: "Auctrail",
     type: "website",
   },
 };
 
-const includedGroups = [
+const plans = [
   {
-    number: "01",
-    title: "Cases and assets",
-    description: "Keep the full operational record together from receipt through closeout.",
-    items: [
-      "Property intake and case creation",
-      "Asset details, identifiers, condition, and custody",
-      "Departments, assignments, dates, and status tracking",
-      "Sold, transferred, recycled, destroyed, and other disposition outcomes",
+    name: "Essential",
+    label: "For smaller teams",
+    price: "99",
+    annual: "1,188",
+    description:
+      "For small municipalities, authorities, and focused departments that need the complete disposition workflow with a smaller staff footprint.",
+    capacity: [
+      "Up to 5 active users",
+      "Up to 5 departments",
+      "Guided setup materials",
+      "Import templates",
+      "Standard email support",
     ],
   },
   {
-    number: "02",
-    title: "Documents and accountability",
-    description: "Preserve the proof and history administrators need without splitting the record.",
-    items: [
-      "Photos and supporting documents",
-      "Approvals, titles, receipts, and disposal proof",
-      "Role-based permissions and responsibility tracking",
-      "Audit history and searchable completed records",
+    name: "Professional",
+    label: "Most popular",
+    price: "199",
+    annual: "2,388",
+    description:
+      "For most cities and multi-department operations that need broader access, assisted setup, and faster support.",
+    capacity: [
+      "Up to 20 active users",
+      "Unlimited departments",
+      "Assisted onboarding session",
+      "Initial data-import assistance",
+      "Priority email support",
     ],
+    featured: true,
   },
   {
-    number: "03",
-    title: "Auction and field workflows",
-    description: "Prepare property for sale or disposal using information already stored in Auctrail.",
-    items: [
-      "Auction preparation and disposition workflow",
-      "GovDeals-compatible bulk-upload export",
-      "Printable asset and case labels",
-      "QR-based access to the related case record",
-    ],
-  },
-  {
-    number: "04",
-    title: "Administration and managed service",
-    description: "The subscription includes the hosted platform and the assistance required to operate it.",
-    items: [
-      "Search, reports, Excel, and CSV exports",
-      "Agency, department, role, and user configuration",
-      "Onboarding, data-import assistance, and training materials",
-      "Hosting, platform updates, documentation, and ongoing support",
+    name: "Enterprise",
+    label: "For larger agencies",
+    price: "399",
+    annual: "4,788",
+    description:
+      "For larger cities and complex multi-division operations that need greater user capacity and a managed implementation.",
+    capacity: [
+      "Up to 50 active users",
+      "Unlimited departments and divisions",
+      "Dedicated implementation planning",
+      "Historical data-migration assistance",
+      "Priority support with a named contact",
     ],
   },
 ];
 
+const coreCapabilities = [
+  {
+    number: "01",
+    title: "Cases and assets",
+    description:
+      "Unlimited case and asset records with intake details, identifiers, condition, custody, assignments, dates, and status tracking.",
+  },
+  {
+    number: "02",
+    title: "Documents and accountability",
+    description:
+      "Photos, approvals, titles, receipts, disposal proof, role-based permissions, audit history, and searchable completed records.",
+  },
+  {
+    number: "03",
+    title: "Auction and disposition",
+    description:
+      "Auction preparation, GovDeals-compatible export, final outcomes, payment and pickup details, and complete closeout history.",
+  },
+  {
+    number: "04",
+    title: "Labels, reporting, and service",
+    description:
+      "Printable labels, QR access, search, reports, Excel and CSV exports, secure hosting, updates, documentation, and support.",
+  },
+];
+
+const comparisonRows = [
+  ["Active users included", "5", "20", "50"],
+  ["Departments", "Up to 5", "Unlimited", "Unlimited"],
+  ["Case and asset records", "Unlimited", "Unlimited", "Unlimited"],
+  ["Complete intake-to-closeout workflow", "Included", "Included", "Included"],
+  ["Photos, documents, labels, and QR access", "Included", "Included", "Included"],
+  ["Permissions, audit history, and reporting", "Included", "Included", "Included"],
+  ["GovDeals-compatible export", "Included", "Included", "Included"],
+  ["Onboarding", "Guided", "Assisted", "Dedicated"],
+  ["Data import", "Templates", "Initial import assistance", "Historical migration assistance"],
+  ["Support", "Standard email", "Priority email", "Priority with named contact"],
+];
+
 const frequentlyAskedQuestions = [
   {
-    question: "Is Auctrail priced by feature tier?",
+    question: "What makes the plans different?",
     answer:
-      "No. Auctrail uses one standard subscription that includes the complete operational platform listed on this page. Agencies do not have to choose between stripped-down feature bundles.",
+      "The core Auctrail workflow is included in every plan. Pricing changes according to active-user capacity, department scale, onboarding, data-import assistance, and support level.",
   },
   {
-    question: "Does Auctrail replace an auction marketplace?",
+    question: "Are cases or assets limited by plan?",
     answer:
-      "No. Auctrail is the agency's independent system of record for intake, approvals, preparation, disposition, and closeout. The agency can retain its marketplace choice and use supported exports when available.",
+      "No. Essential, Professional, and Enterprise all include unlimited case and asset records. The plan limits apply to active users and, on Essential, the number of departments.",
   },
   {
-    question: "Are marketplace fees included in the subscription?",
+    question: "Can an agency change plans later?",
     answer:
-      "No. Any seller, buyer, listing, or transaction fees charged by an auction marketplace remain separate from the Auctrail subscription and are governed by that provider.",
+      "Yes. An agency can move to a larger plan as its staff, departments, or implementation needs grow without rebuilding its Auctrail records.",
   },
   {
     question: "Is hosting included?",
     answer:
-      "Yes. The standard plan includes the secure hosted Auctrail application, ongoing platform updates, documentation, and support.",
+      "Yes. Every plan includes the hosted Auctrail application, platform updates, documentation, and the support level listed for that plan.",
   },
   {
-    question: "Can every GovDeals account use the bulk-upload export immediately?",
+    question: "Are auction marketplace fees included?",
     answer:
-      "Not necessarily. GovDeals Bulk Asset Upload is an account-enabled capability. The agency's authorized GovDeals account must have it enabled by GovDeals before using an Auctrail GovDeals-compatible export.",
+      "No. Seller, buyer, listing, or transaction fees charged by an auction marketplace are separate from the Auctrail subscription and remain subject to that provider's terms.",
   },
   {
-    question: "What happens during agency setup?",
+    question: "Can every GovDeals account use bulk upload immediately?",
     answer:
-      "Auctrail can assist with agency and department configuration, roles, users, current workflows, data import, label processes, reporting, documentation, and onboarding materials.",
+      "Not necessarily. GovDeals Bulk Asset Upload is an account-enabled capability. The agency's authorized GovDeals account must have it enabled before using an Auctrail GovDeals-compatible export for bulk upload.",
+  },
+  {
+    question: "Do annual prices include a discount?",
+    answer:
+      "The annual totals shown are twelve months at the published monthly rate. A separate annual-payment discount is not currently applied.",
+  },
+  {
+    question: "What if an agency needs more than 50 users?",
+    answer:
+      "Larger deployments can be scoped from the Enterprise plan based on user count, implementation requirements, data migration, and support needs.",
   },
 ];
 
@@ -224,18 +277,19 @@ export default function PlansPage() {
       "@type": "Audience",
       audienceType: "Government agencies and municipalities",
     },
-    offers: {
+    offers: plans.map((plan) => ({
       "@type": "Offer",
+      name: `Auctrail ${plan.name}`,
       url: "https://auctrail.com/plans",
-      price: "199",
+      price: plan.price,
       priceCurrency: "USD",
       priceSpecification: {
         "@type": "UnitPriceSpecification",
-        price: "199",
+        price: plan.price,
         priceCurrency: "USD",
         unitText: "MONTH",
       },
-    },
+    })),
   };
 
   return (
@@ -247,86 +301,136 @@ export default function PlansPage() {
       <SiteHeader />
 
       <section className={styles.hero}>
-        <div className={`marketing-shell ${styles.heroLayout}`}>
-          <div className={styles.heroCopy}>
-            <p className="section-kicker">Straightforward agency pricing</p>
-            <h1>The complete Auctrail platform. One predictable subscription.</h1>
-            <p className={styles.heroLead}>
-              Auctrail keeps intake, approvals, auctions, disposal, documentation, and reporting
-              in one managed system without dividing essential workflows across separate tiers.
-            </p>
-            <div className={styles.heroActions}>
-              <Link className="button button-primary" href="/support">
-                Request plan information <ArrowIcon />
-              </Link>
-              <a className="button button-secondary" href="#included">
-                Review everything included <ArrowIcon />
-              </a>
-            </div>
-            <div className={styles.assurances} aria-label="Subscription assurances">
-              <span><CheckIcon /> Hosted and managed</span>
-              <span><CheckIcon /> Onboarding assistance</span>
-              <span><CheckIcon /> Updates and support included</span>
-            </div>
-          </div>
-
-          <aside className={styles.priceCard} aria-label="Auctrail Standard pricing">
-            <span className={styles.planLabel}>Standard plan</span>
-            <h2>Auctrail Standard</h2>
-            <p className={styles.planSummary}>
-              The full asset disposition platform for municipalities and public agencies.
-            </p>
-            <div className={styles.priceLine}>
-              <strong>$199</strong>
-              <span>per month</span>
-            </div>
-            <p className={styles.annualPrice}>or $2,388 billed annually</p>
-            <div className={styles.priceDivider} />
-            <ul className={styles.priceHighlights}>
-              <li><CheckIcon /> Complete intake-to-closeout workflow</li>
-              <li><CheckIcon /> Hosted agency workspace</li>
-              <li><CheckIcon /> Configuration, onboarding, and support</li>
-              <li><CheckIcon /> Ongoing platform updates</li>
-            </ul>
-            <Link className="button button-primary button-full" href="/support">
+        <div className={`marketing-shell ${styles.heroInner}`}>
+          <p className="section-kicker">Regular Auctrail plans</p>
+          <h1>Choose the capacity and support level that fits your agency.</h1>
+          <p className={styles.heroLead}>
+            Every plan includes the complete intake-to-closeout platform. The price changes with
+            team size, department scale, onboarding, data-import assistance, and support.
+          </p>
+          <div className={styles.heroActions}>
+            <a className="button button-primary" href="#plans">
+              Compare plans <ArrowIcon />
+            </a>
+            <Link className="button button-secondary" href="/support">
               Discuss your agency <ArrowIcon />
             </Link>
-            <p className={styles.marketplaceNote}>
-              Auction marketplace charges, if any, are separate and are billed under the
-              marketplace provider's terms.
+          </div>
+          <div className={styles.assurances} aria-label="Included with every plan">
+            <span><CheckIcon /> Full workflow in every plan</span>
+            <span><CheckIcon /> Unlimited cases and assets</span>
+            <span><CheckIcon /> Hosted, updated, and supported</span>
+          </div>
+        </div>
+      </section>
+
+      <section className={styles.pricingSection} id="plans">
+        <div className="marketing-shell">
+          <div className={styles.sectionHeading}>
+            <div>
+              <p className="section-kicker">Monthly plan pricing</p>
+              <h2>Three regular plans, with clear operating differences.</h2>
+            </div>
+            <p>
+              Core records and disposition capabilities are never removed from a lower plan.
+              Agencies select a plan based on staff access and the service required for rollout.
             </p>
-          </aside>
+          </div>
+
+          <div className={styles.planGrid}>
+            {plans.map((plan) => (
+              <article
+                className={`${styles.planCard} ${plan.featured ? styles.featuredPlan : ""}`}
+                key={plan.name}
+              >
+                <div className={styles.planTopline}>
+                  <span>{plan.label}</span>
+                  {plan.featured ? <strong>Recommended</strong> : null}
+                </div>
+                <h2>{plan.name}</h2>
+                <p className={styles.planDescription}>{plan.description}</p>
+                <div className={styles.priceLine}>
+                  <strong>${plan.price}</strong>
+                  <span>per month</span>
+                </div>
+                <p className={styles.annualPrice}>${plan.annual} annual total</p>
+                <div className={styles.planDivider} />
+                <strong className={styles.capacityLabel}>Plan capacity and service</strong>
+                <ul className={styles.planList}>
+                  {plan.capacity.map((item) => (
+                    <li key={item}><CheckIcon /> {item}</li>
+                  ))}
+                </ul>
+                <Link
+                  className={`button ${plan.featured ? "button-primary" : "button-secondary"} button-full`}
+                  href="/support"
+                >
+                  Request {plan.name} information <ArrowIcon />
+                </Link>
+              </article>
+            ))}
+          </div>
+
+          <p className={styles.pricingNote}>
+            Prices are for the Auctrail subscription. Auction marketplace charges, if any, are
+            separate and remain subject to the marketplace provider's terms.
+          </p>
+        </div>
+      </section>
+
+      <section className={styles.comparisonSection}>
+        <div className="marketing-shell">
+          <div className={styles.comparisonHeading}>
+            <p className="section-kicker light">Plan comparison</p>
+            <h2>See exactly what changes as an agency moves up.</h2>
+            <p>
+              All three plans preserve the same government asset-disposition record. Higher plans
+              add operating capacity and more hands-on implementation and support.
+            </p>
+          </div>
+
+          <div className={styles.tableWrap}>
+            <table className={styles.comparisonTable}>
+              <thead>
+                <tr>
+                  <th scope="col">Plan detail</th>
+                  <th scope="col">Essential<br /><span>$99/month</span></th>
+                  <th scope="col">Professional<br /><span>$199/month</span></th>
+                  <th scope="col">Enterprise<br /><span>$399/month</span></th>
+                </tr>
+              </thead>
+              <tbody>
+                {comparisonRows.map(([detail, essential, professional, enterprise]) => (
+                  <tr key={detail}>
+                    <th scope="row">{detail}</th>
+                    <td>{essential}</td>
+                    <td>{professional}</td>
+                    <td>{enterprise}</td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
         </div>
       </section>
 
       <section className={styles.includedSection} id="included">
         <div className="marketing-shell">
-          <div className={styles.sectionHeading}>
-            <div>
-              <p className="section-kicker">Included with Auctrail Standard</p>
-              <h2>Everything needed to manage the complete disposition record.</h2>
-            </div>
+          <div className={styles.centeredHeading}>
+            <p className="section-kicker">Included in Essential, Professional, and Enterprise</p>
+            <h2>The complete operational record remains intact at every price.</h2>
             <p>
-              The standard subscription combines the operational platform, hosted service,
-              agency setup, and ongoing support in one price.
+              Auctrail does not remove the core intake, documentation, auction, disposition, and
+              reporting workflow from smaller agencies.
             </p>
           </div>
 
-          <div className={styles.includedGrid}>
-            {includedGroups.map((group) => (
-              <article className={styles.includedCard} key={group.number}>
-                <div className={styles.cardHeading}>
-                  <span>{group.number}</span>
-                  <div>
-                    <h3>{group.title}</h3>
-                    <p>{group.description}</p>
-                  </div>
-                </div>
-                <ul className={styles.featureList}>
-                  {group.items.map((item) => (
-                    <li key={item}><CheckIcon /> {item}</li>
-                  ))}
-                </ul>
+          <div className={styles.capabilityGrid}>
+            {coreCapabilities.map((capability) => (
+              <article key={capability.number}>
+                <span>{capability.number}</span>
+                <h3>{capability.title}</h3>
+                <p>{capability.description}</p>
               </article>
             ))}
           </div>
@@ -344,48 +448,10 @@ export default function PlansPage() {
         </div>
       </section>
 
-      <section className={styles.foundingSection}>
-        <div className={`marketing-shell ${styles.foundingLayout}`}>
-          <div className={styles.foundingCopy}>
-            <p className="section-kicker light">Limited launch program</p>
-            <h2>Founding-municipality pricing for selected early partners.</h2>
-            <p>
-              Auctrail's founding program provides a structured introductory rate before the
-              municipality moves to the standard subscription.
-            </p>
-            <Link className="button button-light" href="/support">
-              Ask about availability <ArrowIcon />
-            </Link>
-          </div>
-
-          <div className={styles.foundingTimeline} aria-label="Founding municipality pricing schedule">
-            <article>
-              <span>Years 1–2</span>
-              <strong>$0</strong>
-              <small>per month</small>
-            </article>
-            <article>
-              <span>Years 3–7</span>
-              <strong>$99.50</strong>
-              <small>per month</small>
-            </article>
-            <article>
-              <span>Year 8 onward</span>
-              <strong>$199</strong>
-              <small>per month</small>
-            </article>
-            <div className={styles.foundingTotal}>
-              <span>First seven years</span>
-              <strong>$5,970 total subscription cost</strong>
-            </div>
-          </div>
-        </div>
-      </section>
-
       <section className={styles.valueSection}>
         <div className="marketing-shell">
           <div className={styles.centeredHeading}>
-            <p className="section-kicker">What the subscription protects</p>
+            <p className="section-kicker">What every subscription protects</p>
             <h2>A permanent agency record—not just an auction listing.</h2>
             <p>
               Auctrail remains useful before, during, and after a sale because the agency keeps
@@ -395,7 +461,7 @@ export default function PlansPage() {
           <div className={styles.valueGrid}>
             <article><span>01</span><h3>Independent system of record</h3><p>Keep agency history organized even when marketplace vendors or disposition methods change.</p></article>
             <article><span>02</span><h3>Marketplace choice</h3><p>Prepare supported exports without making the agency's permanent records dependent on one marketplace.</p></article>
-            <article><span>03</span><h3>Predictable operating cost</h3><p>Budget around one published subscription instead of assembling the core workflow from multiple feature tiers.</p></article>
+            <article><span>03</span><h3>Predictable operating cost</h3><p>Select a published plan based on agency scale rather than paying separate charges for each core workflow.</p></article>
           </div>
         </div>
       </section>
@@ -404,7 +470,7 @@ export default function PlansPage() {
         <div className="marketing-shell">
           <div className={styles.faqHeading}>
             <p className="section-kicker">Plan questions</p>
-            <h2>What agencies usually need to know before setup.</h2>
+            <h2>What agencies need to know before selecting a plan.</h2>
           </div>
           <div className={styles.faqGrid}>
             {frequentlyAskedQuestions.map((item) => (
@@ -420,13 +486,13 @@ export default function PlansPage() {
       <section className="final-cta">
         <div className="marketing-shell final-cta-inner">
           <div>
-            <p className="section-kicker light">A complete managed platform</p>
-            <h2>Review the plan against your agency's current process.</h2>
-            <p>Start with the workflow you use today and identify where Auctrail can remove duplicate work.</p>
+            <p className="section-kicker light">A plan matched to agency scale</p>
+            <h2>Review Auctrail against your current surplus process.</h2>
+            <p>Start with your active users, departments, data, and onboarding requirements.</p>
           </div>
           <div className="final-cta-actions">
             <Link className="button button-light" href="/support">
-              Request information <ArrowIcon />
+              Request plan information <ArrowIcon />
             </Link>
             <a className="button button-dark-outline" href="https://app.auctrail.com/login">
               Client login
