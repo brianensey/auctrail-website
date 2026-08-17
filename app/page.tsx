@@ -92,7 +92,7 @@ function SiteHeader() {
         <nav className="desktop-nav" aria-label="Primary navigation">
           <a href="#platform">Platform</a>
           <a href="#workflow">Workflow</a>
-          <a href="#operations">Managed service</a>
+          <Link href="/plans">Plans</Link>
           <a href="#integrations">Integrations</a>
           <Link href="/support">Support</Link>
         </nav>
@@ -109,7 +109,7 @@ function SiteHeader() {
           <div className="mobile-nav-panel">
             <a href="#platform">Platform</a>
             <a href="#workflow">Workflow</a>
-            <a href="#operations">Managed service</a>
+            <Link href="/plans">Plans</Link>
             <a href="#integrations">Integrations</a>
             <Link href="/support">Support</Link>
             <a href="https://app.auctrail.com/login">Client login</a>
@@ -135,6 +135,7 @@ function SiteFooter() {
           <strong>Platform</strong>
           <a href="#platform">Capabilities</a>
           <a href="#workflow">Workflow</a>
+          <Link href="/plans">Plans</Link>
           <a href="#integrations">Integrations</a>
         </div>
         <div>
@@ -320,8 +321,8 @@ export default function HomePage() {
               <span>Documentation and training materials</span>
               <span>Ongoing updates and platform support</span>
             </div>
-            <Link className="button button-primary button-full" href="/support">
-              Discuss your agency's process <ArrowIcon />
+            <Link className="button button-primary button-full" href="/plans">
+              View plans and pricing <ArrowIcon />
             </Link>
           </aside>
         </div>
