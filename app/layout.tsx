@@ -4,25 +4,26 @@ import "./brand.css";
 
 export const metadata: Metadata = {
   title: {
-    default: "Auctrail | Asset Disposition Management",
+    default: "Auctrail | Government Surplus Sales Software",
     template: "%s | Auctrail",
   },
   description:
-    "Auctrail is managed asset disposition software for government property intake, approvals, auctions, disposal, documentation, and reporting.",
+    "Auctrail is government surplus sales software for agencies preparing property for auction, organizing sale records, tracking listings, documenting pickup and payment, and preserving completed sale history.",
   keywords: [
-    "asset disposition management",
-    "municipal surplus management",
-    "government surplus software",
-    "public agency asset tracking",
-    "surplus property management",
+    "government surplus sales software",
+    "municipal surplus sales",
+    "government surplus property software",
+    "surplus auction management",
+    "public agency surplus sales",
+    "GovDeals export software",
   ],
   alternates: {
     canonical: "https://auctrail.com",
   },
   openGraph: {
-    title: "Auctrail | Asset Disposition Management",
+    title: "Auctrail | Government Surplus Sales Software",
     description:
-      "One clear system for government property intake, approvals, auctions, disposal, documentation, and reporting.",
+      "One clear system for government surplus property from sale intake and auction preparation through payment, pickup, and completed sale history.",
     url: "https://auctrail.com",
     siteName: "Auctrail",
     type: "website",
