@@ -3,48 +3,48 @@ import Link from "next/link";
 const features = [
   {
     number: "01",
-    title: "Property intake",
+    title: "Surplus intake",
     description:
-      "Start every record consistently with agency, department, asset, condition, and custody details in one place.",
+      "Start each surplus-sale record with the agency, department, item, condition, custody, and sale-preparation details in one place.",
   },
   {
     number: "02",
-    title: "Case and asset records",
+    title: "Sale-ready records",
     description:
-      "Keep related assets, notes, assignments, dates, and status changes connected to the same operational record.",
+      "Keep surplus items, notes, assignments, dates, identifiers, and status changes connected to the same sale record.",
   },
   {
     number: "03",
     title: "Photos and documents",
     description:
-      "Attach photographs, approvals, titles, receipts, disposal proof, and supporting documents directly to the case.",
+      "Attach photographs, approvals, titles, receipts, sale documents, and supporting files directly to the surplus record.",
   },
   {
     number: "04",
     title: "Approvals and accountability",
     description:
-      "Make ownership and next actions visible so staff can see what is waiting, who is responsible, and what comes next.",
+      "Make ownership and next actions visible so staff can see what is waiting, who is responsible, and what comes next before sale.",
   },
   {
     number: "05",
-    title: "Auction and disposition",
+    title: "Auction preparation",
     description:
-      "Prepare items for sale, transfer, recycling, destruction, or another approved disposition method without losing history.",
+      "Prepare surplus property for auction or another approved sales channel without rebuilding the same information in multiple systems.",
   },
   {
     number: "06",
-    title: "Reporting and archive",
+    title: "Sale closeout and history",
     description:
-      "Search completed records, review department activity, and preserve a clear closeout history for administration and audit work.",
+      "Record results, payment, pickup, buyer information, and supporting documentation while preserving a searchable completed-sale history.",
   },
 ];
 
 const workflow = [
-  ["01", "Receive", "Create the case, identify the property, and capture the original supporting information."],
-  ["02", "Review", "Route the record through the agency's review and approval process."],
-  ["03", "Prepare", "Organize photos, descriptions, documents, tags, and sale or disposal details."],
-  ["04", "Dispose", "Record the auction, transfer, recycling, destruction, or other final method."],
-  ["05", "Close out", "Preserve payment, pickup, proof, notes, and the final disposition record."],
+  ["01", "Receive", "Create the surplus-sale record, identify the property, and capture the original supporting information."],
+  ["02", "Review", "Route the record through the agency's review and approval process for sale."],
+  ["03", "Prepare", "Organize photos, descriptions, documents, labels, pricing, and auction or listing details."],
+  ["04", "Sell", "Publish or export the sale information through the agency's approved sales channel and track the result."],
+  ["05", "Close out", "Preserve payment, pickup, buyer details, proof, notes, and the completed sale record."],
 ];
 
 const integrations = [
@@ -56,12 +56,12 @@ const integrations = [
   {
     title: "Labels and QR access",
     description:
-      "Support practical field workflows with printable asset labels and QR-based access to the related case record.",
+      "Support practical field workflows with printable surplus-item labels and QR-based access to the related sale record.",
   },
   {
     title: "Excel and CSV reporting",
     description:
-      "Export clean operational data for administration, finance, reconciliation, and records-management needs.",
+      "Export clean surplus-sale data for administration, finance, reconciliation, and records-management needs.",
   },
 ];
 
@@ -86,7 +86,7 @@ function SiteHeader() {
     <header className="marketing-header">
       <div className="marketing-shell header-inner">
         <Link className="header-logo" href="/" aria-label="Auctrail home">
-          <img src="/auctrail-logo-approved.jpg" alt="Auctrail — Asset Disposition Management" width="425" height="115" />
+          <img src="/auctrail-logo-approved.jpg" alt="Auctrail — Government Surplus Sales Software" width="425" height="115" />
         </Link>
 
         <nav className="desktop-nav" aria-label="Primary navigation">
@@ -94,6 +94,7 @@ function SiteHeader() {
           <a href="#workflow">Workflow</a>
           <Link href="/plans">Plans</Link>
           <a href="#integrations">Integrations</a>
+          <Link href="/faq">FAQ</Link>
           <Link href="/support">Support</Link>
         </nav>
 
@@ -111,6 +112,7 @@ function SiteHeader() {
             <a href="#workflow">Workflow</a>
             <Link href="/plans">Plans</Link>
             <a href="#integrations">Integrations</a>
+            <Link href="/faq">FAQ</Link>
             <Link href="/support">Support</Link>
             <a href="https://app.auctrail.com/login">Client login</a>
           </div>
@@ -127,8 +129,8 @@ function SiteFooter() {
         <div className="footer-intro">
           <img src="/auctrail-logo-approved.jpg" alt="Auctrail" width="425" height="115" />
           <p>
-            Managed asset disposition software for government property intake, approvals,
-            auctions, disposal, documentation, and reporting.
+            Government surplus sales software for preparing property for auction, tracking sale activity,
+            documenting payment and pickup, and preserving completed sale history.
           </p>
         </div>
         <div>
@@ -139,14 +141,15 @@ function SiteFooter() {
           <a href="#integrations">Integrations</a>
         </div>
         <div>
-          <strong>Access</strong>
+          <strong>Resources</strong>
+          <Link href="/faq">Frequently Asked Questions</Link>
           <Link href="/support">Support</Link>
           <a href="https://app.auctrail.com/login">Client login</a>
         </div>
       </div>
       <div className="marketing-shell footer-bottom">
         <span>© {new Date().getFullYear()} Auctrail. All rights reserved.</span>
-        <span>Asset Disposition Management</span>
+        <span>Government Surplus Sales Software</span>
       </div>
     </footer>
   );
@@ -160,11 +163,11 @@ export default function HomePage() {
       <section className="hero-section">
         <div className="marketing-shell hero-layout">
           <div className="hero-content">
-            <p className="section-kicker">Asset disposition management for public agencies</p>
-            <h1>One clear system from intake to final disposition.</h1>
+            <p className="section-kicker">Government surplus sales software</p>
+            <h1>One clear system from surplus intake to completed sale.</h1>
             <p className="hero-lead">
-              Auctrail gives government teams a consistent way to receive property, document
-              approvals, prepare auctions, record disposal, and preserve the complete history.
+              Auctrail gives government teams a consistent way to prepare surplus property for sale,
+              organize auction information, track results, document payment and pickup, and preserve the complete sale history.
             </p>
             <div className="hero-actions">
               <Link className="button button-primary" href="/support">
@@ -175,19 +178,19 @@ export default function HomePage() {
               </a>
             </div>
             <div className="hero-assurances" aria-label="Platform benefits">
-              <span><CheckIcon /> Built for government workflows</span>
+              <span><CheckIcon /> Built for government surplus sales</span>
               <span><CheckIcon /> Hosted and managed</span>
-              <span><CheckIcon /> Complete record history</span>
+              <span><CheckIcon /> Complete sale history</span>
             </div>
           </div>
 
-          <div className="product-preview" aria-label="Example Auctrail case workflow">
+          <div className="product-preview" aria-label="Example Auctrail surplus sale workflow">
             <div className="preview-topbar">
               <div>
                 <span className="preview-brand-mark">A</span>
                 <strong>Auctrail Operations</strong>
               </div>
-              <span className="preview-status"><i /> Active case</span>
+              <span className="preview-status"><i /> Active sale record</span>
             </div>
 
             <div className="preview-heading">
@@ -200,7 +203,7 @@ export default function HomePage() {
             </div>
 
             <div className="preview-facts">
-              <article><small>Asset type</small><strong>Fleet vehicle</strong></article>
+              <article><small>Surplus type</small><strong>Fleet vehicle</strong></article>
               <article><small>Assigned to</small><strong>Administration</strong></article>
               <article><small>Documents</small><strong>8 attached</strong></article>
             </div>
@@ -211,7 +214,7 @@ export default function HomePage() {
                 ["Received", "Complete"],
                 ["Reviewed", "Complete"],
                 ["Prepared", "Current"],
-                ["Disposed", "Pending"],
+                ["Sold", "Pending"],
                 ["Closed", "Pending"],
               ].map(([title, state], index) => (
                 <article className={state === "Current" ? "current" : state === "Complete" ? "complete" : ""} key={title}>
@@ -235,9 +238,9 @@ export default function HomePage() {
 
       <section className="benefit-bar" aria-label="Core Auctrail benefits">
         <div className="marketing-shell benefit-grid">
-          <article><span>01</span><div><strong>Centralized records</strong><p>Stop splitting the same case across spreadsheets, email, paper, and shared drives.</p></div></article>
-          <article><span>02</span><div><strong>Clear accountability</strong><p>Give staff and administrators a shared view of status, responsibility, and next actions.</p></div></article>
-          <article><span>03</span><div><strong>Audit-ready history</strong><p>Preserve the documents, proof, dates, and notes behind every final disposition.</p></div></article>
+          <article><span>01</span><div><strong>Centralized sale records</strong><p>Stop splitting the same surplus sale across spreadsheets, email, paper, and shared drives.</p></div></article>
+          <article><span>02</span><div><strong>Clear accountability</strong><p>Give staff and administrators a shared view of sale status, responsibility, and next actions.</p></div></article>
+          <article><span>03</span><div><strong>Complete sale history</strong><p>Preserve the documents, payment, pickup, dates, and notes behind every completed surplus sale.</p></div></article>
         </div>
       </section>
 
@@ -246,11 +249,11 @@ export default function HomePage() {
           <div className="section-heading split-heading">
             <div>
               <p className="section-kicker">The platform</p>
-              <h2>Everything connected to the same operational record.</h2>
+              <h2>Everything connected to the same surplus-sale record.</h2>
             </div>
             <p>
-              Auctrail is designed around the full lifecycle of government surplus property,
-              not a disconnected list of assets or a one-time auction upload.
+              Auctrail is designed specifically for government surplus property being prepared for sale,
+              listed, sold, picked up, and closed out—not for managing an agency's general asset inventory.
             </p>
           </div>
 
@@ -270,12 +273,12 @@ export default function HomePage() {
         <div className="marketing-shell">
           <div className="section-heading workflow-heading">
             <div>
-              <p className="section-kicker light">A consistent workflow</p>
-              <h2>Every step stays visible from receipt through closeout.</h2>
+              <p className="section-kicker light">A consistent sales workflow</p>
+              <h2>Every step stays visible from surplus intake through sale closeout.</h2>
             </div>
             <p>
               The process is easy to understand at a glance while the underlying record keeps
-              the detail administrators need.
+              the detail administrators need for each surplus sale.
             </p>
           </div>
 
@@ -296,17 +299,17 @@ export default function HomePage() {
       <section className="content-section operations-section" id="operations">
         <div className="marketing-shell operations-layout">
           <div className="operations-copy">
-            <p className="section-kicker">Built for actual agency operations</p>
-            <h2>Software that supports the process instead of adding another process.</h2>
+            <p className="section-kicker">Built for actual surplus-sale operations</p>
+            <h2>Software that supports the sale process instead of adding another process.</h2>
             <p>
-              Auctrail keeps routine work straightforward for the people entering records while
+              Auctrail keeps routine surplus-sale work straightforward for the people entering records while
               giving administrators the structure, visibility, and documentation they need.
             </p>
             <ul className="check-list">
-              <li><CheckIcon /> Organization, department, and role-based workflows</li>
-              <li><CheckIcon /> Consistent records without forcing every case to be identical</li>
+              <li><CheckIcon /> Organization, department, and role-based sales workflows</li>
+              <li><CheckIcon /> Consistent surplus records without forcing every sale to be identical</li>
               <li><CheckIcon /> Clear current status and next-action visibility</li>
-              <li><CheckIcon /> Searchable closeout history after the property is gone</li>
+              <li><CheckIcon /> Searchable sale history after the property is picked up</li>
             </ul>
           </div>
 
@@ -332,10 +335,10 @@ export default function HomePage() {
         <div className="marketing-shell">
           <div className="section-heading centered-heading">
             <p className="section-kicker">Practical outputs and integrations</p>
-            <h2>Move the record forward without rebuilding the same information.</h2>
+            <h2>Move surplus property toward sale without rebuilding the same information.</h2>
             <p>
-              Auctrail is designed to reduce duplicate entry and make the information already in
-              the case useful outside the platform.
+              Auctrail is designed to reduce duplicate entry and make the sale information already in
+              the record useful outside the platform.
             </p>
           </div>
 
@@ -354,9 +357,9 @@ export default function HomePage() {
       <section className="final-cta">
         <div className="marketing-shell final-cta-inner">
           <div>
-            <p className="section-kicker light">A clearer surplus process</p>
-            <h2>See whether Auctrail fits your agency's workflow.</h2>
-            <p>Start with the process you use today and identify where Auctrail can remove friction.</p>
+            <p className="section-kicker light">A clearer surplus sales process</p>
+            <h2>See whether Auctrail fits your agency's surplus-sale workflow.</h2>
+            <p>Start with the process you use today and identify where Auctrail can remove duplicate work.</p>
           </div>
           <div className="final-cta-actions">
             <Link className="button button-light" href="/support">
