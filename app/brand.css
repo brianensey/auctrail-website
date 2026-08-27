@@ -52,6 +52,51 @@
   padding: 29px 0 25px;
 }
 
+.desktop-nav-menu {
+  position: relative;
+}
+
+.desktop-nav-menu summary {
+  position: relative;
+  list-style: none;
+  cursor: pointer;
+  padding: 29px 15px 25px 0;
+}
+
+.desktop-nav-menu summary::-webkit-details-marker { display: none; }
+.desktop-nav-menu summary::before {
+  content: "";
+  position: absolute;
+  top: 35px;
+  right: 0;
+  width: 6px;
+  height: 6px;
+  border-right: 1.5px solid currentColor;
+  border-bottom: 1.5px solid currentColor;
+  transform: rotate(45deg);
+}
+
+.desktop-nav-panel {
+  position: absolute;
+  top: 66px;
+  left: 50%;
+  width: 210px;
+  padding: 9px;
+  background: var(--white);
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  box-shadow: var(--shadow);
+  transform: translateX(-50%);
+}
+
+.desktop-nav-panel a {
+  display: block;
+  padding: 11px 12px;
+  border-radius: 8px;
+}
+
+.desktop-nav-panel a:hover { background: var(--soft); }
+
 .desktop-nav a::after {
   content: "";
   position: absolute;
@@ -129,6 +174,27 @@
   background: var(--soft);
 }
 
+.mobile-nav-panel strong {
+  padding: 12px 12px 4px;
+  color: var(--muted);
+  font-size: 10px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.mobile-nav-panel .mobile-nav-primary { color: var(--navy); }
+.mobile-nav-panel .mobile-client-login {
+  margin-top: 8px;
+  border-top: 1px solid var(--line);
+}
+.mobile-nav-panel .mobile-request-demo {
+  margin-top: 4px;
+  color: var(--white);
+  background: var(--green-contrast);
+  text-align: center;
+}
+.mobile-nav-panel .mobile-request-demo:hover { background: var(--green-contrast-dark); }
+
 .button {
   min-height: 50px;
   display: inline-flex;
@@ -154,14 +220,14 @@
 }
 
 .button-primary {
-  background: var(--green);
+  background: var(--green-contrast);
   color: var(--white);
-  border-color: var(--green);
+  border-color: var(--green-contrast);
 }
 
 .button-primary:hover {
-  background: var(--green-dark);
-  border-color: var(--green-dark);
+  background: var(--green-contrast-dark);
+  border-color: var(--green-contrast-dark);
 }
 
 .button-secondary {
