@@ -29,17 +29,16 @@ export default function DemoForm() {
     const data = new FormData(form);
     const plan = String(data.get("plan") || "");
     const lines = [
-      `Name: ${data.get("name")}`,
-      `Government agency / organization: ${data.get("organization")}`,
-      `Job title: ${data.get("jobTitle")}`,
+      `Name: ${data.get("name") || "Not provided"}`,
+      `Government agency / organization: ${data.get("organization") || "Not provided"}`,
+      `Job title: ${data.get("jobTitle") || "Not provided"}`,
       `Email: ${data.get("email")}`,
-      `Phone: ${data.get("phone") || "Not provided"}`,
       `Number of departments: ${data.get("departments") || "Not provided"}`,
       `Estimated users: ${data.get("users") || "Not provided"}`,
       `Interested plan: ${plan && plan in planNames ? planNames[plan as keyof typeof planNames] : "Not selected"}`,
       "",
       "Current surplus-sale process or message:",
-      String(data.get("message")),
+      String(data.get("message") || "Not provided"),
     ];
 
     try {
@@ -54,20 +53,19 @@ export default function DemoForm() {
   return (
     <form className="demo-form" onSubmit={submitRequest} onInvalid={() => setStatus("error")}>
       <div className="demo-form-grid">
-        <label>Name<input name="name" autoComplete="name" required /></label>
-        <label>Government agency / organization<input name="organization" autoComplete="organization" required /></label>
-        <label>Job title<input name="jobTitle" autoComplete="organization-title" required /></label>
+        <label>Name <span>Optional</span><input name="name" autoComplete="name" /></label>
+        <label>Government agency / organization <span>Optional</span><input name="organization" autoComplete="organization" /></label>
+        <label>Job title <span>Optional</span><input name="jobTitle" autoComplete="organization-title" /></label>
         <label>Email<input name="email" type="email" autoComplete="email" required /></label>
-        <label>Phone <span>Optional</span><input name="phone" type="tel" autoComplete="tel" /></label>
         <label>Interested plan <span>Optional</span><select name="plan" value={selectedPlan} onChange={(event) => setSelectedPlan(event.target.value)}><option value="">Not selected</option><option value="essential">Essential</option><option value="professional">Professional</option></select></label>
         <label>Number of departments <span>Optional</span><input name="departments" type="number" min="1" inputMode="numeric" /></label>
         <label>Estimated users <span>Optional</span><input name="users" type="number" min="1" inputMode="numeric" /></label>
       </div>
-      <label className="demo-message">Current surplus-sale process or message<textarea name="message" rows={6} required /></label>
-      <p className="demo-privacy">Please include only information needed to discuss your agency’s surplus-sale workflow. Do not include confidential case, buyer, or payment information.</p>
+      <label className="demo-message">Current surplus-sale process or message <span>Optional</span><textarea name="message" rows={6} /></label>
+      <p className="demo-privacy">Your email is the only required contact information. We do not ask for a phone number and will not use high-pressure sales tactics. Please do not include confidential case, buyer, or payment information.</p>
       <button className="button button-primary" type="submit" disabled={status === "opening"}>{status === "opening" ? "Opening email…" : "Request Demo"}</button>
       {status === "success" ? <p className="demo-status success" role="status">Your email application should now be open with the request prepared. Review it and send when ready.</p> : null}
-      {status === "error" ? <p className="demo-status error" role="alert">Complete the required fields with a valid email address and try again.</p> : null}
+      {status === "error" ? <p className="demo-status error" role="alert">Enter a valid email address and try again.</p> : null}
     </form>
   );
 }
