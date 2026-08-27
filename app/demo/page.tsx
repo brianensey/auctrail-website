@@ -18,8 +18,8 @@ export default function DemoPage() {
           <div className="demo-copy">
             <p className="section-kicker">Request an Auctrail demo</p>
             <h1>See how Auctrail supports your government surplus-sale workflow.</h1>
-            <p>Tell us a little about your agency and current process. We’ll use that context to focus the conversation on surplus intake, auction preparation, sale tracking, payment, pickup, and completed-sale documentation.</p>
-            <ul><li>Built specifically for government surplus sales</li><li>Essential and Professional plan guidance</li><li>No obligation or unnecessary personal information</li></ul>
+            <p>Feel free to look around with no pressure. If Auctrail looks useful for your agency, share your email and we’ll follow up. Everything else is optional, and we do not ask for your phone number.</p>
+            <ul><li>Built specifically for government surplus sales</li><li>Essential and Professional plan guidance</li><li>No phone number required and no high-pressure follow-up</li></ul>
           </div>
           <DemoForm />
         </div>
