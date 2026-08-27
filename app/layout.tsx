@@ -20,6 +20,7 @@ export const metadata: Metadata = {
   alternates: {
     canonical: "https://auctrail.com",
   },
+  robots: { index: false, follow: false },
   openGraph: {
     title: "Auctrail | Government Surplus Sales Software",
     description:

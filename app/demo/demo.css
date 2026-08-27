@@ -1,0 +1,21 @@
+.demo-page { background: var(--soft); }
+.demo-hero { padding: 82px 0 92px; background: radial-gradient(circle at 15% 10%, rgba(76,175,63,.14), transparent 28%), var(--soft); }
+.demo-layout { display: grid; grid-template-columns: .82fr 1.18fr; gap: 70px; align-items: start; }
+.demo-copy { position: sticky; top: 130px; }
+.demo-copy h1 { margin-bottom: 24px; font-size: clamp(42px,5vw,64px); line-height: 1.02; letter-spacing: -.05em; }
+.demo-copy > p:not(.section-kicker) { color: var(--slate); font-size: 16px; line-height: 1.75; }
+.demo-copy ul { display: grid; gap: 12px; margin: 30px 0 0; padding: 0; color: var(--slate); font-size: 14px; font-weight: 650; list-style: none; }
+.demo-copy li::before { content: "✓"; margin-right: 10px; color: var(--green-dark); font-weight: 900; }
+.demo-form { padding: 34px; background: var(--white); border: 1px solid var(--line); border-top: 5px solid var(--green); box-shadow: var(--shadow); }
+.demo-form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 19px; }
+.demo-form label { display: grid; gap: 8px; color: var(--navy); font-size: 12px; font-weight: 750; }
+.demo-form label span { color: var(--muted); font-size: 10px; font-weight: 600; }
+.demo-form input,.demo-form select,.demo-form textarea { width: 100%; border: 1px solid #b9c4cc; border-radius: 7px; padding: 12px 13px; color: var(--navy); background: var(--white); font-size: 14px; }
+.demo-form input:focus,.demo-form select:focus,.demo-form textarea:focus { outline: 3px solid rgba(76,175,63,.2); border-color: var(--green-dark); }
+.demo-message { margin-top: 20px; }
+.demo-privacy { margin: 15px 0 22px; color: var(--muted); font-size: 11px; line-height: 1.6; }
+.demo-status { margin: 15px 0 0; padding: 12px; border-radius: 7px; font-size: 12px; line-height: 1.55; }
+.demo-status.success { color: #245f1e; background: var(--green-soft); }
+.demo-status.error { color: #9b2c2c; background: #fff1f1; }
+@media (max-width: 900px) { .demo-layout { grid-template-columns: 1fr; gap: 40px; } .demo-copy { position: static; } }
+@media (max-width: 620px) { .demo-hero { padding: 58px 0 68px; } .demo-form { padding: 23px 18px; } .demo-form-grid { grid-template-columns: 1fr; } .demo-form .button { width: 100%; } }

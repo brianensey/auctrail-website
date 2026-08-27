@@ -1,4 +1,5 @@
 import Link from "next/link";
+import MarketingHeader from "./marketing-header";
 
 const features = [
   {
@@ -81,47 +82,6 @@ function CheckIcon() {
   );
 }
 
-function SiteHeader() {
-  return (
-    <header className="marketing-header">
-      <div className="marketing-shell header-inner">
-        <Link className="header-logo" href="/preview-progress/" aria-label="Auctrail preview home">
-          <img src="/auctrail-logo-approved.jpg" alt="Auctrail — Government Surplus Sales Software" width="425" height="115" />
-        </Link>
-
-        <nav className="desktop-nav" aria-label="Primary navigation">
-          <a href="#platform">Platform</a>
-          <a href="#workflow">Workflow</a>
-          <Link href="/plans">Plans</Link>
-          <a href="#integrations">Integrations</a>
-          <Link href="/faq">FAQ</Link>
-          <Link href="/support">Support</Link>
-        </nav>
-
-        <div className="header-actions">
-          <a className="text-link" href="https://app.auctrail.com/login">Client login</a>
-          <Link className="button button-primary button-compact" href="/support">
-            Request information
-          </Link>
-        </div>
-
-        <details className="mobile-nav">
-          <summary aria-label="Open navigation">Menu</summary>
-          <div className="mobile-nav-panel">
-            <a href="#platform">Platform</a>
-            <a href="#workflow">Workflow</a>
-            <Link href="/plans">Plans</Link>
-            <a href="#integrations">Integrations</a>
-            <Link href="/faq">FAQ</Link>
-            <Link href="/support">Support</Link>
-            <a href="https://app.auctrail.com/login">Client login</a>
-          </div>
-        </details>
-      </div>
-    </header>
-  );
-}
-
 function SiteFooter() {
   return (
     <footer className="marketing-footer">
@@ -158,7 +118,7 @@ function SiteFooter() {
 export default function SitePreview() {
   return (
     <main className="marketing-site">
-      <SiteHeader />
+      <MarketingHeader logoHref="/preview-progress/" />
 
       <section className="hero-section">
         <div className="marketing-shell hero-layout">
@@ -170,8 +130,8 @@ export default function SitePreview() {
               organize auction information, track results, document payment and pickup, and preserve the complete sale history.
             </p>
             <div className="hero-actions">
-              <Link className="button button-primary" href="/support">
-                Request information <ArrowIcon />
+              <Link className="button button-primary" href="/demo">
+                Request Demo <ArrowIcon />
               </Link>
               <a className="button button-secondary" href="#workflow">
                 See how it works <ArrowIcon />
@@ -253,7 +213,7 @@ export default function SitePreview() {
             </div>
             <p>
               Auctrail is designed specifically for government surplus property being prepared for sale,
-              listed, sold, picked up, and closed out—not for managing an agency's general asset inventory.
+              listed, sold, picked up, and closed out—not for managing an agency’s general asset inventory.
             </p>
           </div>
 
@@ -358,12 +318,12 @@ export default function SitePreview() {
         <div className="marketing-shell final-cta-inner">
           <div>
             <p className="section-kicker light">A clearer surplus sales process</p>
-            <h2>See whether Auctrail fits your agency's surplus-sale workflow.</h2>
+            <h2>See whether Auctrail fits your agency’s surplus-sale workflow.</h2>
             <p>Start with the process you use today and identify where Auctrail can remove duplicate work.</p>
           </div>
           <div className="final-cta-actions">
-            <Link className="button button-light" href="/support">
-              Request information <ArrowIcon />
+            <Link className="button button-light" href="/demo">
+              Request Demo <ArrowIcon />
             </Link>
             <a className="button button-dark-outline" href="https://app.auctrail.com/login">
               Client login
