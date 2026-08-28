@@ -7,6 +7,7 @@
 .demo-copy ul { display: grid; gap: 12px; margin: 30px 0 0; padding: 0; color: var(--slate); font-size: 14px; font-weight: 650; list-style: none; }
 .demo-copy li::before { content: "✓"; margin-right: 10px; color: var(--green-dark); font-weight: 900; }
 .demo-form { padding: 34px; background: var(--white); border: 1px solid var(--line); border-top: 5px solid var(--green); box-shadow: var(--shadow); }
+.demo-honeypot { position: absolute !important; width: 1px !important; height: 1px !important; overflow: hidden !important; clip: rect(0 0 0 0) !important; white-space: nowrap !important; }
 .demo-form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 19px; }
 .demo-form label { display: grid; gap: 8px; color: var(--navy); font-size: 12px; font-weight: 750; }
 .demo-form label span { color: var(--muted); font-size: 10px; font-weight: 600; }

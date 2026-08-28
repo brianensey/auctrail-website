@@ -2,12 +2,12 @@
 
 import { FormEvent, useEffect, useState } from "react";
 
-const destination = "demo1@civicsurplus.com";
-const planNames = { essential: "Essential", professional: "Professional" } as const;
+const requestEndpoint = process.env.NEXT_PUBLIC_DEMO_REQUEST_ENDPOINT || "https://demo.auctrail.com/api/demo/access";
 
 export default function DemoForm() {
   const [selectedPlan, setSelectedPlan] = useState("");
-  const [status, setStatus] = useState<"idle" | "opening" | "success" | "error">("idle");
+  const [status, setStatus] = useState<"idle" | "submitting" | "success" | "error">("idle");
+  const [errorMessage, setErrorMessage] = useState("");
 
   useEffect(() => {
     const plan = new URLSearchParams(window.location.search).get("plan")?.toLowerCase();
@@ -16,7 +16,7 @@ export default function DemoForm() {
     if (plan === "essential" || plan === "professional") setSelectedPlan(plan);
   }, []);
 
-  function submitRequest(event: FormEvent<HTMLFormElement>) {
+  async function submitRequest(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
     const form = event.currentTarget;
     if (!form.checkValidity()) {
@@ -25,28 +25,23 @@ export default function DemoForm() {
       return;
     }
 
-    setStatus("opening");
+    setStatus("submitting");
+    setErrorMessage("");
     const data = new FormData(form);
-    const plan = String(data.get("plan") || "");
-    const lines = [
-      `Name: ${data.get("name") || "Not provided"}`,
-      `Government agency / organization: ${data.get("organization") || "Not provided"}`,
-      `Job title: ${data.get("jobTitle") || "Not provided"}`,
-      `Email: ${data.get("email")}`,
-      `Number of departments: ${data.get("departments") || "Not provided"}`,
-      `Estimated users: ${data.get("users") || "Not provided"}`,
-      `Interested plan: ${plan && plan in planNames ? planNames[plan as keyof typeof planNames] : "Not selected"}`,
-      "",
-      "Current surplus-sale process or message:",
-      String(data.get("message") || "Not provided"),
-    ];
-
     try {
-      const subject = plan && plan in planNames ? `Auctrail demo request — ${planNames[plan as keyof typeof planNames]}` : "Auctrail demo request";
-      window.location.href = `mailto:${destination}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(lines.join("\n"))}`;
+      const response = await fetch(requestEndpoint, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(Object.fromEntries(data.entries())),
+      });
+      const result = await response.json().catch(() => ({})) as { error?: string };
+      if (!response.ok) throw new Error(result.error || "Your request could not be sent.");
       setStatus("success");
+      form.reset();
+      setSelectedPlan("");
     } catch {
       setStatus("error");
+      setErrorMessage("Your request could not be sent right now. Please try again shortly.");
     }
   }
 
@@ -63,9 +58,10 @@ export default function DemoForm() {
       </div>
       <label className="demo-message">Current surplus-sale process or message <span>Optional</span><textarea name="message" rows={6} /></label>
       <p className="demo-privacy">Your email is the only required contact information. We do not ask for a phone number and will not use high-pressure sales tactics. Please do not include confidential case, buyer, or payment information.</p>
-      <button className="button button-primary" type="submit" disabled={status === "opening"}>{status === "opening" ? "Opening email…" : "Request Demo"}</button>
-      {status === "success" ? <p className="demo-status success" role="status">Your email application should now be open with the request prepared. Review it and send when ready.</p> : null}
-      {status === "error" ? <p className="demo-status error" role="alert">Enter a valid email address and try again.</p> : null}
+      <label className="demo-honeypot" aria-hidden="true">Website<input name="website" tabIndex={-1} autoComplete="off" /></label>
+      <button className="button button-primary" type="submit" disabled={status === "submitting"}>{status === "submitting" ? "Sending request…" : "Request Demo"}</button>
+      {status === "success" ? <p className="demo-status success" role="status">Check your email for Administrator and Regular User demo access. Access remains active for 72 hours, and demonstration data resets every 24 hours.</p> : null}
+      {status === "error" ? <p className="demo-status error" role="alert">{errorMessage || "Enter a valid email address and try again."}</p> : null}
     </form>
   );
 }
