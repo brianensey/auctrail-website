@@ -5,3 +5,6 @@ services:
     buildCommand: npm install && npm run build
     staticPublishPath: ./out
     autoDeployTrigger: commit
+    envVars:
+      - key: NEXT_PUBLIC_DEMO_REQUEST_ENDPOINT
+        value: https://demo.auctrail.com/api/demo/access
