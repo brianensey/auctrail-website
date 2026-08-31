@@ -49,11 +49,11 @@ export default function DemoForm() {
     <form className="demo-form" onSubmit={submitRequest} onInvalid={() => setStatus("error")}>
       <div className="demo-form-grid">
         <label>Name <span>Optional</span><input name="name" autoComplete="name" /></label>
-        <label>Government agency / organization <span>Optional</span><input name="organization" autoComplete="organization" /></label>
+        <label>Organization <span>Optional</span><input name="organization" autoComplete="organization" /></label>
         <label>Job title <span>Optional</span><input name="jobTitle" autoComplete="organization-title" /></label>
         <label>Email<input name="email" type="email" autoComplete="email" required /></label>
         <label>Interested plan <span>Optional</span><select name="plan" value={selectedPlan} onChange={(event) => setSelectedPlan(event.target.value)}><option value="">Not selected</option><option value="essential">Essential</option><option value="professional">Professional</option></select></label>
-        <label>Number of departments <span>Optional</span><input name="departments" type="number" min="1" inputMode="numeric" /></label>
+        <label>Number of departments or teams <span>Optional</span><input name="departments" type="number" min="1" inputMode="numeric" /></label>
         <label>Estimated users <span>Optional</span><input name="users" type="number" min="1" inputMode="numeric" /></label>
       </div>
       <label className="demo-message">Current surplus-sale process or message <span>Optional</span><textarea name="message" rows={6} /></label>

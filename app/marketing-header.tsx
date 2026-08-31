@@ -13,7 +13,7 @@ export default function MarketingHeader({ logoHref = "/" }: { logoHref?: string 
     <header className="marketing-header">
       <div className="marketing-shell header-inner">
         <Link className="header-logo" href={logoHref} aria-label="Auctrail home">
-          <img src="/auctrail-logo-approved.jpg" alt="Auctrail — Government Surplus Sales Software" width="425" height="115" />
+          <img src="/auctrail-logo-approved.jpg" alt="Auctrail — Surplus Asset Disposition Software" width="425" height="115" />
         </Link>
 
         <nav className="desktop-nav" aria-label="Primary navigation">

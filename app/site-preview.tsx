@@ -6,7 +6,7 @@ const features = [
     number: "01",
     title: "Surplus intake",
     description:
-      "Start each surplus-sale record with the agency, department, item, condition, custody, and sale-preparation details in one place.",
+      "Start each surplus-sale record with the organization, department or team, item, condition, custody, and sale-preparation details in one place.",
   },
   {
     number: "02",
@@ -42,9 +42,9 @@ const features = [
 
 const workflow = [
   ["01", "Receive", "Create the surplus-sale record, identify the property, and capture the original supporting information."],
-  ["02", "Review", "Route the record through the agency's review and approval process for sale."],
+  ["02", "Review", "Route the record through the organization’s review and approval process for sale."],
   ["03", "Prepare", "Organize photos, descriptions, documents, labels, pricing, and auction or listing details."],
-  ["04", "Sell", "Publish or export the sale information through the agency's approved sales channel and track the result."],
+  ["04", "Sell", "Publish or export the sale information through the organization’s approved sales channel and track the result."],
   ["05", "Close out", "Preserve payment, pickup, buyer details, proof, notes, and the completed sale record."],
 ];
 
@@ -52,7 +52,7 @@ const integrations = [
   {
     title: "GovDeals-compatible export",
     description:
-      "Prepare bulk-upload files for GovDeals when Bulk Asset Upload has been enabled on the agency's authorized GovDeals account.",
+      "Prepare bulk-upload files for GovDeals when Bulk Asset Upload has been enabled on the organization’s authorized GovDeals account.",
   },
   {
     title: "Labels and QR access",
@@ -89,8 +89,8 @@ function SiteFooter() {
         <div className="footer-intro">
           <img src="/auctrail-logo-approved.jpg" alt="Auctrail" width="425" height="115" />
           <p>
-            Government surplus sales software for preparing property for auction, tracking sale activity,
-            documenting payment and pickup, and preserving completed sale history.
+            Surplus asset disposition software for public agencies, businesses, nonprofits, and other organizations preparing property for sale,
+            tracking sale activity, documenting payment and pickup, and preserving completed sale history.
           </p>
         </div>
         <div>
@@ -109,7 +109,7 @@ function SiteFooter() {
       </div>
       <div className="marketing-shell footer-bottom">
         <span>© {new Date().getFullYear()} Auctrail. All rights reserved.</span>
-        <span>Government Surplus Sales Software</span>
+        <span>Surplus Asset Disposition Software</span>
       </div>
     </footer>
   );
@@ -123,10 +123,10 @@ export default function SitePreview() {
       <section className="hero-section">
         <div className="marketing-shell hero-layout">
           <div className="hero-content">
-            <p className="section-kicker">Government surplus sales software</p>
+            <p className="section-kicker">Surplus asset disposition software</p>
             <h1>One clear system from surplus intake to completed sale.</h1>
             <p className="hero-lead">
-              Auctrail gives government teams a consistent way to prepare surplus property for sale,
+              Auctrail gives public agencies, businesses, nonprofits, and other organizations a consistent way to prepare surplus property for sale,
               organize auction information, track results, document payment and pickup, and preserve the complete sale history.
             </p>
             <div className="hero-actions">
@@ -138,7 +138,7 @@ export default function SitePreview() {
               </a>
             </div>
             <div className="hero-assurances" aria-label="Platform benefits">
-              <span><CheckIcon /> Built for government surplus sales</span>
+              <span><CheckIcon /> Built for organizations across industries</span>
               <span><CheckIcon /> Hosted and managed</span>
               <span><CheckIcon /> Complete sale history</span>
             </div>
@@ -156,8 +156,8 @@ export default function SitePreview() {
             <div className="preview-heading">
               <div>
                 <small>CASE 2026-0148</small>
-                <h2>Public Works vehicle</h2>
-                <p>City of Example · Public Works</p>
+                <h2>Fleet vehicle</h2>
+                <p>Example Organization · Operations</p>
               </div>
               <span className="status-pill">Auction preparation</span>
             </div>
@@ -212,8 +212,8 @@ export default function SitePreview() {
               <h2>Everything connected to the same surplus-sale record.</h2>
             </div>
             <p>
-              Auctrail is designed specifically for government surplus property being prepared for sale,
-              listed, sold, picked up, and closed out—not for managing an agency’s general asset inventory.
+              Auctrail is designed specifically for surplus property being prepared for sale,
+              listed, sold, picked up, and closed out—not for managing an organization’s general asset inventory.
             </p>
           </div>
 
@@ -278,7 +278,7 @@ export default function SitePreview() {
             <h3>Application, hosting, updates, and support together.</h3>
             <div className="service-list">
               <span>Secure hosted Auctrail application</span>
-              <span>Agency and department configuration</span>
+              <span>Organization, department, and team configuration</span>
               <span>User setup and onboarding assistance</span>
               <span>Data import assistance</span>
               <span>Documentation and training materials</span>
@@ -318,7 +318,7 @@ export default function SitePreview() {
         <div className="marketing-shell final-cta-inner">
           <div>
             <p className="section-kicker light">A clearer surplus sales process</p>
-            <h2>See whether Auctrail fits your agency’s surplus-sale workflow.</h2>
+            <h2>See whether Auctrail fits your organization’s surplus-sale workflow.</h2>
             <p>Start with the process you use today and identify where Auctrail can remove duplicate work.</p>
           </div>
           <div className="final-cta-actions">
