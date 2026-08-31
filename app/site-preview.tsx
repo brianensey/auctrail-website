@@ -40,6 +40,45 @@ const features = [
   },
 ];
 
+const industries = [
+  {
+    number: "01",
+    title: "Government and public agencies",
+    description:
+      "Cities, counties, authorities, special districts, public-service organizations, and other agencies managing accountable surplus-sale processes.",
+  },
+  {
+    number: "02",
+    title: "Commercial businesses",
+    description:
+      "Corporate offices, retailers, hospitality groups, property managers, service companies, and other businesses disposing of excess property.",
+  },
+  {
+    number: "03",
+    title: "Industrial and field operations",
+    description:
+      "Manufacturing, construction, transportation, utilities, warehousing, maintenance, and fleet operations with equipment moving toward sale.",
+  },
+  {
+    number: "04",
+    title: "Education and healthcare",
+    description:
+      "Schools, colleges, universities, hospitals, clinics, and institutional campuses coordinating surplus property across departments and locations.",
+  },
+  {
+    number: "05",
+    title: "Nonprofits and community organizations",
+    description:
+      "Charities, associations, foundations, faith-based organizations, and community groups that need a clear, documented disposition process.",
+  },
+  {
+    number: "06",
+    title: "Multi-location organizations",
+    description:
+      "Organizations with branches, facilities, warehouses, regional teams, or multiple departments that need one consistent surplus-sale record system.",
+  },
+];
+
 const workflow = [
   ["01", "Receive", "Create the surplus-sale record, identify the property, and capture the original supporting information."],
   ["02", "Review", "Route the record through the organization’s review and approval process for sale."],
@@ -95,6 +134,7 @@ function SiteFooter() {
         </div>
         <div>
           <strong>Platform</strong>
+          <a href="#industries">Who Auctrail serves</a>
           <a href="#platform">Capabilities</a>
           <a href="#workflow">Workflow</a>
           <Link href="/plans">Plans</Link>
@@ -201,6 +241,31 @@ export default function SitePreview() {
           <article><span>01</span><div><strong>Centralized sale records</strong><p>Stop splitting the same surplus sale across spreadsheets, email, paper, and shared drives.</p></div></article>
           <article><span>02</span><div><strong>Clear accountability</strong><p>Give staff and administrators a shared view of sale status, responsibility, and next actions.</p></div></article>
           <article><span>03</span><div><strong>Complete sale history</strong><p>Preserve the documents, payment, pickup, dates, and notes behind every completed surplus sale.</p></div></article>
+        </div>
+      </section>
+
+      <section className="content-section operations-section" id="industries">
+        <div className="marketing-shell">
+          <div className="section-heading split-heading">
+            <div>
+              <p className="section-kicker">Who Auctrail serves</p>
+              <h2>One surplus-sale workflow for organizations across industries.</h2>
+            </div>
+            <p>
+              Auctrail fits organizations that need property to move through a clear review, sale-preparation,
+              payment, pickup, and closeout process—regardless of industry or ownership type.
+            </p>
+          </div>
+
+          <div className="feature-grid">
+            {industries.map((industry) => (
+              <article className="feature-card" key={industry.number}>
+                <span className="feature-number">{industry.number}</span>
+                <h3>{industry.title}</h3>
+                <p>{industry.description}</p>
+              </article>
+            ))}
+          </div>
         </div>
       </section>
 
