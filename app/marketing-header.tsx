@@ -20,6 +20,7 @@ export default function MarketingHeader({ logoHref = "/" }: { logoHref?: string 
           <details className="desktop-nav-menu">
             <summary>Product</summary>
             <div className="desktop-nav-panel">
+              <Link href={`${previewBase}#industries`}>Who Auctrail serves</Link>
               <Link href={`${previewBase}#platform`}>Platform capabilities</Link>
               <Link href={`${previewBase}#integrations`}>Integrations</Link>
             </div>
@@ -44,6 +45,7 @@ export default function MarketingHeader({ logoHref = "/" }: { logoHref?: string 
           <summary aria-label="Open navigation">Menu</summary>
           <div className="mobile-nav-panel">
             <strong>Product</strong>
+            <Link href={`${previewBase}#industries`}>Who Auctrail serves</Link>
             <Link href={`${previewBase}#platform`}>Platform capabilities</Link>
             <Link href={`${previewBase}#integrations`}>Integrations</Link>
             <Link className="mobile-nav-primary" href={`${previewBase}#workflow`}>How It Works</Link>
