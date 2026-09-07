@@ -4,8 +4,6 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useRef } from "react";
 
-const previewBase = "/preview-progress/";
-
 function ChevronIcon() {
   return (
     <svg aria-hidden="true" viewBox="0 0 16 16">
@@ -81,14 +79,14 @@ export default function MarketingHeader({ logoHref = "/" }: { logoHref?: string 
             <div className="desktop-nav-panel nav-panel-wide">
               <div className="nav-panel-intro">
                 <span>Product</span>
-                <strong>One controlled record for every surplus sale.</strong>
-                <p>See how Auctrail connects intake, approvals, sale preparation, payment, pickup, and closeout.</p>
+                <strong>See the actual Auctrail application.</strong>
+                <p>Explore the current dashboard, assets, cases, photo workflow, reporting, and administration using real application screenshots.</p>
               </div>
               <div className="nav-panel-links">
-                <NavCard href={`${previewBase}#platform`} number="01" title="Platform overview" description="The complete sale record and core capabilities." />
-                <NavCard href={`${previewBase}#workflow`} number="02" title="Workflow" description="A clear path from receipt through closeout." />
-                <NavCard href={`${previewBase}#operations`} number="03" title="Managed service" description="Hosting, onboarding, updates, and support." />
-                <NavCard href={`${previewBase}#integrations`} number="04" title="Outputs and integrations" description="GovDeals-compatible files, QR workflows, and exports." />
+                <NavCard href="/#platform" number="01" title="Platform overview" description="Core disposition capabilities and records." />
+                <NavCard href="/#workflow" number="02" title="Cases and workflow" description="The real case workload and lifecycle." />
+                <NavCard href="/#case-detail" number="03" title="Case detail and photos" description="Case data, documents, and image ZIP workflow." />
+                <NavCard href="/#reports" number="04" title="Reports and administration" description="Operational reporting and configuration." />
               </div>
             </div>
           </details>
@@ -102,10 +100,10 @@ export default function MarketingHeader({ logoHref = "/" }: { logoHref?: string 
                 <p>The same accountable disposition process works across public, commercial, nonprofit, and institutional operations.</p>
               </div>
               <div className="nav-panel-links nav-panel-links-compact">
-                <NavCard href={`${previewBase}#industries`} number="01" title="Public agencies" description="Cities, counties, authorities, and districts." />
-                <NavCard href={`${previewBase}#industries`} number="02" title="Business and industry" description="Commercial, fleet, manufacturing, and field operations." />
-                <NavCard href={`${previewBase}#industries`} number="03" title="Nonprofits and institutions" description="Education, healthcare, charities, and community organizations." />
-                <NavCard href={`${previewBase}#industries`} number="04" title="Multi-location teams" description="One process across departments, facilities, and regions." />
+                <NavCard href="/#industries" number="01" title="Public agencies" description="Cities, counties, authorities, and districts." />
+                <NavCard href="/#industries" number="02" title="Business and industry" description="Commercial, fleet, manufacturing, and field operations." />
+                <NavCard href="/#industries" number="03" title="Nonprofits and institutions" description="Education, healthcare, charities, and community organizations." />
+                <NavCard href="/#industries" number="04" title="Multi-location teams" description="One process across departments, facilities, and regions." />
               </div>
             </div>
           </details>
@@ -135,14 +133,14 @@ export default function MarketingHeader({ logoHref = "/" }: { logoHref?: string 
           <div className="mobile-nav-panel">
             <div className="mobile-nav-section">
               <strong>Product</strong>
-              <Link href={`${previewBase}#platform`}>Platform overview</Link>
-              <Link href={`${previewBase}#workflow`}>How it works</Link>
-              <Link href={`${previewBase}#operations`}>Managed service</Link>
-              <Link href={`${previewBase}#integrations`}>Outputs and integrations</Link>
+              <Link href="/#platform">Platform overview</Link>
+              <Link href="/#workflow">Cases and workflow</Link>
+              <Link href="/#case-detail">Case detail and photos</Link>
+              <Link href="/#reports">Reports and administration</Link>
             </div>
             <div className="mobile-nav-section">
               <strong>Explore</strong>
-              <Link href={`${previewBase}#industries`}>Industries</Link>
+              <Link href="/#industries">Industries</Link>
               <Link href="/plans" aria-current={currentPage("/plans") ? "page" : undefined}>Pricing</Link>
               <Link href="/faq" aria-current={currentPage("/faq") ? "page" : undefined}>FAQ</Link>
               <Link href="/organization-setup">Organization setup</Link>
