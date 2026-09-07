@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import { useRef } from "react";
 
 const previewBase = "/preview-progress/";
 
@@ -44,17 +45,38 @@ function NavCard({ href, number, title, description }: { href: string; number: s
 
 export default function MarketingHeader({ logoHref = "/" }: { logoHref?: string }) {
   const pathname = usePathname();
+  const headerRef = useRef<HTMLElement>(null);
   const currentPage = (href: string) => pathname === href;
 
+  const closeMenus = () => {
+    headerRef.current?.querySelectorAll<HTMLDetailsElement>("details[open]").forEach((menu) => {
+      menu.removeAttribute("open");
+    });
+  };
+
+  const handleMenuToggle = (currentMenu: HTMLDetailsElement) => {
+    if (!currentMenu.open) return;
+    headerRef.current?.querySelectorAll<HTMLDetailsElement>("details[open]").forEach((menu) => {
+      if (menu !== currentMenu) menu.removeAttribute("open");
+    });
+  };
+
   return (
-    <header className="marketing-header">
+    <header
+      ref={headerRef}
+      className="marketing-header"
+      onClickCapture={(event) => {
+        const target = event.target as HTMLElement;
+        if (target.closest("a")) closeMenus();
+      }}
+    >
       <div className="marketing-shell header-inner">
         <Link className="header-logo" href={logoHref} aria-label="Auctrail home">
           <img src="/auctrail-logo-approved.jpg" alt="Auctrail — Asset Disposition Management" width="425" height="115" />
         </Link>
 
         <nav className="desktop-nav" aria-label="Primary navigation">
-          <details className="desktop-nav-menu">
+          <details className="desktop-nav-menu" onToggle={(event) => handleMenuToggle(event.currentTarget)}>
             <summary>Product <ChevronIcon /></summary>
             <div className="desktop-nav-panel nav-panel-wide">
               <div className="nav-panel-intro">
@@ -71,7 +93,7 @@ export default function MarketingHeader({ logoHref = "/" }: { logoHref?: string 
             </div>
           </details>
 
-          <details className="desktop-nav-menu">
+          <details className="desktop-nav-menu" onToggle={(event) => handleMenuToggle(event.currentTarget)}>
             <summary>Industries <ChevronIcon /></summary>
             <div className="desktop-nav-panel nav-panel-medium">
               <div className="nav-panel-intro">
@@ -90,7 +112,7 @@ export default function MarketingHeader({ logoHref = "/" }: { logoHref?: string 
 
           <Link href="/plans" aria-current={currentPage("/plans") ? "page" : undefined}>Pricing</Link>
 
-          <details className="desktop-nav-menu">
+          <details className="desktop-nav-menu" onToggle={(event) => handleMenuToggle(event.currentTarget)}>
             <summary>Resources <ChevronIcon /></summary>
             <div className="desktop-nav-panel nav-panel-compact">
               <div className="nav-panel-resource-links">
@@ -108,7 +130,7 @@ export default function MarketingHeader({ logoHref = "/" }: { logoHref?: string 
           <Link className="button button-primary button-compact" href="/demo" aria-current={currentPage("/demo") ? "page" : undefined}>Request demo</Link>
         </div>
 
-        <details className="mobile-nav">
+        <details className="mobile-nav" onToggle={(event) => handleMenuToggle(event.currentTarget)}>
           <summary aria-label="Open navigation"><MenuIcon /><span>Menu</span></summary>
           <div className="mobile-nav-panel">
             <div className="mobile-nav-section">
