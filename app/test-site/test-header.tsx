@@ -6,10 +6,10 @@ import { usePathname } from "next/navigation";
 import { useState } from "react";
 
 const links = [
-  ["Product", "/test-site/#auction-workflow"],
-  ["Pricing", "/test-site/pricing"],
-  ["FAQ", "/test-site/faq"],
-  ["Contact", "/test-site/contact"],
+  ["Product", "/#auction-workflow"],
+  ["Pricing", "/pricing"],
+  ["FAQ", "/faq"],
+  ["Contact", "/contact"],
 ];
 
 export default function TestHeader() {
@@ -19,7 +19,7 @@ export default function TestHeader() {
   return (
     <header className="site-header">
       <div className="site-shell site-nav">
-        <Link className="brand" href="/test-site" aria-label="Auctrail home" onClick={() => setOpen(false)}>
+        <Link className="brand" href="/" aria-label="Auctrail home" onClick={() => setOpen(false)}>
           <span className="brand-icon" aria-hidden="true">
             <Image src="/auctrail-logo-mark.png" alt="" width={512} height={512} priority />
           </span>
@@ -31,10 +31,10 @@ export default function TestHeader() {
         <div className={open ? "nav-panel open" : "nav-panel"} id="site-menu">
           <nav className="nav-links" aria-label="Main navigation">
             {links.map(([label, href]) => (
-              <Link className={label === "Product" ? (pathname === "/test-site" ? "active" : "") : (pathname === href ? "active" : "")} href={href} key={href} onClick={(event) => { setOpen(false); if (label === "Product") { event.preventDefault(); window.location.assign(href); } }}>{label}</Link>
+              <Link className={label === "Product" ? (pathname === "/" || pathname === "/test-site" ? "active" : "") : (pathname === href || pathname === `/test-site${href}` ? "active" : "")} href={href} key={href} onClick={(event) => { setOpen(false); if (label === "Product") { event.preventDefault(); window.location.assign(href); } }}>{label}</Link>
             ))}
           </nav>
-          <Link className="site-button nav-cta" href="/test-site/demo" onClick={() => setOpen(false)}>Request a demo</Link>
+          <Link className="site-button nav-cta" href="/demo" onClick={() => setOpen(false)}>Request a demo</Link>
         </div>
       </div>
     </header>
