@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { useRef } from "react";
+import { useRef, type SyntheticEvent } from "react";
 
 const previewBase = "/";
 
@@ -54,7 +54,7 @@ export default function MarketingHeader({ logoHref = "/" }: { logoHref?: string 
     });
   }
 
-  function handleToggle(event: React.SyntheticEvent<HTMLDetailsElement>) {
+  function handleToggle(event: SyntheticEvent<HTMLDetailsElement>) {
     const details = event.currentTarget;
     if (details.open) closeAllMenus(details);
   }
@@ -82,8 +82,8 @@ export default function MarketingHeader({ logoHref = "/" }: { logoHref?: string 
               <div className="nav-panel-links">
                 <NavCard href={`${previewBase}#platform`} number="01" title="Platform overview" description="The complete sale record and core capabilities." onNavigate={handleNavigate} />
                 <NavCard href={`${previewBase}#workflow`} number="02" title="Workflow" description="A clear path from receipt through closeout." onNavigate={handleNavigate} />
-                <NavCard href={`${previewBase}#operations`} number="03" title="Managed service" description="Hosting, onboarding, updates, and support." onNavigate={handleNavigate} />
-                <NavCard href={`${previewBase}#integrations`} number="04" title="Outputs and integrations" description="GovDeals-compatible files, QR workflows, and exports." onNavigate={handleNavigate} />
+                <NavCard href={`${previewBase}#operations`} number="03" title="Reporting and records" description="Operational reporting, exports, and completed history." onNavigate={handleNavigate} />
+                <NavCard href={`${previewBase}#integrations`} number="04" title="Photos and auction prep" description="Photo ordering, image ZIPs, documents, and sales outputs." onNavigate={handleNavigate} />
               </div>
             </div>
           </details>
@@ -111,7 +111,7 @@ export default function MarketingHeader({ logoHref = "/" }: { logoHref?: string 
             <summary>Resources <ChevronIcon /></summary>
             <div className="desktop-nav-panel nav-panel-compact">
               <div className="nav-panel-resource-links">
-                <Link href="/faq" onClick={handleNavigate}><strong>Frequently asked questions</strong><small>Product, plans, records, exports, and support.</small></Link>
+                <Link href="/faq" onClick={handleNavigate}><strong>Frequently asked questions</strong><small>Product, development status, records, exports, and support.</small></Link>
                 <Link href="/organization-setup" onClick={handleNavigate}><strong>Organization setup</strong><small>Prepare users, teams, data, and workflows.</small></Link>
                 <Link href="/support" onClick={handleNavigate}><strong>Support center</strong><small>Client access, documentation, and help.</small></Link>
                 <Link href="/technical-support" onClick={handleNavigate}><strong>Technical support</strong><small>Application, access, labels, and export issues.</small></Link>
@@ -132,8 +132,8 @@ export default function MarketingHeader({ logoHref = "/" }: { logoHref?: string 
               <strong>Product</strong>
               <Link href={`${previewBase}#platform`} onClick={handleNavigate}>Platform overview</Link>
               <Link href={`${previewBase}#workflow`} onClick={handleNavigate}>How it works</Link>
-              <Link href={`${previewBase}#operations`} onClick={handleNavigate}>Managed service</Link>
-              <Link href={`${previewBase}#integrations`} onClick={handleNavigate}>Outputs and integrations</Link>
+              <Link href={`${previewBase}#operations`} onClick={handleNavigate}>Reporting and records</Link>
+              <Link href={`${previewBase}#integrations`} onClick={handleNavigate}>Photos and auction prep</Link>
             </div>
             <div className="mobile-nav-section">
               <strong>Explore</strong>
