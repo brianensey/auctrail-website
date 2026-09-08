@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import MarketingHeader from "../marketing-header";
+import RealAppShot from "../real-app-shot";
 import DemoForm from "./demo-form";
 import "./demo.css";
 
@@ -19,9 +20,12 @@ export default function DemoPage() {
             <p className="section-kicker">Request an Auctrail demo</p>
             <h1>See how Auctrail supports your organization’s surplus-sale workflow.</h1>
             <p>Feel free to look around with no pressure. If Auctrail looks useful for your organization, share your email and we’ll follow up. Everything else is optional, and we do not ask for your phone number.</p>
-            <ul><li>Built for public agencies, businesses, nonprofits, and other organizations</li><li>Essential and Professional plan guidance</li><li>No phone number required and no high-pressure follow-up</li></ul>
+            <ul><li>Built for public agencies, businesses, nonprofits, and other organizations</li><li>See the current web application, not a concept mockup</li><li>No phone number required and no high-pressure follow-up</li></ul>
           </div>
           <DemoForm />
+        </div>
+        <div className="marketing-shell">
+          <RealAppShot src="/screenshots/case-detail.svg" alt="Current Auctrail case detail screen" caption="A real Auctrail case record and workflow" />
         </div>
       </section>
     </main>
