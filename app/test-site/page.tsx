@@ -56,7 +56,7 @@ export default function TestSitePage() {
         </div>
       </section>
 
-      <section className="trail-section">
+      <section className="trail-section" id="auction-workflow">
         <div className="site-shell trail-grid">
           <div className="trail-intro">
             <p className="signal green-signal"><span /> The Auctrail workflow</p>
