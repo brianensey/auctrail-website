@@ -2,9 +2,9 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { useRef } from "react";
+import { useRef, type SyntheticEvent } from "react";
 
-const previewBase = "/preview-progress/";
+const previewBase = "/";
 
 function ChevronIcon() {
   return (
@@ -30,9 +30,9 @@ function MenuIcon() {
   );
 }
 
-function NavCard({ href, number, title, description }: { href: string; number: string; title: string; description: string }) {
+function NavCard({ href, number, title, description, onNavigate }: { href: string; number: string; title: string; description: string; onNavigate: () => void }) {
   return (
-    <Link className="nav-panel-link" href={href}>
+    <Link className="nav-panel-link" href={href} onClick={onNavigate}>
       <span className="nav-link-number">{number}</span>
       <span>
         <strong>{title}</strong>
@@ -45,38 +45,33 @@ function NavCard({ href, number, title, description }: { href: string; number: s
 
 export default function MarketingHeader({ logoHref = "/" }: { logoHref?: string }) {
   const pathname = usePathname();
-  const headerRef = useRef<HTMLElement>(null);
+  const navRef = useRef<HTMLElement | null>(null);
   const currentPage = (href: string) => pathname === href;
 
-  const closeMenus = () => {
-    headerRef.current?.querySelectorAll<HTMLDetailsElement>("details[open]").forEach((menu) => {
-      menu.removeAttribute("open");
+  function closeAllMenus(except?: HTMLDetailsElement) {
+    navRef.current?.querySelectorAll("details[open]").forEach((element) => {
+      if (element !== except) (element as HTMLDetailsElement).open = false;
     });
-  };
+  }
 
-  const handleMenuToggle = (currentMenu: HTMLDetailsElement) => {
-    if (!currentMenu.open) return;
-    headerRef.current?.querySelectorAll<HTMLDetailsElement>("details[open]").forEach((menu) => {
-      if (menu !== currentMenu) menu.removeAttribute("open");
-    });
-  };
+  function handleToggle(event: SyntheticEvent<HTMLDetailsElement>) {
+    const details = event.currentTarget;
+    if (details.open) closeAllMenus(details);
+  }
+
+  function handleNavigate() {
+    closeAllMenus();
+  }
 
   return (
-    <header
-      ref={headerRef}
-      className="marketing-header"
-      onClickCapture={(event) => {
-        const target = event.target as HTMLElement;
-        if (target.closest("a")) closeMenus();
-      }}
-    >
+    <header className="marketing-header" ref={navRef}>
       <div className="marketing-shell header-inner">
-        <Link className="header-logo" href={logoHref} aria-label="Auctrail home">
+        <Link className="header-logo" href={logoHref} aria-label="Auctrail home" onClick={handleNavigate}>
           <img src="/auctrail-logo-approved.jpg" alt="Auctrail — Asset Disposition Management" width="425" height="115" />
         </Link>
 
         <nav className="desktop-nav" aria-label="Primary navigation">
-          <details className="desktop-nav-menu" onToggle={(event) => handleMenuToggle(event.currentTarget)}>
+          <details className="desktop-nav-menu" onToggle={handleToggle}>
             <summary>Product <ChevronIcon /></summary>
             <div className="desktop-nav-panel nav-panel-wide">
               <div className="nav-panel-intro">
@@ -85,15 +80,15 @@ export default function MarketingHeader({ logoHref = "/" }: { logoHref?: string 
                 <p>See how Auctrail connects intake, approvals, sale preparation, payment, pickup, and closeout.</p>
               </div>
               <div className="nav-panel-links">
-                <NavCard href={`${previewBase}#platform`} number="01" title="Platform overview" description="The complete sale record and core capabilities." />
-                <NavCard href={`${previewBase}#workflow`} number="02" title="Workflow" description="A clear path from receipt through closeout." />
-                <NavCard href={`${previewBase}#operations`} number="03" title="Managed service" description="Hosting, onboarding, updates, and support." />
-                <NavCard href={`${previewBase}#integrations`} number="04" title="Outputs and integrations" description="GovDeals-compatible files, QR workflows, and exports." />
+                <NavCard href={`${previewBase}#platform`} number="01" title="Platform overview" description="The complete sale record and core capabilities." onNavigate={handleNavigate} />
+                <NavCard href={`${previewBase}#workflow`} number="02" title="Workflow" description="A clear path from receipt through closeout." onNavigate={handleNavigate} />
+                <NavCard href={`${previewBase}#operations`} number="03" title="Reporting and records" description="Operational reporting, exports, and completed history." onNavigate={handleNavigate} />
+                <NavCard href={`${previewBase}#integrations`} number="04" title="Photos and auction prep" description="Photo ordering, image ZIPs, documents, and sales outputs." onNavigate={handleNavigate} />
               </div>
             </div>
           </details>
 
-          <details className="desktop-nav-menu" onToggle={(event) => handleMenuToggle(event.currentTarget)}>
+          <details className="desktop-nav-menu" onToggle={handleToggle}>
             <summary>Industries <ChevronIcon /></summary>
             <div className="desktop-nav-panel nav-panel-medium">
               <div className="nav-panel-intro">
@@ -102,55 +97,55 @@ export default function MarketingHeader({ logoHref = "/" }: { logoHref?: string 
                 <p>The same accountable disposition process works across public, commercial, nonprofit, and institutional operations.</p>
               </div>
               <div className="nav-panel-links nav-panel-links-compact">
-                <NavCard href={`${previewBase}#industries`} number="01" title="Public agencies" description="Cities, counties, authorities, and districts." />
-                <NavCard href={`${previewBase}#industries`} number="02" title="Business and industry" description="Commercial, fleet, manufacturing, and field operations." />
-                <NavCard href={`${previewBase}#industries`} number="03" title="Nonprofits and institutions" description="Education, healthcare, charities, and community organizations." />
-                <NavCard href={`${previewBase}#industries`} number="04" title="Multi-location teams" description="One process across departments, facilities, and regions." />
+                <NavCard href={`${previewBase}#industries`} number="01" title="Public agencies" description="Cities, counties, authorities, and districts." onNavigate={handleNavigate} />
+                <NavCard href={`${previewBase}#industries`} number="02" title="Business and industry" description="Commercial, fleet, manufacturing, and field operations." onNavigate={handleNavigate} />
+                <NavCard href={`${previewBase}#industries`} number="03" title="Nonprofits and institutions" description="Education, healthcare, charities, and community organizations." onNavigate={handleNavigate} />
+                <NavCard href={`${previewBase}#industries`} number="04" title="Multi-location teams" description="One process across departments, facilities, and regions." onNavigate={handleNavigate} />
               </div>
             </div>
           </details>
 
-          <Link href="/plans" aria-current={currentPage("/plans") ? "page" : undefined}>Pricing</Link>
+          <Link href="/plans" aria-current={currentPage("/plans") ? "page" : undefined} onClick={handleNavigate}>Pricing</Link>
 
-          <details className="desktop-nav-menu" onToggle={(event) => handleMenuToggle(event.currentTarget)}>
+          <details className="desktop-nav-menu" onToggle={handleToggle}>
             <summary>Resources <ChevronIcon /></summary>
             <div className="desktop-nav-panel nav-panel-compact">
               <div className="nav-panel-resource-links">
-                <Link href="/faq"><strong>Frequently asked questions</strong><small>Product, plans, records, exports, and support.</small></Link>
-                <Link href="/organization-setup"><strong>Organization setup</strong><small>Prepare users, teams, data, and workflows.</small></Link>
-                <Link href="/support"><strong>Support center</strong><small>Client access, documentation, and help.</small></Link>
-                <Link href="/technical-support"><strong>Technical support</strong><small>Application, access, labels, and export issues.</small></Link>
+                <Link href="/faq" onClick={handleNavigate}><strong>Frequently asked questions</strong><small>Product, development status, records, exports, and support.</small></Link>
+                <Link href="/organization-setup" onClick={handleNavigate}><strong>Organization setup</strong><small>Prepare users, teams, data, and workflows.</small></Link>
+                <Link href="/support" onClick={handleNavigate}><strong>Support center</strong><small>Client access, documentation, and help.</small></Link>
+                <Link href="/technical-support" onClick={handleNavigate}><strong>Technical support</strong><small>Application, access, labels, and export issues.</small></Link>
               </div>
             </div>
           </details>
         </nav>
 
         <div className="header-actions">
-          <a className="text-link" href="https://app.auctrail.com/login">Client login</a>
-          <Link className="button button-primary button-compact" href="/demo" aria-current={currentPage("/demo") ? "page" : undefined}>Request demo</Link>
+          <a className="text-link" href="https://app.auctrail.com/login" onClick={handleNavigate}>Client login</a>
+          <Link className="button button-primary button-compact" href="/demo" aria-current={currentPage("/demo") ? "page" : undefined} onClick={handleNavigate}>Request demo</Link>
         </div>
 
-        <details className="mobile-nav" onToggle={(event) => handleMenuToggle(event.currentTarget)}>
+        <details className="mobile-nav" onToggle={handleToggle}>
           <summary aria-label="Open navigation"><MenuIcon /><span>Menu</span></summary>
           <div className="mobile-nav-panel">
             <div className="mobile-nav-section">
               <strong>Product</strong>
-              <Link href={`${previewBase}#platform`}>Platform overview</Link>
-              <Link href={`${previewBase}#workflow`}>How it works</Link>
-              <Link href={`${previewBase}#operations`}>Managed service</Link>
-              <Link href={`${previewBase}#integrations`}>Outputs and integrations</Link>
+              <Link href={`${previewBase}#platform`} onClick={handleNavigate}>Platform overview</Link>
+              <Link href={`${previewBase}#workflow`} onClick={handleNavigate}>How it works</Link>
+              <Link href={`${previewBase}#operations`} onClick={handleNavigate}>Reporting and records</Link>
+              <Link href={`${previewBase}#integrations`} onClick={handleNavigate}>Photos and auction prep</Link>
             </div>
             <div className="mobile-nav-section">
               <strong>Explore</strong>
-              <Link href={`${previewBase}#industries`}>Industries</Link>
-              <Link href="/plans" aria-current={currentPage("/plans") ? "page" : undefined}>Pricing</Link>
-              <Link href="/faq" aria-current={currentPage("/faq") ? "page" : undefined}>FAQ</Link>
-              <Link href="/organization-setup">Organization setup</Link>
-              <Link href="/support" aria-current={currentPage("/support") ? "page" : undefined}>Support center</Link>
+              <Link href={`${previewBase}#industries`} onClick={handleNavigate}>Industries</Link>
+              <Link href="/plans" aria-current={currentPage("/plans") ? "page" : undefined} onClick={handleNavigate}>Pricing</Link>
+              <Link href="/faq" aria-current={currentPage("/faq") ? "page" : undefined} onClick={handleNavigate}>FAQ</Link>
+              <Link href="/organization-setup" onClick={handleNavigate}>Organization setup</Link>
+              <Link href="/support" aria-current={currentPage("/support") ? "page" : undefined} onClick={handleNavigate}>Support center</Link>
             </div>
             <div className="mobile-nav-actions">
-              <a className="button button-secondary" href="https://app.auctrail.com/login">Client login</a>
-              <Link className="button button-primary" href="/demo" aria-current={currentPage("/demo") ? "page" : undefined}>Request demo</Link>
+              <a className="button button-secondary" href="https://app.auctrail.com/login" onClick={handleNavigate}>Client login</a>
+              <Link className="button button-primary" href="/demo" aria-current={currentPage("/demo") ? "page" : undefined} onClick={handleNavigate}>Request demo</Link>
             </div>
           </div>
         </details>

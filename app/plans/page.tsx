@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import MarketingHeader from "../marketing-header";
+import RealAppShot from "../real-app-shot";
 import styles from "./plans.module.css";
 
 export const metadata: Metadata = {
@@ -14,7 +15,7 @@ function ArrowIcon() {
 }
 
 function SiteFooter() {
-  return <footer className="marketing-footer"><div className="marketing-shell footer-grid"><div className="footer-intro"><img src="/auctrail-logo-approved.jpg" alt="Auctrail" width="425" height="115" /><p>Asset disposition management for organizations that need a clearer way to intake, prepare, sell, document, and close out surplus property.</p></div><div><strong>Platform</strong><Link href="/preview-progress/#platform">Capabilities</Link><Link href="/preview-progress/#workflow">Workflow</Link><Link href="/plans">Pricing</Link></div><div><strong>Resources</strong><Link href="/faq">FAQ</Link><Link href="/support">Support</Link><a href="https://app.auctrail.com/login">Client login</a></div></div><div className="marketing-shell footer-bottom"><span>© {new Date().getFullYear()} Auctrail. All rights reserved.</span><span>Asset Disposition Management</span></div></footer>;
+  return <footer className="marketing-footer"><div className="marketing-shell footer-grid"><div className="footer-intro"><img src="/auctrail-logo-approved.jpg" alt="Auctrail" width="425" height="115" /><p>Asset disposition management for organizations that need a clearer way to intake, prepare, sell, document, and close out surplus property.</p></div><div><strong>Platform</strong><Link href="/#platform">Capabilities</Link><Link href="/#workflow">Workflow</Link><Link href="/plans">Pricing</Link></div><div><strong>Resources</strong><Link href="/faq">FAQ</Link><Link href="/support">Support</Link><a href="https://app.auctrail.com/login">Client login</a></div></div><div className="marketing-shell footer-bottom"><span>© {new Date().getFullYear()} Auctrail. All rights reserved.</span><span>Asset Disposition Management</span></div></footer>;
 }
 
 export default function PlansPage() {
@@ -27,8 +28,9 @@ export default function PlansPage() {
         <p className={styles.heroLead}>We are continuing to develop and refine the platform before publishing final plans and pricing. The website will be updated as features, integrations, onboarding, and commercial terms are finalized.</p>
         <div className={styles.heroActions}>
           <a className="button button-primary" href="mailto:info@auctrai.com">Pricing questions <ArrowIcon /></a>
-          <Link className="button button-secondary" href="/preview-progress/">See what Auctrail does <ArrowIcon /></Link>
+          <Link className="button button-secondary" href="/#platform">See what Auctrail does <ArrowIcon /></Link>
         </div>
+        <RealAppShot src="/screenshots/dashboard.svg" alt="Current Auctrail dashboard" caption="Current Auctrail dashboard while development continues" />
       </div>
     </section>
 
@@ -61,7 +63,7 @@ export default function PlansPage() {
     <section className="final-cta">
       <div className="marketing-shell final-cta-inner">
         <div><p className="section-kicker light">Follow development</p><h2>See the platform we are building.</h2><p>Review Auctrail’s current workflow and capabilities while we continue toward release.</p></div>
-        <div className="final-cta-actions"><Link className="button button-light" href="/preview-progress/">Explore Auctrail <ArrowIcon /></Link></div>
+        <div className="final-cta-actions"><Link className="button button-light" href="/#platform">Explore Auctrail <ArrowIcon /></Link></div>
       </div>
     </section>
     <SiteFooter />
