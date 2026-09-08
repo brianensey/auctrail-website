@@ -1,5 +1,6 @@
 import Link from "next/link";
 import MarketingHeader from "./marketing-header";
+import RealAppShot from "./real-app-shot";
 import styles from "./site-preview.module.css";
 
 type IconName =
@@ -434,6 +435,8 @@ export default function SitePreview() {
               </li>
             ))}
           </ol>
+          <RealAppShot src="/screenshots/intake.svg" alt="Current Auctrail Intake screen" caption="Receive individual property or import multiple records from one intake screen" />
+          <RealAppShot src="/screenshots/disposition.svg" alt="Current Auctrail Disposition screen" caption="Search and review completed disposition records without returning them to active cases" />
         </div>
       </section>
 
@@ -464,6 +467,9 @@ export default function SitePreview() {
             <Link className={`button button-primary ${styles.managedAction}`} href="/organization-setup">Review organization setup <ArrowIcon /></Link>
           </aside>
         </div>
+        <div className="marketing-shell">
+          <RealAppShot src="/screenshots/import-history.svg" alt="Current Auctrail Import History screen" caption="Review prior imports, case totals, departments, and upload details" />
+        </div>
       </section>
 
       <section className={styles.section} id="integrations">
@@ -482,6 +488,7 @@ export default function SitePreview() {
             ))}
           </div>
           <div className={styles.govDealsNotice}><span><Icon name="shield" /></span><div><strong>GovDeals prerequisite</strong><p>Bulk Asset Upload is account-enabled and may not be active by default. The organization’s authorized GovDeals account must have the capability enabled before using the compatible export for bulk upload.</p></div></div>
+          <RealAppShot src="/screenshots/qr-code-label.svg" alt="Auctrail printable QR code property label" caption="Printable field label linking physical property to its Auctrail case record" maxWidth={576} />
         </div>
       </section>
 

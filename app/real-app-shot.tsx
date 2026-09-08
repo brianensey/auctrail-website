@@ -4,16 +4,25 @@ const approvedScreenshotMap: Record<string, string> = {
   "/screenshots/cases.svg": "/screenshots/approved/cases-list.webp",
   "/screenshots/case-detail.svg": "/screenshots/approved/cases-list.webp",
   "/screenshots/reports.svg": "/screenshots/approved/reports.webp",
+  "/screenshots/administration.svg": "/screenshots/approved/administration.webp",
+  "/screenshots/branding.svg": "/screenshots/approved/branding.webp",
+  "/screenshots/disposition.svg": "/screenshots/approved/disposition.webp",
+  "/screenshots/import-history.svg": "/screenshots/approved/import-history.webp",
+  "/screenshots/intake.svg": "/screenshots/approved/intake.webp",
+  "/screenshots/pickup-deadline.svg": "/screenshots/approved/pickup-deadline.webp",
+  "/screenshots/qr-code-label.svg": "/screenshots/approved/qr-code-label.png",
 };
 
 export default function RealAppShot({
   src,
   alt,
   caption,
+  maxWidth = 1120,
 }: {
   src: string;
   alt: string;
   caption: string;
+  maxWidth?: number;
 }) {
   // No approved public screenshot exists yet for the photo/document manager.
   // Keep that subject text-only instead of showing an unrelated image.
@@ -22,7 +31,7 @@ export default function RealAppShot({
   const resolvedSrc = approvedScreenshotMap[src] ?? src;
 
   return (
-    <figure style={{ margin: "34px auto 0", width: "100%", maxWidth: 1120 }}>
+    <figure style={{ margin: "34px auto 0", width: "100%", maxWidth }}>
       <div
         style={{
           overflow: "hidden",
