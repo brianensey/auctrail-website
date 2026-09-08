@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import HomePage from "../page";
+import SitePreview from "../site-preview";
 
 export const metadata: Metadata = {
   title: "Auctrail Platform",
@@ -7,4 +7,4 @@ export const metadata: Metadata = {
   robots: { index: false, follow: true },
 };
 
-export default HomePage;
+export default SitePreview;
