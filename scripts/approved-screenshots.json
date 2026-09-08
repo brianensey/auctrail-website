@@ -1,0 +1,13 @@
+[
+  {"file":"dashboard.png","source":"dashboard.png","width":2688,"height":1360,"bytes":312964,"sha256":"d70cee82d6c24a2b13ccf82535a9fea519265b7c68036fdedbe4f34173525415"},
+  {"file":"assets.png","source":"assets.png","width":2924,"height":1360,"bytes":404026,"sha256":"453f06bfe877a89b84c9b19a88f2f07d402f80b0c2cc88523e6e79dc89e94864"},
+  {"file":"cases-list.png","source":"cases list.png","width":2924,"height":1360,"bytes":542872,"sha256":"07bc6b82950db45860a151b684c5052c833ee8dbc470f7a065f3a531d3085128"},
+  {"file":"intake.png","source":"intake.png","width":2924,"height":1360,"bytes":395100,"sha256":"4b492708f8c9a031beda5aece4eef5638c56aec291d52f26e9eb520ec87bad47"},
+  {"file":"disposition.png","source":"Disposition.png","width":2924,"height":1360,"bytes":456313,"sha256":"4f1b04e8205f6921a9c786fd242926ad9cb82e49a14f350d9db9036d902591f1"},
+  {"file":"reports.png","source":"reports.png","width":2688,"height":1360,"bytes":332182,"sha256":"2255ad8e21d1eefa5d4c47666f327a759fb5d120a88bbd3c962d63a19e290dda"},
+  {"file":"administration.png","source":"administration.png","width":2924,"height":1360,"bytes":456127,"sha256":"94e70f03f0aad2bb913ed3173ec663e3e8d7186b6d7741c516bf3e936d541832"},
+  {"file":"branding.png","source":"branding.png","width":2688,"height":1360,"bytes":372651,"sha256":"3ceeb2e3d7e86f000bcc3ef7ca70d0c888170a26417eeff183dc5d1dd716eba4"},
+  {"file":"pickup-deadline.png","source":"pickup deadline.png","width":2688,"height":1360,"bytes":310861,"sha256":"ea68f82a1d754145db118bdd5b19d728d11c92c4df40f9465c84785193ab3d13"},
+  {"file":"import-history.png","source":"import history.png","width":2688,"height":1360,"bytes":356834,"sha256":"4cc982b66838ed32f0c8ca3aa99300242f52cb0bae46d807c4da053ec04630ea"},
+  {"file":"qr-label.png","source":"rq codes.pdf, page 1, rendered at 300 dpi","width":1200,"height":900,"bytes":48925,"sha256":"459730cedf50de1b958696379cb7613beb1a372cdf9fc5fd6f7434c2a71c990e"}
+]
