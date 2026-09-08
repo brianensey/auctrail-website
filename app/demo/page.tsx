@@ -25,7 +25,7 @@ export default function DemoPage() {
           <DemoForm />
         </div>
         <div className="marketing-shell">
-          <RealAppShot src="/screenshots/case-detail.svg" alt="Current Auctrail case detail screen" caption="A real Auctrail case record and workflow" />
+          <RealAppShot src="/screenshots-approved/cases-list.png" alt="Current Auctrail Cases screen" caption="The current Auctrail case list and work queue" />
         </div>
       </section>
     </main>
