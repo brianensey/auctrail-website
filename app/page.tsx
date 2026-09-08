@@ -52,7 +52,7 @@ export default function HomePage() {
             </div>
             <div className={styles.status}><strong>Current status:</strong> Auctrail is still in active development. The web application, public website, documentation, support workflow, and launch readiness are the current priority.</div>
           </div>
-          <ProductShot src="/screenshots/dashboard.svg" alt="Current Auctrail dashboard and profile interface" caption="Current web application dashboard" compact />
+          <ProductShot src="/screenshots/approved/dashboard.webp" alt="Current Auctrail dashboard" caption="Current web application dashboard" compact />
         </div>
       </section>
 
@@ -66,8 +66,8 @@ export default function HomePage() {
             {capabilities.map(([title, description]) => <article key={title}><h3>{title}</h3><p>{description}</p></article>)}
           </div>
           <div className={styles.screenshotPair}>
-            <ProductShot src="/screenshots/assets.svg" alt="Current Auctrail Assets screen" caption="Assets and property records" />
-            <ProductShot src="/screenshots/cases.svg" alt="Current Auctrail Cases screen" caption="Case management and work queues" />
+            <ProductShot src="/screenshots/approved/assets.webp" alt="Current Auctrail Assets screen" caption="Assets and property records" />
+            <ProductShot src="/screenshots/approved/cases-list.webp" alt="Current Auctrail Cases screen" caption="Case management and work queues" />
           </div>
         </div>
       </section>
