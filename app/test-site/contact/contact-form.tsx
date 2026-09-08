@@ -2,10 +2,10 @@
 
 import { FormEvent, useState } from "react";
 
-const contactEndpoint = process.env.NEXT_PUBLIC_CONTACT_REQUEST_ENDPOINT;
+const contactEndpoint = process.env.NEXT_PUBLIC_CONTACT_REQUEST_ENDPOINT || "https://formsubmit.co/ajax/info@auctrail.com";
 
 export default function ContactForm() {
-  const [status, setStatus] = useState<"idle" | "submitting" | "success" | "email" | "error">("idle");
+  const [status, setStatus] = useState<"idle" | "submitting" | "success" | "error">("idle");
 
   async function submit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
@@ -15,28 +15,16 @@ export default function ContactForm() {
       return;
     }
 
-    const data = Object.fromEntries(new FormData(form).entries());
+    const data = new FormData(form);
+    data.append("_subject", "Auctrail information request — " + String(data.get("topic") || "Product question"));
+    data.append("_template", "table");
     setStatus("submitting");
-
-    if (!contactEndpoint) {
-      const subject = encodeURIComponent("Auctrail information request — " + String(data.topic || "Product question"));
-      const body = encodeURIComponent(
-        "Name: " + String(data.name || "") + "\n" +
-        "Organization: " + String(data.organization || "") + "\n" +
-        "Email: " + String(data.email || "") + "\n" +
-        "Topic: " + String(data.topic || "") + "\n\n" +
-        String(data.message || "")
-      );
-      window.location.href = "mailto:info@auctrail.com?subject=" + subject + "&body=" + body;
-      setStatus("email");
-      return;
-    }
 
     try {
       const response = await fetch(contactEndpoint, {
         method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ ...data, requestType: "information" }),
+        headers: { Accept: "application/json" },
+        body: data,
       });
       if (!response.ok) throw new Error();
       form.reset();
@@ -63,12 +51,12 @@ export default function ContactForm() {
         </select>
       </label>
       <label>Message<textarea name="message" rows={6} required /></label>
+      <label className="honeypot" aria-hidden="true">Website<input name="website" tabIndex={-1} autoComplete="off" /></label>
       <p className="form-note">Please do not include confidential case, buyer, payment, or account information.</p>
       <button className="site-button form-button" type="submit" disabled={status === "submitting"}>
         {status === "submitting" ? "Sending…" : "Send information request"}
       </button>
       {status === "success" && <p className="form-status success" role="status">Thanks. Your message has been sent.</p>}
-      {status === "email" && <p className="form-status" role="status">Your email app should open with your message ready to send.</p>}
       {status === "error" && <p className="form-status error" role="alert">Your message could not be sent. Please try again.</p>}
     </form>
   );

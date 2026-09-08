@@ -2,7 +2,7 @@
 
 import { FormEvent, useState } from "react";
 
-const requestEndpoint = process.env.NEXT_PUBLIC_DEMO_REQUEST_ENDPOINT || "https://demo.auctrail.com/api/demo/access";
+const requestEndpoint = process.env.NEXT_PUBLIC_DEMO_REQUEST_ENDPOINT || "https://formsubmit.co/ajax/info@auctrail.com";
 
 export default function DemoRequestForm() {
   const [status, setStatus] = useState<"idle" | "submitting" | "success" | "error">("idle");
@@ -16,13 +16,15 @@ export default function DemoRequestForm() {
     }
 
     setStatus("submitting");
-    const data = Object.fromEntries(new FormData(form).entries());
+    const data = new FormData(form);
+    data.append("_subject", "New Auctrail demo request");
+    data.append("_template", "table");
 
     try {
       const response = await fetch(requestEndpoint, {
         method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(data),
+        headers: { Accept: "application/json" },
+        body: data,
       });
       if (!response.ok) throw new Error();
       form.reset();
@@ -46,7 +48,7 @@ export default function DemoRequestForm() {
       <button className="site-button form-button" type="submit" disabled={status === "submitting"}>
         {status === "submitting" ? "Sending…" : "Request demo access"}
       </button>
-      {status === "success" && <p className="form-status success" role="status">Check your email for Administrator and Regular User access. Your demo remains active for 72 hours.</p>}
+      {status === "success" && <p className="form-status success" role="status">Thanks. Your demo request has been sent. We’ll follow up by email.</p>}
       {status === "error" && <p className="form-status error" role="alert">Your request could not be sent right now. Please try again shortly.</p>}
     </form>
   );
