@@ -6,7 +6,7 @@ export default function TestFooter() {
     <footer className="site-footer">
       <div className="site-shell footer-main">
         <div>
-          <Image src="/auctrail-logo-official.jpeg" alt="Auctrail" width={928} height={901} />
+          <div className="footer-brand" aria-label="Auctrail">\n            <span className="brand-icon" aria-hidden="true">\n              <Image src="/auctrail-logo-official.jpeg" alt="" width={928} height={901} />\n            </span>\n            <span className="brand-word">Auctrail</span>\n          </div>
           <p>A clear path from surplus intake to completed sale.</p>
         </div>
         <nav aria-label="Footer navigation">
