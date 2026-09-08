@@ -52,7 +52,7 @@ export default function HomePage() {
             </div>
             <div className={styles.status}><strong>Current status:</strong> Auctrail is still in active development. The web application, public website, documentation, support workflow, and launch readiness are the current priority.</div>
           </div>
-          <ProductShot src="/screenshots/dashboard.svg" alt="Current Auctrail dashboard and profile interface" caption="Current web application dashboard" compact />
+          <ProductShot src="/screenshots-approved/dashboard.png" alt="Current Auctrail dashboard" caption="Current web application dashboard" compact />
         </div>
       </section>
 
@@ -66,8 +66,8 @@ export default function HomePage() {
             {capabilities.map(([title, description]) => <article key={title}><h3>{title}</h3><p>{description}</p></article>)}
           </div>
           <div className={styles.screenshotPair}>
-            <ProductShot src="/screenshots/assets.svg" alt="Current Auctrail Assets screen" caption="Assets and property records" />
-            <ProductShot src="/screenshots/cases.svg" alt="Current Auctrail Cases screen" caption="Case management and work queues" />
+            <ProductShot src="/screenshots-approved/assets.png" alt="Current Auctrail Assets screen" caption="Assets and property records" />
+            <ProductShot src="/screenshots-approved/cases-list.png" alt="Current Auctrail Cases screen" caption="Case management and work queues" />
           </div>
         </div>
       </section>
@@ -78,22 +78,23 @@ export default function HomePage() {
           <div className={styles.workflow}>
             {workflow.map(([number, title, description]) => <article key={number}><span>{number}</span><h3>{title}</h3><p>{description}</p></article>)}
           </div>
-          <div className={styles.workflowScreenshot}>
-            <ProductShot src="/screenshots/case-detail.svg" alt="Current Auctrail individual case detail screen" caption="A real case record with its workflow and details" />
+          <div className={styles.screenshotPair}>
+            <ProductShot src="/screenshots-approved/intake.png" alt="Current Auctrail Intake screen" caption="Single and bulk property intake" />
+            <ProductShot src="/screenshots-approved/disposition.png" alt="Current Auctrail Disposition screen" caption="Completed disposition records" />
           </div>
         </div>
       </section>
 
       <section className={styles.section} id="integrations">
         <div className={styles.shell}>
-          <div className={`${styles.featureBand} ${styles.featureBandReverse}`}>
-            <div>
-              <p className={styles.kicker}>Photos and auction preparation</p>
-              <h2>Keep auction images with the case and take them with you.</h2>
-              <p>Photos and PDFs are managed directly on the case. Auction photos can be placed in the intended order and downloaded together as an image ZIP for use on supported auction sites.</p>
-              <ul><li>Drag-and-drop photo and PDF upload</li><li>Saved photo ordering</li><li>Download Images ZIP action</li><li>Case documents stay connected to the record</li></ul>
-            </div>
-            <ProductShot src="/screenshots/photos-download.svg" alt="Current Auctrail photo upload and Download Images interface" caption="Photos, documents, and Download Images" />
+          <div className={styles.sectionIntro}>
+            <div><p className={styles.kicker}>Auction preparation</p><h2>Prepare listing data and media without rebuilding the record.</h2></div>
+            <p>Photos, PDFs, descriptions, exports, and auction-ready information remain tied to the same case. The current Library set does not include a dedicated approved photo-manager screenshot, so this section intentionally uses no unrelated image.</p>
+          </div>
+          <div className={styles.grid}>
+            <article><h3>Photos and documents</h3><p>Keep supporting media and files with the case.</p></article>
+            <article><h3>Download Images</h3><p>Prepare uploaded case photos as a ZIP in saved order.</p></article>
+            <article><h3>Bulk and marketplace workflows</h3><p>Reuse structured case information for supported exports and listing workflows.</p></article>
           </div>
         </div>
       </section>
@@ -101,13 +102,26 @@ export default function HomePage() {
       <section className={`${styles.section} ${styles.reportSection}`} id="operations">
         <div className={styles.shell}>
           <div className={styles.featureBand}>
-            <ProductShot src="/screenshots/reports.svg" alt="Current Auctrail reports screen" caption="Operational reporting in the current app" />
+            <ProductShot src="/screenshots-approved/reports.png" alt="Current Auctrail Reports screen" caption="Operational reporting in the current app" />
             <div>
               <p className={styles.kicker}>Reporting and completed history</p>
               <h2>See the work that is moving and preserve the work that is finished.</h2>
               <p>Reporting is part of the operating workflow, not a separate spreadsheet exercise. Auctrail is designed to keep management visibility and completed-sale history connected to the underlying records.</p>
               <ul><li>Operational reports</li><li>Excel and CSV exports</li><li>Searchable completed records</li><li>Sale, payment, pickup, and closeout history</li></ul>
             </div>
+          </div>
+        </div>
+      </section>
+
+      <section className={styles.section}>
+        <div className={styles.shell}>
+          <div className={`${styles.featureBand} ${styles.featureBandReverse}`}>
+            <div>
+              <p className={styles.kicker}>Imports</p>
+              <h2>Bring existing records into the same controlled workflow.</h2>
+              <p>Bulk intake and import history help organizations move structured property records into Auctrail while preserving where the data came from and what was created.</p>
+            </div>
+            <ProductShot src="/screenshots-approved/import-history.png" alt="Current Auctrail Import History screen" caption="Import history and created-case tracking" />
           </div>
         </div>
       </section>
@@ -124,11 +138,15 @@ export default function HomePage() {
           <div className={`${styles.featureBand} ${styles.featureBandReverse}`}>
             <div>
               <p className={styles.kicker}>Administration</p>
-              <h2>Configure people, organization structure, workflows, and integrations in one place.</h2>
-              <p>The Administration area provides the settings used to manage users, departments, locations, workflow rules, permissions, and supported sales integrations.</p>
-              <ul><li>Users and roles</li><li>Departments and locations</li><li>Workflow and permission settings</li><li>Auction integrations and operating configuration</li></ul>
+              <h2>Configure people, organization structure, workflows, and operating rules in one place.</h2>
+              <p>The Administration area provides settings for users, departments, locations, workflow rules, permissions, branding, pickup timing, and other organization-level configuration.</p>
+              <ul><li>Users and roles</li><li>Departments and locations</li><li>Workflow and permission settings</li><li>Branding and operating configuration</li></ul>
             </div>
-            <ProductShot src="/screenshots/administration.svg" alt="Current Auctrail Administration screen" caption="Administration and organization configuration" />
+            <ProductShot src="/screenshots-approved/administration.png" alt="Current Auctrail Administration screen" caption="Administration and organization configuration" />
+          </div>
+          <div className={styles.screenshotPair}>
+            <ProductShot src="/screenshots-approved/branding.png" alt="Current Auctrail Branding settings" caption="Branding and organization appearance" />
+            <ProductShot src="/screenshots-approved/pickup-deadline.png" alt="Current Auctrail Pickup Deadline settings" caption="Pickup deadline workflow settings" />
           </div>
         </div>
       </section>
