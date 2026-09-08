@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import "./globals.css";
 import "./brand.css";
 import "./navigation.css";
+import "./test-site/test-site.css";
 
 export const metadata: Metadata = {
   title: {
@@ -25,7 +26,7 @@ export const metadata: Metadata = {
   alternates: {
     canonical: "https://auctrail.com",
   },
-  robots: { index: false, follow: false },
+  robots: { index: true, follow: true },
   openGraph: {
     title: "Auctrail | Surplus Asset Disposition Software",
     description:
