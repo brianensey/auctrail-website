@@ -6,7 +6,7 @@ import { usePathname } from "next/navigation";
 import { useState } from "react";
 
 const links = [
-  ["Product", "/test-site"],
+  ["Product", "/test-site/#auction-workflow"],
   ["Pricing", "/test-site/pricing"],
   ["FAQ", "/test-site/faq"],
   ["Contact", "/test-site/contact"],
@@ -31,7 +31,7 @@ export default function TestHeader() {
         <div className={open ? "nav-panel open" : "nav-panel"} id="site-menu">
           <nav className="nav-links" aria-label="Main navigation">
             {links.map(([label, href]) => (
-              <Link className={pathname === href ? "active" : ""} href={href} key={href} onClick={() => setOpen(false)}>{label}</Link>
+              <Link className={label === "Product" ? (pathname === "/test-site" ? "active" : "") : (pathname === href ? "active" : "")} href={href} key={href} onClick={() => setOpen(false)}>{label}</Link>
             ))}
           </nav>
           <Link className="site-button nav-cta" href="/test-site/demo" onClick={() => setOpen(false)}>Request a demo</Link>
