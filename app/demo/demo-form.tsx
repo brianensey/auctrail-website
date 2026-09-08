@@ -2,7 +2,7 @@
 
 import { FormEvent, useEffect, useState } from "react";
 
-const requestEndpoint = process.env.NEXT_PUBLIC_DEMO_REQUEST_ENDPOINT || "https://demo.auctrail.com/api/demo/access";
+const requestEndpoint = process.env.NEXT_PUBLIC_DEMO_REQUEST_ENDPOINT || "https://formsubmit.co/ajax/info@auctrail.com";
 
 export default function DemoForm() {
   const [selectedPlan, setSelectedPlan] = useState("");
@@ -28,11 +28,13 @@ export default function DemoForm() {
     setStatus("submitting");
     setErrorMessage("");
     const data = new FormData(form);
+    data.append("_subject", "New Auctrail demo request");
+    data.append("_template", "table");
     try {
       const response = await fetch(requestEndpoint, {
         method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(Object.fromEntries(data.entries())),
+        headers: { Accept: "application/json" },
+        body: data,
       });
       const result = await response.json().catch(() => ({})) as { error?: string };
       if (!response.ok) throw new Error(result.error || "Your request could not be sent.");
@@ -60,7 +62,7 @@ export default function DemoForm() {
       <p className="demo-privacy">Your email is the only required contact information. We do not ask for a phone number and will not use high-pressure sales tactics. Please do not include confidential case, buyer, or payment information.</p>
       <label className="demo-honeypot" aria-hidden="true">Website<input name="website" tabIndex={-1} autoComplete="off" /></label>
       <button className="button button-primary" type="submit" disabled={status === "submitting"}>{status === "submitting" ? "Sending request…" : "Request Demo"}</button>
-      {status === "success" ? <p className="demo-status success" role="status">Check your email for Administrator and Regular User demo access. Access remains active for 72 hours, and demonstration data resets every 24 hours.</p> : null}
+      {status === "success" ? <p className="demo-status success" role="status">Thanks. Your demo request has been sent. We’ll follow up by email.</p> : null}
       {status === "error" ? <p className="demo-status error" role="alert">{errorMessage || "Enter a valid email address and try again."}</p> : null}
     </form>
   );
