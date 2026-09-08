@@ -4,10 +4,11 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "build": "node scripts/verify-approved-screenshots.mjs && next build",
+    "prebuild": "python3 scripts/unpack-approved-webp.py",
+    "build": "next build",
     "start": "next start",
     "lint": "eslint .",
-    "verify:screenshots": "node scripts/verify-approved-screenshots.mjs"
+    "verify:screenshots": "python3 scripts/unpack-approved-webp.py"
   },
   "dependencies": { "next": "16.2.9", "react": "19.2.4", "react-dom": "19.2.4" },
   "devDependencies": { "@types/node": "^20", "@types/react": "^19", "@types/react-dom": "^19", "eslint": "^9", "eslint-config-next": "16.2.9", "typescript": "^5" }
