@@ -1,30 +1,121 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import Link from "next/link";
 import TestFooter from "./test-footer";
 import TestHeader from "./test-header";
 
-export const metadata: Metadata = { title: "Auctrail — Simple Product Preview", robots: { index: false, follow: false } };
-
-const audiences = [
-  ["Public agencies", "Cities, counties, districts, authorities, and public-service organizations managing surplus property."],
-  ["Businesses", "Companies and multi-location teams that need a consistent process for selling or transferring excess assets."],
-  ["Nonprofits & institutions", "Schools, healthcare groups, associations, and nonprofits that need clear records and accountability."],
-];
+export const metadata: Metadata = {
+  title: "Auctrail — Product Preview",
+  description: "Auctrail brings surplus intake, sale preparation, records, and closeout into one clear workflow.",
+  robots: { index: false, follow: false },
+};
 
 const benefits = [
-  ["Less duplicate work", "Enter sale information once, then reuse it for reports, labels, and supported auction exports."],
-  ["Clear responsibility", "See who owns each case, what has been completed, and what needs attention next."],
-  ["A complete record", "Keep photos, documents, approvals, sale results, payment, pickup, and history together."],
+  ["One connected record", "Keep property details, photos, documents, approvals, sale results, payment, and pickup history together."],
+  ["Less repeated work", "Enter information once and carry it through reports, labels, and supported sales-channel exports."],
+  ["A clearer next step", "See what is active, who is responsible, and what needs attention without chasing spreadsheets or email."],
 ];
 
 export default function TestSitePage() {
-  return <main className="test-site"><TestHeader />
-    <section className="test-hero"><div className="test-shell test-hero-grid"><div><p className="test-kicker">Surplus asset disposition</p><h1>One clear path from surplus property to completed sale.</h1><p>Auctrail helps organizations intake property, prepare it for sale, document the result, and keep the complete record in one place.</p><div className="test-actions"><Link className="test-button" href="/test-site/contact">Request information</Link><a className="test-button secondary" href="#product">See the product</a></div><div className="test-proof"><span>Built for real workflows</span><span>Web and iPad access</span><span>Hosted and supported</span></div></div><div className="product-frame"><img src="/test-site/dashboard.webp" alt="Auctrail web application dashboard" /><p className="product-caption">Current Auctrail web application</p></div></div></section>
-    <section className="test-section" id="who"><div className="test-shell"><div className="test-section-head"><p className="test-kicker">Who it’s for</p><h2>Organizations responsible for moving surplus property forward.</h2><p>Auctrail is for teams that need more control than disconnected spreadsheets, folders, and email chains can provide.</p></div><div className="audience-grid">{audiences.map(([title,copy])=><article className="simple-card" key={title}><span>Designed for</span><h3>{title}</h3><p>{copy}</p></article>)}</div></div></section>
-    <section className="test-section alt"><div className="test-shell"><div className="test-section-head"><p className="test-kicker">The process</p><h2>Follow the sale from intake through closeout.</h2></div><div className="workflow">{[["1","Receive","Create the record and capture the property details."],["2","Review","Complete approvals and assign responsibility."],["3","Prepare","Organize photos, documents, pricing, and listing details."],["4","Sell","Send clean information to the selected sales channel."],["5","Close","Record payment, pickup, buyer details, and the final result."]].map(([n,t,p])=><div key={n}><strong>{n}. {t}</strong><p>{p}</p></div>)}</div></div></section>
-    <section className="test-section" id="product"><div className="test-shell"><div className="test-section-head"><p className="test-kicker">Product details</p><h2>Useful tools without unnecessary complexity.</h2></div><div className="image-stack"><div className="image-feature"><div className="feature-copy"><h3>See the work that needs attention.</h3><p>The web application gives staff and administrators a shared view of active cases, assets, deadlines, documents, and completed work.</p><ul><li>Cases and assets in one system</li><li>Photos and documents attached to the record</li><li>Reports, exports, labels, and QR access</li></ul></div><div className="product-frame"><img src="/test-site/cases.webp" alt="Auctrail web application cases list" /><p className="product-caption">Current web application cases and work queue</p></div></div><div className="ipad-feature"><div className="feature-copy"><p className="test-kicker">Auctrail for iPad</p><h3>Take the workflow into the field.</h3><p>The iPad experience gives staff a clear, touch-friendly way to review active work and update records while they are with the physical property.</p><ul><li>Full landscape workspace</li><li>Quick access to dashboard, assets, cases, and reports</li><li>Case details and workflow actions in the field</li></ul></div><div className="ipad-gallery"><figure className="ipad-shot featured"><img src="/screenshots/iPad/dashboard.webp" alt="Auctrail iPad dashboard" /><figcaption>Dashboard overview</figcaption></figure><figure className="ipad-shot"><img src="/screenshots/iPad/cases.webp" alt="Auctrail iPad cases list" /><figcaption>Active and completed cases</figcaption></figure><figure className="ipad-shot"><img src="/screenshots/iPad/case-detail.webp" alt="Auctrail iPad case detail screen" /><figcaption>Case details and next workflow action</figcaption></figure></div></div></div></div></section>
-    <section className="test-section demo-section"><div className="test-shell demo-panel"><div><p className="test-kicker">Try the demo</p><h2>Explore Auctrail before we talk.</h2><p>Request temporary access to a working Auctrail demo. You’ll receive Administrator and Regular User access by email so you can see how the product handles real surplus workflows.</p></div><div className="demo-details"><div><strong>72-hour access</strong><span>Take time to explore the product on your schedule.</span></div><div><strong>Fresh sample data</strong><span>Demonstration data resets every 24 hours.</span></div><Link className="test-button" href="/demo">Request demo access</Link></div></div></section>
-    <section className="test-section alt"><div className="test-shell"><div className="test-section-head"><p className="test-kicker">Why Auctrail</p><h2>A simpler way to keep the sale moving.</h2></div><div className="benefit-grid">{benefits.map(([title,copy])=><article className="simple-card" key={title}><h3>{title}</h3><p>{copy}</p></article>)}</div></div></section>
-    <section className="test-cta"><div className="test-shell test-cta-inner"><div><h2>See whether Auctrail fits your process.</h2><p>Tell us how your organization handles surplus property today.</p></div><Link className="test-button" href="/test-site/contact">Contact Auctrail</Link></div></section><TestFooter />
-  </main>;
+  return (
+    <main className="new-site">
+      <TestHeader />
+
+      <section className="hero">
+        <div className="site-shell hero-grid">
+          <div className="hero-copy">
+            <div className="eyebrow"><span /> Surplus asset disposition</div>
+            <h1>Move surplus property forward with confidence.</h1>
+            <p>Auctrail gives your team one clear place to manage the work from intake through completed sale.</p>
+            <div className="button-row">
+              <Link className="site-button" href="/test-site/demo">Request a demo</Link>
+              <Link className="text-link" href="/test-site/contact">Ask a question <span aria-hidden="true">→</span></Link>
+            </div>
+            <p className="development-note">Currently in active development.</p>
+          </div>
+          <div className="screen-wrap hero-screen">
+            <Image src="/test-site/dashboard.webp" alt="Auctrail web application dashboard" width={1440} height={960} priority />
+          </div>
+        </div>
+      </section>
+
+      <section className="audience-strip">
+        <div className="site-shell">
+          <span>Built for</span>
+          <strong>Public agencies</strong>
+          <strong>Businesses</strong>
+          <strong>Nonprofits</strong>
+          <strong>Schools & institutions</strong>
+        </div>
+      </section>
+
+      <section className="section">
+        <div className="site-shell">
+          <div className="section-heading centered">
+            <span className="section-label">Why Auctrail</span>
+            <h2>A simpler way to manage the whole disposition process.</h2>
+            <p>Designed around the work your team already does—without adding unnecessary complexity.</p>
+          </div>
+          <div className="benefit-grid">
+            {benefits.map(([title, copy], index) => (
+              <article className="benefit-card" key={title}>
+                <span className="card-number">0{index + 1}</span>
+                <h3>{title}</h3>
+                <p>{copy}</p>
+              </article>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="section soft">
+        <div className="site-shell product-row">
+          <div className="product-copy">
+            <span className="section-label">Web application</span>
+            <h2>Know where every case stands.</h2>
+            <p>Give administrators and staff a shared view of active cases, assets, deadlines, documents, and completed work.</p>
+            <ul>
+              <li>Track intake through closeout</li>
+              <li>Keep photos and documents with the record</li>
+              <li>Prepare reports, labels, and supported exports</li>
+            </ul>
+          </div>
+          <div className="screen-wrap">
+            <Image src="/test-site/cases.webp" alt="Auctrail web application cases list" width={1440} height={960} />
+          </div>
+        </div>
+      </section>
+
+      <section className="section">
+        <div className="site-shell product-row reverse">
+          <div className="product-copy">
+            <span className="section-label">Auctrail for iPad</span>
+            <h2>Bring the workflow to the property.</h2>
+            <p>A touch-friendly workspace helps staff review cases, find assets, and move work forward while they are in the field.</p>
+            <ul>
+              <li>Landscape workspace with clear navigation</li>
+              <li>Fast access to assets, cases, and reports</li>
+              <li>Real records and workflow actions on the go</li>
+            </ul>
+          </div>
+          <div className="screen-wrap">
+            <Image src="/screenshots/iPad/dashboard.webp" alt="Auctrail iPad dashboard" width={1536} height={1152} />
+          </div>
+        </div>
+      </section>
+
+      <section className="final-cta">
+        <div className="site-shell final-cta-inner">
+          <div>
+            <span className="section-label light">See it for yourself</span>
+            <h2>Take a closer look at Auctrail.</h2>
+            <p>Explore the current product with temporary demo access.</p>
+          </div>
+          <Link className="site-button light-button" href="/test-site/demo">Request a demo</Link>
+        </div>
+      </section>
+
+      <TestFooter />
+    </main>
+  );
 }
