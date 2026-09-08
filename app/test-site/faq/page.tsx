@@ -6,7 +6,8 @@ import TestHeader from "../test-header";
 export const metadata: Metadata = {
   title: "FAQ — Auctrail",
   description: "Answers to common questions about Auctrail and surplus asset disposition.",
-  robots: { index: false, follow: false },
+  alternates: { canonical: "https://auctrail.com/faq" },
+  robots: { index: true, follow: true },
 };
 
 const questions = [
@@ -41,7 +42,7 @@ export default function FaqPage() {
           ))}
           <div className="inline-cta">
             <div><strong>Still have a question?</strong><p>Send us a note through the information form.</p></div>
-            <Link className="site-button secondary-button" href="/test-site/contact">Contact Auctrail</Link>
+            <Link className="site-button secondary-button" href="/contact">Contact Auctrail</Link>
           </div>
         </div>
       </section>

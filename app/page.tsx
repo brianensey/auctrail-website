@@ -1,4 +1,1 @@
-import UnderDevelopmentPage, { metadata } from "./under-development/page";
-
-export { metadata };
-export default UnderDevelopmentPage;
+export { default, metadata } from "./test-site/page";

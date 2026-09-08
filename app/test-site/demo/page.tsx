@@ -7,7 +7,8 @@ import TestHeader from "../test-header";
 export const metadata: Metadata = {
   title: "Request a Demo — Auctrail",
   description: "Request temporary access to the current Auctrail product demo.",
-  robots: { index: false, follow: false },
+  alternates: { canonical: "https://auctrail.com/demo" },
+  robots: { index: true, follow: true },
 };
 
 export default function DemoPage() {

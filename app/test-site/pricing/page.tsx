@@ -6,7 +6,8 @@ import TestHeader from "../test-header";
 export const metadata: Metadata = {
   title: "Pricing — Auctrail",
   description: "A friendly update about Auctrail pricing while the product remains in active development.",
-  robots: { index: false, follow: false },
+  alternates: { canonical: "https://auctrail.com/pricing" },
+  robots: { index: true, follow: true },
 };
 
 export default function PricingPage() {
@@ -19,8 +20,8 @@ export default function PricingPage() {
           <h1>Glad to see you’re interested.</h1>
           <p>Auctrail is still in active development, so final pricing has not been published yet. We’re focused on finishing a dependable product and making sure the plans are clear and fair before launch.</p>
           <div className="button-row centered-row">
-            <Link className="site-button" href="/test-site/contact">Ask about the product</Link>
-            <Link className="text-link" href="/test-site/demo">Request a demo <span aria-hidden="true">→</span></Link>
+            <Link className="site-button" href="/contact">Ask about the product</Link>
+            <Link className="text-link" href="/demo">Request a demo <span aria-hidden="true">→</span></Link>
           </div>
         </div>
       </section>

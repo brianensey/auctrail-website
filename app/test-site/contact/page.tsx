@@ -7,7 +7,8 @@ import TestHeader from "../test-header";
 export const metadata: Metadata = {
   title: "Contact — Auctrail",
   description: "Ask Auctrail a product, availability, pricing, or onboarding question.",
-  robots: { index: false, follow: false },
+  alternates: { canonical: "https://auctrail.com/contact" },
+  robots: { index: true, follow: true },
 };
 
 export default function ContactPage() {
@@ -23,7 +24,7 @@ export default function ContactPage() {
             <div className="form-aside">
               <strong>Looking for a demo?</strong>
               <p>The demo has its own short request form.</p>
-              <Link className="text-link" href="/test-site/demo">Go to demo request <span aria-hidden="true">→</span></Link>
+              <Link className="text-link" href="/demo">Go to demo request <span aria-hidden="true">→</span></Link>
             </div>
           </div>
           <ContactForm />
