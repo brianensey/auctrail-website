@@ -26,21 +26,33 @@ const workflow = [
   ["05", "Close out", "Preserve payment, pickup, proof, buyer details, notes, and completed history."],
 ];
 
+function ProductShot({ src, alt, caption, compact = false }: { src: string; alt: string; caption: string; compact?: boolean }) {
+  return (
+    <figure className={`${styles.productShot} ${compact ? styles.productShotCompact : ""}`}>
+      <div className={styles.productShotFrame}><img src={src} alt={alt} /></div>
+      <figcaption>{caption}<span>Actual Auctrail staging interface</span></figcaption>
+    </figure>
+  );
+}
+
 export default function HomePage() {
   return (
     <main className={styles.site}>
       <MarketingHeader />
 
       <section className={styles.hero}>
-        <div className={styles.shell}>
-          <p className={styles.kicker}>Asset disposition management</p>
-          <h1>One place to manage surplus property from intake through closeout.</h1>
-          <p className={styles.lead}>Auctrail is being built for public agencies, businesses, nonprofits, institutions, and other organizations that need a controlled process for preparing, selling, documenting, and closing out surplus property.</p>
-          <div className={styles.actions}>
-            <a className={styles.primary} href="#platform">Explore the platform</a>
-            <Link className={styles.secondary} href="/plans">Pricing status</Link>
+        <div className={`${styles.shell} ${styles.heroLayout}`}>
+          <div>
+            <p className={styles.kicker}>Asset disposition management</p>
+            <h1>One place to manage surplus property from intake through closeout.</h1>
+            <p className={styles.lead}>Auctrail is being built for public agencies, businesses, nonprofits, institutions, and other organizations that need a controlled process for preparing, selling, documenting, and closing out surplus property.</p>
+            <div className={styles.actions}>
+              <a className={styles.primary} href="#platform">Explore the platform</a>
+              <Link className={styles.secondary} href="/plans">Pricing status</Link>
+            </div>
+            <div className={styles.status}><strong>Current status:</strong> Auctrail is still in active development. The web application, public website, documentation, support workflow, and launch readiness are the current priority.</div>
           </div>
-          <div className={styles.status}><strong>Current status:</strong> Auctrail is still in active development. The web application, public website, documentation, support workflow, and launch readiness are the current priority.</div>
+          <ProductShot src="/screenshots/dashboard.svg" alt="Current Auctrail dashboard and profile interface" caption="Current web application dashboard" compact />
         </div>
       </section>
 
@@ -53,6 +65,10 @@ export default function HomePage() {
           <div className={styles.grid}>
             {capabilities.map(([title, description]) => <article key={title}><h3>{title}</h3><p>{description}</p></article>)}
           </div>
+          <div className={styles.screenshotPair}>
+            <ProductShot src="/screenshots/assets.svg" alt="Current Auctrail Assets screen" caption="Assets and property records" />
+            <ProductShot src="/screenshots/cases.svg" alt="Current Auctrail Cases screen" caption="Case management and work queues" />
+          </div>
         </div>
       </section>
 
@@ -62,15 +78,36 @@ export default function HomePage() {
           <div className={styles.workflow}>
             {workflow.map(([number, title, description]) => <article key={number}><span>{number}</span><h3>{title}</h3><p>{description}</p></article>)}
           </div>
+          <div className={styles.workflowScreenshot}>
+            <ProductShot src="/screenshots/case-detail.svg" alt="Current Auctrail individual case detail screen" caption="A real case record with its workflow and details" />
+          </div>
         </div>
       </section>
 
       <section className={styles.section}>
         <div className={styles.shell}>
-          <div className={styles.sectionIntro}><div><p className={styles.kicker}>Application screenshots</p><h2>Only the real application will be shown here.</h2></div><p>We are replacing earlier concept-style interface graphics with screenshots captured from the current Auctrail application itself. No marketing mockup will be presented as the product UI.</p></div>
-          <div className={styles.screenshotNotice}>
-            <strong>Current-app screenshots are being prepared.</strong>
-            <p>The public site will show the actual dashboard, case workflow, photo/document management, auction preparation, reporting, and administration screens as they exist in the application.</p>
+          <div className={`${styles.featureBand} ${styles.featureBandReverse}`}>
+            <div>
+              <p className={styles.kicker}>Photos and auction preparation</p>
+              <h2>Keep auction images with the case and take them with you.</h2>
+              <p>Photos and PDFs are managed directly on the case. Auction photos can be placed in the intended order and downloaded together as an image ZIP for use on supported auction sites.</p>
+              <ul><li>Drag-and-drop photo and PDF upload</li><li>Saved photo ordering</li><li>Download Images ZIP action</li><li>Case documents stay connected to the record</li></ul>
+            </div>
+            <ProductShot src="/screenshots/photos-download.svg" alt="Current Auctrail photo upload and Download Images interface" caption="Photos, documents, and Download Images" />
+          </div>
+        </div>
+      </section>
+
+      <section className={`${styles.section} ${styles.reportSection}`}>
+        <div className={styles.shell}>
+          <div className={styles.featureBand}>
+            <ProductShot src="/screenshots/reports.svg" alt="Current Auctrail reports screen" caption="Operational reporting in the current app" />
+            <div>
+              <p className={styles.kicker}>Reporting and completed history</p>
+              <h2>See the work that is moving and preserve the work that is finished.</h2>
+              <p>Reporting is part of the operating workflow, not a separate spreadsheet exercise. Auctrail is designed to keep management visibility and completed-sale history connected to the underlying records.</p>
+              <ul><li>Operational reports</li><li>Excel and CSV exports</li><li>Searchable completed records</li><li>Sale, payment, pickup, and closeout history</li></ul>
+            </div>
           </div>
         </div>
       </section>
