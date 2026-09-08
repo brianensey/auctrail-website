@@ -21,7 +21,7 @@ export default function TestHeader() {
       <div className="site-shell site-nav">
         <Link className="brand" href="/test-site" aria-label="Auctrail home" onClick={() => setOpen(false)}>
           <span className="brand-icon" aria-hidden="true">
-            <Image src="/auctrail-logo-official.jpeg" alt="" width={928} height={901} priority />
+            <Image src="/auctrail-logo-mark.png" alt="" width={512} height={512} priority />
           </span>
           <span className="brand-word">Auctrail</span>
         </Link>

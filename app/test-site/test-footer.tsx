@@ -8,7 +8,7 @@ export default function TestFooter() {
         <div>
           <div className="footer-brand" aria-label="Auctrail">
             <span className="brand-icon" aria-hidden="true">
-              <Image src="/auctrail-logo-official.jpeg" alt="" width={928} height={901} />
+              <Image src="/auctrail-logo-mark.png" alt="" width={512} height={512} />
             </span>
             <span className="brand-word">Auctrail</span>
           </div>
