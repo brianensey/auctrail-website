@@ -15,11 +15,11 @@ export default function TestFooter() {
           <p>A clear path from surplus intake to completed sale.</p>
         </div>
         <nav aria-label="Footer navigation">
-          <a href="/test-site/#auction-workflow">Product</a>
-          <Link href="/test-site/pricing">Pricing</Link>
-          <Link href="/test-site/faq">FAQ</Link>
-          <Link href="/test-site/contact">Contact</Link>
-          <Link href="/test-site/demo">Request a demo</Link>
+          <a href="/#auction-workflow">Product</a>
+          <Link href="/pricing">Pricing</Link>
+          <Link href="/faq">FAQ</Link>
+          <Link href="/contact">Contact</Link>
+          <Link href="/demo">Request a demo</Link>
         </nav>
       </div>
       <div className="site-shell footer-bottom">
