@@ -20,7 +20,7 @@ export default function TestHeader() {
     <header className="site-header">
       <div className="site-shell site-nav">
         <Link className="brand" href="/test-site" aria-label="Auctrail home" onClick={() => setOpen(false)}>
-          <Image src="/auctrail-logo-approved.jpg" alt="Auctrail" width={425} height={115} priority />
+          <Image src="/auctrail-logo-official.jpeg" alt="Auctrail" width={928} height={901} priority />
         </Link>
         <button className="menu-button" type="button" aria-expanded={open} aria-controls="site-menu" onClick={() => setOpen(!open)}>
           <span /><span /><span /><span className="sr-only">Menu</span>
