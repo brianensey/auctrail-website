@@ -72,7 +72,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      <section className={`${styles.section} ${styles.workflowSection}`}>
+      <section className={`${styles.section} ${styles.workflowSection}`} id="workflow">
         <div className={styles.shell}>
           <div className={styles.sectionIntro}><div><p className={styles.kicker}>Workflow</p><h2>A clear path from intake to completed record.</h2></div><p>Auctrail keeps each stage visible without forcing organizations to rebuild the same information in separate spreadsheets, emails, and folders.</p></div>
           <div className={styles.workflow}>
@@ -84,7 +84,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      <section className={styles.section}>
+      <section className={styles.section} id="integrations">
         <div className={styles.shell}>
           <div className={`${styles.featureBand} ${styles.featureBandReverse}`}>
             <div>
@@ -98,7 +98,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      <section className={`${styles.section} ${styles.reportSection}`}>
+      <section className={`${styles.section} ${styles.reportSection}`} id="operations">
         <div className={styles.shell}>
           <div className={styles.featureBand}>
             <ProductShot src="/screenshots/reports.svg" alt="Current Auctrail reports screen" caption="Operational reporting in the current app" />
@@ -112,10 +112,24 @@ export default function HomePage() {
         </div>
       </section>
 
-      <section className={`${styles.section} ${styles.audienceSection}`}>
+      <section className={`${styles.section} ${styles.audienceSection}`} id="industries">
         <div className={styles.shell}>
           <div className={styles.sectionIntro}><div><p className={styles.kicker}>Built for organizations with surplus property</p><h2>Not limited to one industry.</h2></div><p>Auctrail is intended for organizations that need responsibility, documentation, and repeatable disposition workflows across departments, locations, or teams.</p></div>
           <div className={styles.audienceGrid}><span>Government & public agencies</span><span>Commercial businesses</span><span>Nonprofits</span><span>Education</span><span>Healthcare</span><span>Industrial & field operations</span><span>Multi-location organizations</span><span>Associations & institutions</span></div>
+        </div>
+      </section>
+
+      <section className={styles.section}>
+        <div className={styles.shell}>
+          <div className={`${styles.featureBand} ${styles.featureBandReverse}`}>
+            <div>
+              <p className={styles.kicker}>Administration</p>
+              <h2>Configure people, organization structure, workflows, and integrations in one place.</h2>
+              <p>The Administration area provides the settings used to manage users, departments, locations, workflow rules, permissions, and supported sales integrations.</p>
+              <ul><li>Users and roles</li><li>Departments and locations</li><li>Workflow and permission settings</li><li>Auction integrations and operating configuration</li></ul>
+            </div>
+            <ProductShot src="/screenshots/administration.svg" alt="Current Auctrail Administration screen" caption="Administration and organization configuration" />
+          </div>
         </div>
       </section>
 
