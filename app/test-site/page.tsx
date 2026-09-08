@@ -1,0 +1,29 @@
+import type { Metadata } from "next";
+import Link from "next/link";
+import TestFooter from "./test-footer";
+import TestHeader from "./test-header";
+
+export const metadata: Metadata = { title: "Auctrail — Simple Product Preview", robots: { index: false, follow: false } };
+
+const audiences = [
+  ["Public agencies", "Cities, counties, districts, authorities, and public-service organizations managing surplus property."],
+  ["Businesses", "Companies and multi-location teams that need a consistent process for selling or transferring excess assets."],
+  ["Nonprofits & institutions", "Schools, healthcare groups, associations, and nonprofits that need clear records and accountability."],
+];
+
+const benefits = [
+  ["Less duplicate work", "Enter sale information once, then reuse it for reports, labels, and supported auction exports."],
+  ["Clear responsibility", "See who owns each case, what has been completed, and what needs attention next."],
+  ["A complete record", "Keep photos, documents, approvals, sale results, payment, pickup, and history together."],
+];
+
+export default function TestSitePage() {
+  return <main className="test-site"><TestHeader />
+    <section className="test-hero"><div className="test-shell test-hero-grid"><div><p className="test-kicker">Surplus asset disposition</p><h1>One clear path from surplus property to completed sale.</h1><p>Auctrail helps organizations intake property, prepare it for sale, document the result, and keep the complete record in one place.</p><div className="test-actions"><Link className="test-button" href="/test-site/contact">Request information</Link><a className="test-button secondary" href="#product">See the product</a></div><div className="test-proof"><span>Built for real workflows</span><span>Web and iPad access</span><span>Hosted and supported</span></div></div><div className="product-frame"><img src="/screenshots/approved/dashboard.webp" alt="Auctrail web application dashboard" /><p className="product-caption">Current Auctrail web application</p></div></div></section>
+    <section className="test-section" id="who"><div className="test-shell"><div className="test-section-head"><p className="test-kicker">Who it’s for</p><h2>Organizations responsible for moving surplus property forward.</h2><p>Auctrail is for teams that need more control than disconnected spreadsheets, folders, and email chains can provide.</p></div><div className="audience-grid">{audiences.map(([title,copy])=><article className="simple-card" key={title}><span>Designed for</span><h3>{title}</h3><p>{copy}</p></article>)}</div></div></section>
+    <section className="test-section alt"><div className="test-shell"><div className="test-section-head"><p className="test-kicker">The process</p><h2>Follow the sale from intake through closeout.</h2></div><div className="workflow">{[["1","Receive","Create the record and capture the property details."],["2","Review","Complete approvals and assign responsibility."],["3","Prepare","Organize photos, documents, pricing, and listing details."],["4","Sell","Send clean information to the selected sales channel."],["5","Close","Record payment, pickup, buyer details, and the final result."]].map(([n,t,p])=><div key={n}><strong>{n}. {t}</strong><p>{p}</p></div>)}</div></div></section>
+    <section className="test-section" id="product"><div className="test-shell"><div className="test-section-head"><p className="test-kicker">Product details</p><h2>Useful tools without unnecessary complexity.</h2></div><div className="image-stack"><div className="image-feature"><div className="feature-copy"><h3>See the work that needs attention.</h3><p>The web application gives staff and administrators a shared view of active cases, assets, deadlines, documents, and completed work.</p><ul><li>Cases and assets in one system</li><li>Photos and documents attached to the record</li><li>Reports, exports, labels, and QR access</li></ul></div><div className="product-frame"><img src="/screenshots/approved/cases-list.webp" alt="Auctrail cases list" /><p className="product-caption">Current cases and work queue</p></div></div><div className="image-feature reverse"><div className="feature-copy"><h3>Take the workflow into the field.</h3><p>The planned iPad experience is designed for quick asset intake, lookup, photos, and action while staff are working around physical property.</p><ul><li>Landscape iPad interface</li><li>Bottom navigation for fast access</li><li>Asset list and detail views</li></ul></div><img className="ipad-image" src="/test-site/ipad-app.webp" alt="Auctrail iPad application design showing dashboard, asset list, and asset detail" /></div></div></div></section>
+    <section className="test-section alt"><div className="test-shell"><div className="test-section-head"><p className="test-kicker">Why Auctrail</p><h2>A simpler way to keep the sale moving.</h2></div><div className="benefit-grid">{benefits.map(([title,copy])=><article className="simple-card" key={title}><h3>{title}</h3><p>{copy}</p></article>)}</div></div></section>
+    <section className="test-cta"><div className="test-shell test-cta-inner"><div><h2>See whether Auctrail fits your process.</h2><p>Tell us how your organization handles surplus property today.</p></div><Link className="test-button" href="/test-site/contact">Contact Auctrail</Link></div></section><TestFooter />
+  </main>;
+}
