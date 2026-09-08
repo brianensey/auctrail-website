@@ -15,6 +15,8 @@ export default function TestFooter() {
           <p>A clear path from surplus intake to completed sale.</p>
         </div>
         <nav aria-label="Footer navigation">
+          {/* A native anchor guarantees the workflow hash loads from every route. */}
+          {/* eslint-disable-next-line @next/next/no-html-link-for-pages */}
           <a href="/#auction-workflow">Product</a>
           <Link href="/pricing">Pricing</Link>
           <Link href="/faq">FAQ</Link>
