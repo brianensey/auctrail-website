@@ -1,3 +1,11 @@
+const approvedScreenshotMap: Record<string, string> = {
+  "/screenshots/dashboard.svg": "/screenshots/approved/dashboard.webp",
+  "/screenshots/assets.svg": "/screenshots/approved/assets.webp",
+  "/screenshots/cases.svg": "/screenshots/approved/cases-list.webp",
+  "/screenshots/case-detail.svg": "/screenshots/approved/cases-list.webp",
+  "/screenshots/reports.svg": "/screenshots/approved/reports.webp",
+};
+
 export default function RealAppShot({
   src,
   alt,
@@ -7,6 +15,12 @@ export default function RealAppShot({
   alt: string;
   caption: string;
 }) {
+  // No approved public screenshot exists yet for the photo/document manager.
+  // Keep that subject text-only instead of showing an unrelated image.
+  if (src === "/screenshots/photos-download.svg") return null;
+
+  const resolvedSrc = approvedScreenshotMap[src] ?? src;
+
   return (
     <figure style={{ margin: "34px auto 0", width: "100%", maxWidth: 1120 }}>
       <div
@@ -19,9 +33,9 @@ export default function RealAppShot({
         }}
       >
         <img
-          src={src}
+          src={resolvedSrc}
           alt={alt}
-          style={{ display: "block", width: "100%", height: "auto" }}
+          style={{ display: "block", width: "100%", height: "auto", objectFit: "contain" }}
         />
       </div>
       <figcaption
