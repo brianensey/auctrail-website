@@ -1,7 +1,35 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import ContactForm from "./contact-form";
 import TestFooter from "../test-footer";
 import TestHeader from "../test-header";
 
-export const metadata: Metadata = { title: "Contact — Auctrail Test Site", robots: { index: false, follow: false } };
-export default function TestContactPage(){return <main className="test-site"><TestHeader/><section className="test-page-hero"><div className="test-shell"><p className="test-kicker">Contact Auctrail</p><h1>Choose the help you need.</h1><p>Product questions, account help, and technical support all start here.</p></div></section><section className="test-section"><div className="test-shell"><div className="contact-grid"><article className="simple-card"><span>New organizations</span><h3>Product questions</h3><p>Ask about fit, availability, onboarding, supported workflows, or launch plans.</p><a className="test-button" href="mailto:info@auctrail.com?subject=Auctrail%20product%20question">Email Auctrail</a></article><article className="simple-card"><span>Current clients</span><h3>Account support</h3><p>Get help accessing your organization’s workspace or managing your account.</p><Link className="test-button secondary" href="/support">Open support</Link></article><article className="simple-card"><span>Application help</span><h3>Technical support</h3><p>Report an application, export, label, QR workflow, or hosted-service issue.</p><Link className="test-button secondary" href="/technical-support">Get technical help</Link></article></div><div className="contact-demo"><div><strong>Want to explore the product?</strong><p>The demo request has its own short form and provides temporary access by email.</p></div><Link className="test-button secondary" href="/demo">Request demo access</Link></div><p className="contact-note">Auctrail is still in active development. Final launch availability, onboarding packages, and pricing have not yet been published.</p></div></section><TestFooter/></main>}
+export const metadata: Metadata = {
+  title: "Contact — Auctrail",
+  description: "Ask Auctrail a product, availability, pricing, or onboarding question.",
+  robots: { index: false, follow: false },
+};
+
+export default function ContactPage() {
+  return (
+    <main className="new-site">
+      <TestHeader />
+      <section className="form-page">
+        <div className="site-shell form-layout">
+          <div className="form-intro">
+            <span className="section-label">Contact Auctrail</span>
+            <h1>How can we help?</h1>
+            <p>Use this form for questions about the product, development, availability, future pricing, or your organization’s workflow.</p>
+            <div className="form-aside">
+              <strong>Looking for a demo?</strong>
+              <p>The demo has its own short request form.</p>
+              <Link className="text-link" href="/test-site/demo">Go to demo request <span aria-hidden="true">→</span></Link>
+            </div>
+          </div>
+          <ContactForm />
+        </div>
+      </section>
+      <TestFooter />
+    </main>
+  );
+}
