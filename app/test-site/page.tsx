@@ -92,7 +92,7 @@ export default function TestSitePage() {
             <p className="band-number">03 / IPAD</p>
             <h2>Take the trail into the field.</h2>
             <p>A wide, touch-friendly workspace brings cases, assets, and actions to the property—not the other way around.</p>
-            <Link className="ink-link" href="/test-site/demo">See it in the demo <span aria-hidden="true">→</span></Link>
+
           </div>
         </div>
       </section>
