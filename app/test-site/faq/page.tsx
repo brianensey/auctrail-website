@@ -14,7 +14,7 @@ const questions = [
   ["Who is it designed for?", "Auctrail is being built for public agencies, businesses, nonprofits, schools, healthcare organizations, and other teams responsible for surplus property."],
   ["Is Auctrail an auction marketplace?", "No. Auctrail manages your organization’s internal disposition workflow and prepares information for supported sales channels."],
   ["Does Auctrail support photos and documents?", "Yes. Photos, approvals, titles, receipts, payment proof, pickup documentation, and other supporting files can stay with the record."],
-  ["Can it help with GovDeals?", "Auctrail can prepare supported export information. GovDeals Bulk Asset Upload must be enabled on the organization’s authorized GovDeals account."],
+  ["Will Auctrail integrate with eBay?", "We are working toward integration with eBay and other auction sites. Planned integrations will help reduce duplicate entry by moving approved asset details, photos, and listing information from Auctrail into supported sales channels."],
   ["Is there an iPad experience?", "An iPad experience is being designed for field intake, asset lookup, case review, photos, and record updates."],
   ["Is pricing available?", "Not yet. Auctrail is still in active development, and final launch pricing will be published when plans and included services are ready."],
   ["Can I try the product?", "Yes. Use the demo request form to request temporary access to the current Auctrail demo environment."],
