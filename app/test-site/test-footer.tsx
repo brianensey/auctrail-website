@@ -15,7 +15,7 @@ export default function TestFooter() {
           <p>A clear path from surplus intake to completed sale.</p>
         </div>
         <nav aria-label="Footer navigation">
-          <Link href="/test-site/#auction-workflow">Product</Link>
+          <a href="/test-site/#auction-workflow">Product</a>
           <Link href="/test-site/pricing">Pricing</Link>
           <Link href="/test-site/faq">FAQ</Link>
           <Link href="/test-site/contact">Contact</Link>
