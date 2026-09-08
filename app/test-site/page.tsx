@@ -5,9 +5,10 @@ import TestFooter from "./test-footer";
 import TestHeader from "./test-header";
 
 export const metadata: Metadata = {
-  title: "Auctrail — Product Preview",
+  title: "Auctrail | Asset Disposition Management",
   description: "Auctrail brings surplus intake, sale preparation, records, and closeout into one clear workflow.",
-  robots: { index: false, follow: false },
+  alternates: { canonical: "https://auctrail.com" },
+  robots: { index: true, follow: true },
 };
 
 const stages = [
@@ -31,8 +32,8 @@ export default function TestSitePage() {
               <h1>Surplus moves.<br /><em>Your records follow.</em></h1>
               <p className="hero-lede">Auctrail keeps every step—from first intake to final pickup—on one clear, accountable trail.</p>
               <div className="button-row">
-                <Link className="site-button" href="/test-site/demo">Explore the demo</Link>
-                <Link className="dark-text-link" href="/test-site/contact">Ask a product question <span aria-hidden="true">↗</span></Link>
+                <Link className="site-button" href="/demo">Explore the demo</Link>
+                <Link className="dark-text-link" href="/contact">Ask a product question <span aria-hidden="true">↗</span></Link>
               </div>
             </div>
             <div className="hero-product">
@@ -109,7 +110,7 @@ export default function TestSitePage() {
         <div className="site-shell editorial-cta-grid">
           <span className="cta-mark" aria-hidden="true">A</span>
           <div><p className="signal green-signal"><span /> Take the next step</p><h2>See where Auctrail could take your process.</h2></div>
-          <div className="cta-actions"><Link className="site-button" href="/test-site/demo">Request a demo</Link><Link className="ink-link" href="/test-site/contact">Contact us →</Link></div>
+          <div className="cta-actions"><Link className="site-button" href="/demo">Request a demo</Link><Link className="ink-link" href="/contact">Contact us →</Link></div>
         </div>
       </section>
 
