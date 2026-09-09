@@ -1,10 +1,48 @@
 services:
   - type: web
-    name: civicsurplus-website
+    name: auctrail-website
     runtime: static
-    buildCommand: npm install && npm run build
+    buildCommand: npm ci && npm run build
     staticPublishPath: ./out
     autoDeployTrigger: commit
+    renderSubdomainPolicy: disabled
+    routes:
+      - type: redirect
+        source: /test-site/faq/*
+        destination: /faq/
+      - type: redirect
+        source: /test-site/pricing/*
+        destination: /pricing/
+      - type: redirect
+        source: /test-site/contact/*
+        destination: /contact/
+      - type: redirect
+        source: /test-site/demo/*
+        destination: /demo/
+      - type: redirect
+        source: /test-site/*
+        destination: /
+      - type: redirect
+        source: /plans/*
+        destination: /pricing/
+      - type: redirect
+        source: /support/*
+        destination: /contact/
+      - type: redirect
+        source: /technical-support/*
+        destination: /contact/
+      - type: redirect
+        source: /organization-setup/*
+        destination: /contact/
+      - type: redirect
+        source: /agency-setup/*
+        destination: /contact/
+      - type: redirect
+        source: /preview-progress/*
+        destination: /
+      - type: redirect
+        source: /under-development/*
+        destination: /
     envVars:
       - key: NEXT_PUBLIC_DEMO_REQUEST_ENDPOINT
         value: https://formsubmit.co/ajax/info@auctrail.com
