@@ -31,6 +31,9 @@ export default function PrivacyPage() {
           <h2>Service providers</h2>
           <p>Auctrail may use service providers to transmit form submissions, host the website, deliver email, and maintain business records. These providers process information only as needed to provide those services.</p>
 
+          <h2>Website analytics</h2>
+          <p>Auctrail uses Google Analytics to understand how visitors find and use the public website. Google Analytics may collect information such as pages viewed, approximate location, browser and device details, referral source, and interactions with the website. It may use cookies or similar technologies to provide these measurements. Auctrail uses this information to improve the website and understand product interest; it is not used to collect confidential case, buyer, payment, or account information.</p>
+
           <h2>Sharing and retention</h2>
           <p>We do not sell personal information. Information may be retained for as long as reasonably necessary to respond to a request, maintain business records, comply with legal obligations, or protect the service.</p>
 
