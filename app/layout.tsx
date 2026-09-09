@@ -1,39 +1,39 @@
 import type { Metadata } from "next";
 import "./globals.css";
-import "./brand.css";
-import "./navigation.css";
-import "./test-site/test-site.css";
+import "./site.css";
+
+const siteUrl = "https://www.auctrail.com";
 
 export const metadata: Metadata = {
+  metadataBase: new URL(siteUrl),
   title: {
-    default: "Auctrail | Surplus Asset Disposition Software",
+    default: "Surplus Asset Disposition Software | Auctrail",
     template: "%s | Auctrail",
   },
   description:
-    "Auctrail is surplus asset disposition software for public agencies, businesses, nonprofits, education, healthcare, industrial operations, and other organizations preparing property for sale, organizing records, tracking listings, documenting payment and pickup, and preserving completed sale history.",
-  keywords: [
-    "surplus asset disposition software",
-    "surplus sales management software",
-    "business asset disposition software",
-    "industrial surplus asset software",
-    "education surplus property software",
-    "healthcare surplus asset software",
-    "nonprofit surplus property software",
-    "government surplus sales software",
-    "surplus auction management",
-    "GovDeals export software",
-  ],
-  alternates: {
-    canonical: "https://auctrail.com",
-  },
+    "Auctrail organizes surplus property from intake and review through sale preparation, payment, pickup, and completed history for public agencies, businesses, nonprofits, and institutions.",
+  applicationName: "Auctrail",
+  alternates: { canonical: "/" },
   robots: { index: true, follow: true },
+  icons: {
+    icon: [{ url: "/auctrail-logo-mark.png", type: "image/png", sizes: "512x512" }],
+    apple: [{ url: "/auctrail-logo-mark.png", type: "image/png", sizes: "512x512" }],
+  },
   openGraph: {
-    title: "Auctrail | Surplus Asset Disposition Software",
+    title: "Surplus Asset Disposition Software | Auctrail",
     description:
-      "One clear surplus-sale system for public agencies, businesses, nonprofits, institutions, industrial operations, and other organizations—from intake and sale preparation through payment, pickup, and completed sale history.",
-    url: "https://auctrail.com",
+      "One clear, accountable trail from surplus intake and sale preparation through payment, pickup, and completed history.",
+    url: siteUrl,
     siteName: "Auctrail",
+    locale: "en_US",
     type: "website",
+    images: [{ url: "/auctrail-logo-mark.png", width: 512, height: 512, alt: "Auctrail" }],
+  },
+  twitter: {
+    card: "summary",
+    title: "Surplus Asset Disposition Software | Auctrail",
+    description: "One clear, accountable trail from surplus intake through completed pickup.",
+    images: ["/auctrail-logo-mark.png"],
   },
 };
 
