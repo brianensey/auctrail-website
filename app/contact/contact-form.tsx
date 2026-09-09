@@ -2,6 +2,7 @@
 
 import { FormEvent, useState } from "react";
 import Link from "next/link";
+import { trackLead } from "../analytics";
 
 const contactEndpoint = process.env.NEXT_PUBLIC_CONTACT_REQUEST_ENDPOINT || "https://formsubmit.co/ajax/info@auctrail.com";
 
@@ -30,6 +31,7 @@ export default function ContactForm() {
       if (!response.ok) throw new Error();
       form.reset();
       setStatus("success");
+      trackLead("information_request");
     } catch {
       setStatus("error");
     }
