@@ -4,10 +4,26 @@ import { FormEvent, useState } from "react";
 import Link from "next/link";
 import { trackLead } from "../analytics";
 
-const requestEndpoint = process.env.NEXT_PUBLIC_DEMO_REQUEST_ENDPOINT || "https://formsubmit.co/ajax/info@auctrail.com";
+const leadEndpoint = process.env.NEXT_PUBLIC_DEMO_REQUEST_ENDPOINT || "https://formsubmit.co/ajax/info@auctrail.com";
+const demoAccessEndpoint = process.env.NEXT_PUBLIC_DEMO_ACCESS_ENDPOINT || "https://demo.auctrail.com/api/demo/access";
+
+type DemoAccessResponse = {
+  ok?: boolean;
+  expiresAt?: string;
+  error?: string;
+};
+
+async function readJson(response: Response): Promise<DemoAccessResponse> {
+  try {
+    return (await response.json()) as DemoAccessResponse;
+  } catch {
+    return {};
+  }
+}
 
 export default function DemoRequestForm() {
   const [status, setStatus] = useState<"idle" | "submitting" | "success" | "error">("idle");
+  const [message, setMessage] = useState("");
 
   async function submit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
@@ -18,22 +34,44 @@ export default function DemoRequestForm() {
     }
 
     setStatus("submitting");
-    const data = new FormData(form);
-    data.append("_subject", "New Auctrail demo request");
-    data.append("_template", "table");
+    setMessage("");
+
+    const formData = new FormData(form);
+    const payload = Object.fromEntries(formData.entries());
 
     try {
-      const response = await fetch(requestEndpoint, {
+      const accessResponse = await fetch(demoAccessEndpoint, {
+        method: "POST",
+        headers: {
+          Accept: "application/json",
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(payload),
+      });
+      const accessPayload = await readJson(accessResponse);
+
+      if (!accessResponse.ok) {
+        throw new Error(accessPayload.error || "Demo access could not be prepared right now.");
+      }
+
+      // Keep the existing website lead notification, but do not let a third-party
+      // notification failure prevent valid Auctrail Demo access from succeeding.
+      const leadData = new FormData(form);
+      leadData.append("_subject", "New Auctrail demo request");
+      leadData.append("_template", "table");
+      void fetch(leadEndpoint, {
         method: "POST",
         headers: { Accept: "application/json" },
-        body: data,
-      });
-      if (!response.ok) throw new Error();
+        body: leadData,
+      }).catch(() => undefined);
+
       form.reset();
       setStatus("success");
+      setMessage("Demo access has been prepared. Check your email for the temporary login credentials.");
       trackLead("demo_request");
-    } catch {
+    } catch (error) {
       setStatus("error");
+      setMessage(error instanceof Error ? error.message : "Your request could not be completed right now. Please try again shortly.");
     }
   }
 
@@ -49,10 +87,10 @@ export default function DemoRequestForm() {
       <label className="honeypot" aria-hidden="true">Website<input name="website" tabIndex={-1} autoComplete="off" /></label>
       <p className="form-note">Your email is the only required information. Please do not enter confidential records or account details. See our <Link href="/privacy">Privacy Policy</Link>.</p>
       <button className="site-button form-button" type="submit" disabled={status === "submitting"}>
-        {status === "submitting" ? "Sending…" : "Request demo access"}
+        {status === "submitting" ? "Preparing access…" : "Request demo access"}
       </button>
-      {status === "success" && <p className="form-status success" role="status">Thanks. Your demo request has been sent. We’ll follow up by email.</p>}
-      {status === "error" && <p className="form-status error" role="alert">Your request could not be sent right now. Please try again shortly.</p>}
+      {status === "success" && <p className="form-status success" role="status">{message}</p>}
+      {status === "error" && <p className="form-status error" role="alert">{message}</p>}
     </form>
   );
 }
