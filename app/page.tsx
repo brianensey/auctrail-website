@@ -56,7 +56,7 @@ export default function HomePage() {
               <h1>Surplus moves.<br /><em>Your records follow.</em></h1>
               <p className="hero-lede">Auctrail keeps surplus property, supporting records, and every next step—from first intake to final pickup—on one clear, accountable trail.</p>
               <div className="button-row">
-                <Link className="site-button" href="/demo">Explore the demo</Link>
+                <Link className="site-button" href="/contact">Contact Auctrail</Link>
                 <Link className="dark-text-link" href="/contact">Ask a product question <span aria-hidden="true">↗</span></Link>
               </div>
             </div>
@@ -134,7 +134,7 @@ export default function HomePage() {
         <div className="site-shell editorial-cta-grid">
           <span className="cta-mark" aria-hidden="true">A</span>
           <div><p className="signal green-signal"><span /> Take the next step</p><h2>See where Auctrail could take your process.</h2></div>
-          <div className="cta-actions"><Link className="site-button" href="/demo">Request a demo</Link><Link className="ink-link" href="/contact">Contact us →</Link></div>
+          <div className="cta-actions"><Link className="site-button" href="/contact">Contact Auctrail</Link></div>
         </div>
       </section>
 
