@@ -34,7 +34,7 @@ export default function SiteHeader() {
               <Link className={label === "Product" ? (pathname === "/" ? "active" : "") : (pathname === href ? "active" : "")} href={href} key={href} onClick={(event) => { setOpen(false); if (label === "Product") { event.preventDefault(); window.location.assign(href); } }}>{label}</Link>
             ))}
           </nav>
-          <Link className="site-button nav-cta" href="/demo" onClick={() => setOpen(false)}>Request a demo</Link>
+          <Link className="site-button nav-cta" href="/contact" onClick={() => setOpen(false)}>Contact Auctrail</Link>
         </div>
       </div>
     </header>
