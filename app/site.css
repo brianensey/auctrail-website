@@ -110,7 +110,7 @@
 .about-founder p{margin:24px 0 0;color:#55616a;font-size:16px;line-height:1.8}
 .about-founder strong{color:var(--navy)}
 .founder-signoff{display:grid;justify-items:start;gap:6px;margin-top:32px;color:var(--navy)}
-.founder-signature{font-size:clamp(44px,5vw,56px);font-weight:400;line-height:1.2}
+.founder-signature{display:block;width:280px;max-width:100%;height:auto}
 .founder-title{color:#55616a;font-size:14px;line-height:1.6}
 .founder-linkedin{display:inline-flex;align-items:center;justify-content:center;width:44px;height:44px;margin-left:-10px;color:#0a66c2}
 .founder-linkedin:hover{color:var(--navy)}
