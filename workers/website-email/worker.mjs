@@ -47,7 +47,9 @@ function field(form, key, max, required = false) {
   return value;
 }
 async function call(fetcher, url, options) {
-  return await fetcher(url, { ...options, signal: AbortSignal.timeout(15000), redirect: 'error' });
+  // Workers runtimes can reject redirect: 'error'. Manual keeps credentials on
+  // the intended host; callers reject redirect responses through response.ok.
+  return await fetcher(url, { ...options, signal: AbortSignal.timeout(15000), redirect: 'manual' });
 }
 export async function handle(request, env, fetcher = fetch) {
   const origin = request.headers.get('origin');
