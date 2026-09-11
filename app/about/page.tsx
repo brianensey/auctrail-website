@@ -1,14 +1,8 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import localFont from "next/font/local";
+import Image from "next/image";
 import SiteFooter from "../site-footer";
 import SiteHeader from "../site-header";
-
-const signatureFont = localFont({
-  src: "../../public/fonts/allura-regular.ttf",
-  display: "swap",
-  weight: "400",
-});
 
 export const metadata: Metadata = {
   title: "About",
@@ -37,7 +31,7 @@ export default function AboutPage() {
             <p>From the beginning, my goal was to build software that people could actually afford. Auctrail’s mission is to provide enterprise-quality asset disposition management at an affordable price, making professional tools accessible to organizations of every size and entrepreneurs working on their own.</p>
             <p>From intake and approvals to inventory tracking, auction preparation, reporting, and final disposition, Auctrail is being built to keep the entire process organized and accountable—so people can spend less time managing paperwork and more time serving their communities and customers.</p>
             <footer className="founder-signoff">
-              <span className={`founder-signature ${signatureFont.className}`}>Brian Ensey</span>
+              <Image className="founder-signature" src="/brian-ensey-signature.png" alt="Brian Ensey" width={1920} height={800} />
               <span className="founder-title">Founder</span>
               <a className="founder-linkedin" href="https://www.linkedin.com/in/brian-ensey-863527432/" target="_blank" rel="noopener noreferrer" aria-label="Brian Ensey on LinkedIn (opens in a new tab)">
                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 16 16" aria-hidden="true" focusable="false">
