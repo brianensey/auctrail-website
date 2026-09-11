@@ -15,10 +15,21 @@ export default function AboutPage() {
     <main className="new-site">
       <SiteHeader />
       <section className="simple-hero">
-        <div className="site-shell narrow">
+        <div className="site-shell about-hero-grid">
+          <div className="about-intro">
           <span className="section-label">About Auctrail</span>
           <h1>A clearer path for surplus property.</h1>
           <p>Auctrail is being built for teams that need one dependable record from surplus intake through sale preparation, payment, pickup, and completed history.</p>
+          </div>
+          <article className="about-founder" aria-labelledby="founder-heading">
+            <span className="section-label">Our story</span>
+            <h2 id="founder-heading">About Auctrail</h2>
+            <p>My name is <strong>Brian Ensey</strong>, and Auctrail was built from firsthand experience.</p>
+            <p>While working in the surplus department of a small municipality, I saw how much of the work depended on paper. Tracking property from the moment it was declared surplus until its final disposition was time-consuming and difficult to manage. I knew there had to be a better way.</p>
+            <p>What started as an effort to improve one department’s workflow grew into a business with a broader purpose: helping governments, nonprofits, businesses, entrepreneurs, and independent surplus and refurbished equipment sellers manage their surplus property with confidence.</p>
+            <p>From the beginning, my goal was to build software that people could actually afford. Auctrail’s mission is to provide enterprise-quality asset disposition management at an affordable price, making professional tools accessible to organizations of every size and entrepreneurs working on their own.</p>
+            <p>From intake and approvals to inventory tracking, auction preparation, reporting, and final disposition, Auctrail is being built to keep the entire process organized and accountable—so people can spend less time managing paperwork and more time serving their communities and customers.</p>
+          </article>
         </div>
       </section>
       <section className="section content-section">
