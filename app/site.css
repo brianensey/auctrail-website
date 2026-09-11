@@ -109,6 +109,12 @@
 .about-founder h2{margin:20px 0 0;color:var(--navy);font-size:clamp(38px,5vw,58px);line-height:1.04;letter-spacing:-.05em}
 .about-founder p{margin:24px 0 0;color:#55616a;font-size:16px;line-height:1.8}
 .about-founder strong{color:var(--navy)}
+.founder-signoff{display:grid;justify-items:start;gap:6px;margin-top:32px;color:var(--navy)}
+.founder-signature{font-size:clamp(44px,5vw,56px);font-weight:400;line-height:1.2}
+.founder-title{color:#55616a;font-size:14px;line-height:1.6}
+.founder-linkedin{display:inline-flex;align-items:center;justify-content:center;width:44px;height:44px;margin-left:-10px;color:#0a66c2}
+.founder-linkedin:hover{color:var(--navy)}
+.founder-linkedin:focus-visible{outline:2px solid var(--navy);outline-offset:2px}
 .status-pill{display:inline-flex;align-items:center;gap:10px;padding:9px 12px;border:1px solid #bdc6bd;color:var(--green-dark);font-size:10px;font-weight:900;letter-spacing:.13em;text-transform:uppercase}
 .status-pill>span{width:8px;height:8px;background:var(--green)}
 .centered-row{justify-content:flex-start}
