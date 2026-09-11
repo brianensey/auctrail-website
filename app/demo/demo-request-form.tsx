@@ -1,10 +1,9 @@
 "use client";
 
-import { FormEvent, useState } from "react";
+import { FormEvent, useRef, useState } from "react";
 import Link from "next/link";
 import { trackLead } from "../analytics";
 
-const leadEndpoint = process.env.NEXT_PUBLIC_DEMO_REQUEST_ENDPOINT || "https://formsubmit.co/ajax/info@auctrail.com";
 const demoAccessEndpoint = process.env.NEXT_PUBLIC_DEMO_ACCESS_ENDPOINT || "https://demo.auctrail.com/api/demo/access";
 
 type DemoAccessResponse = {
@@ -24,9 +23,11 @@ async function readJson(response: Response): Promise<DemoAccessResponse> {
 export default function DemoRequestForm() {
   const [status, setStatus] = useState<"idle" | "submitting" | "success" | "error">("idle");
   const [message, setMessage] = useState("");
+  const sending = useRef(false);
 
   async function submit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
+    if (sending.current) return;
     const form = event.currentTarget;
     if (!form.checkValidity()) {
       form.reportValidity();
@@ -34,6 +35,7 @@ export default function DemoRequestForm() {
     }
 
     setStatus("submitting");
+    sending.current = true;
     setMessage("");
 
     const formData = new FormData(form);
@@ -47,23 +49,13 @@ export default function DemoRequestForm() {
           "Content-Type": "application/json",
         },
         body: JSON.stringify(payload),
+        signal: AbortSignal.timeout(90000),
       });
       const accessPayload = await readJson(accessResponse);
 
-      if (!accessResponse.ok) {
+      if (!accessResponse.ok || accessPayload.ok !== true) {
         throw new Error(accessPayload.error || "Demo access could not be prepared right now.");
       }
-
-      // Keep the existing website lead notification, but do not let a third-party
-      // notification failure prevent valid Auctrail Demo access from succeeding.
-      const leadData = new FormData(form);
-      leadData.append("_subject", "New Auctrail demo request");
-      leadData.append("_template", "table");
-      void fetch(leadEndpoint, {
-        method: "POST",
-        headers: { Accept: "application/json" },
-        body: leadData,
-      }).catch(() => undefined);
 
       form.reset();
       setStatus("success");
@@ -72,6 +64,8 @@ export default function DemoRequestForm() {
     } catch (error) {
       setStatus("error");
       setMessage(error instanceof Error ? error.message : "Your request could not be completed right now. Please try again shortly.");
+    } finally {
+      sending.current = false;
     }
   }
 

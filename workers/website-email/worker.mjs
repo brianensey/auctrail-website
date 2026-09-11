@@ -52,6 +52,7 @@ async function call(fetcher, url, options) {
   return await fetcher(url, { ...options, signal: AbortSignal.timeout(15000), redirect: 'manual' });
 }
 export async function handle(request, env, fetcher = fetch) {
+  if (new URL(request.url).pathname === '/api/demo-email') return handleDemoEmail(request, env, fetcher);
   const origin = request.headers.get('origin');
   if (new URL(request.url).pathname !== '/api/contact') return reply(404, 'Not found.', origin);
   if (!ORIGINS.has(origin)) return reply(403, 'Origin not allowed.', origin);
@@ -119,3 +120,51 @@ export async function handle(request, env, fetcher = fetch) {
   }
 }
 export default { fetch(request, env) { return handle(request, env); } };
+
+// Only the demo server can sign a delivery request. No Google secrets enter Render.
+export async function handleDemoEmail(request, env, fetcher = fetch) {
+  if (request.method !== 'POST') return reply(405, 'Use POST.', null);
+  const timestamp = request.headers.get('x-auctrail-timestamp') || '';
+  const signature = request.headers.get('x-auctrail-signature') || '';
+  if (!env.DEMO_EMAIL_SIGNING_SECRET || !env.GOOGLE_CLIENT_ID || !env.GOOGLE_CLIENT_SECRET || !env.GOOGLE_REFRESH_TOKEN) return reply(503, 'Email unavailable.', null);
+  if (!/^\d{10}$/.test(timestamp) || Math.abs(Date.now() / 1000 - Number(timestamp)) > 300 || !/^[a-f0-9]{64}$/.test(signature)) return reply(401, 'Unauthorized.', null);
+  try {
+    if (!request.body) return reply(400, 'Missing message.', null);
+    const reader = request.body.getReader();
+    const chunks = [];
+    let size = 0;
+    try {
+      for (;;) {
+        const { done, value } = await reader.read();
+        if (done) break;
+        size += value.byteLength;
+        if (size > 65536) { await reader.cancel(); return reply(413, 'Message too large.', null); }
+        chunks.push(value);
+      }
+    } finally { reader.releaseLock(); }
+    const body = await new Blob(chunks).text();
+    const encoder = new TextEncoder();
+    const key = await crypto.subtle.importKey('raw', encoder.encode(env.DEMO_EMAIL_SIGNING_SECRET), { name: 'HMAC', hash: 'SHA-256' }, false, ['verify']);
+    const valid = await crypto.subtle.verify('HMAC', key, Uint8Array.from(signature.match(/../g), hex => parseInt(hex, 16)), encoder.encode(`${timestamp}.${body}`));
+    if (!valid) return reply(401, 'Unauthorized.', null);
+    const input = JSON.parse(body);
+    if (typeof input.email !== 'string' || input.email.length > 254 || !/^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9.-]*[a-zA-Z0-9])?\.[a-zA-Z]{2,}$/.test(input.email) || typeof input.html !== 'string' || !input.html || input.html.length > 50000) return reply(400, 'Invalid message.', null);
+    const tokenResponse = await call(fetcher, 'https://oauth2.googleapis.com/token', {
+      method: 'POST', body: new URLSearchParams({ client_id: env.GOOGLE_CLIENT_ID, client_secret: env.GOOGLE_CLIENT_SECRET, refresh_token: env.GOOGLE_REFRESH_TOKEN, grant_type: 'refresh_token' }),
+    });
+    if (!tokenResponse.ok) return reply(503, 'Email unavailable.', null);
+    const token = await tokenResponse.json();
+    if (typeof token.access_token !== 'string' || !token.access_token) return reply(503, 'Email unavailable.', null);
+    const mime = ['From: Auctrail <info@auctrail.com>', `To: ${input.email}`, 'Bcc: info@auctrail.com', 'Reply-To: info@auctrail.com', 'Subject: Your Auctrail demo login information', 'MIME-Version: 1.0', 'Content-Type: text/html; charset=UTF-8', 'Content-Transfer-Encoding: base64', '', base64(input.html).match(/.{1,76}/g).join('\r\n')].join('\r\n');
+    const sent = await call(fetcher, 'https://gmail.googleapis.com/gmail/v1/users/me/messages/send', {
+      method: 'POST', headers: { Authorization: `Bearer ${token.access_token}`, 'Content-Type': 'application/json' },
+      body: JSON.stringify({ raw: base64(mime).replace(/\+/g, '-').replace(/\//g, '_').replace(/=+$/, '') }),
+    });
+    if (!sent.ok) return reply(503, 'Delivery could not be confirmed.', null);
+    const receipt = await sent.json();
+    return typeof receipt.id === 'string' && receipt.id ? reply(200, 'Sent.', null) : reply(503, 'Delivery could not be confirmed.', null);
+  } catch {
+    console.error(JSON.stringify({ event: 'demo_email_failed', requestId: crypto.randomUUID() }));
+    return reply(503, 'Delivery could not be confirmed.', null);
+  }
+}
