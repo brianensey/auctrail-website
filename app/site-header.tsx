@@ -9,6 +9,7 @@ const links = [
   ["Product", "/#auction-workflow"],
   ["Pricing", "/pricing"],
   ["FAQ", "/faq"],
+  ["About", "/about"],
   ["Contact", "/contact"],
 ];
 

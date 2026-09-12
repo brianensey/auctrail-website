@@ -21,6 +21,7 @@ export default function AboutPage() {
           <span className="section-label">About Auctrail</span>
           <h1>A clearer path for surplus property.</h1>
           <p>Auctrail is being built for teams that need one dependable record from surplus intake through sale preparation, payment, pickup, and completed history.</p>
+          <Image className="founder-portrait" src="/brian-ensey-portrait.webp" alt="Brian Ensey, founder of Auctrail" width={900} height={900} />
           </div>
           <article className="about-founder" aria-labelledby="founder-heading">
             <span className="section-label">Our story</span>
