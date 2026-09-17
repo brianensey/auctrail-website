@@ -1,21 +1,21 @@
-.pricing-shell{width:min(1240px,calc(100% - 64px));margin:0 auto}
-.pricing-intro{max-width:820px}
+.pricing-shell{width:min(1360px,calc(100% - 48px));margin:0 auto}
+.pricing-intro{max-width:860px}
 .pricing-intro h2{margin:14px 0 0;color:var(--navy);font-size:clamp(38px,5vw,58px);line-height:1.04;letter-spacing:-.05em}
-.pricing-intro p{max-width:760px;margin:20px 0 0;color:var(--muted);font-size:15px;line-height:1.8}
-.pricing-cards{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:22px;margin-top:42px}
-.plan-card{position:relative;padding:30px;background:#fff;border:1px solid var(--line);border-top:6px solid var(--navy)}
+.pricing-intro p{max-width:780px;margin:20px 0 0;color:var(--muted);font-size:15px;line-height:1.8}
+.pricing-cards{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:16px;align-items:stretch;margin-top:40px}
+.plan-card{position:relative;display:flex;flex-direction:column;min-width:0;padding:26px 22px 24px;background:#fff;border:1px solid var(--line);border-top:6px solid var(--navy)}
 .plan-card.featured{border-top-color:var(--green);box-shadow:0 18px 45px rgba(13,27,42,.1)}
-.popular-badge{position:absolute;top:-1px;right:18px;padding:8px 10px;background:var(--green);color:#fff;font-size:9px;font-weight:900;letter-spacing:.12em;text-transform:uppercase}
-.plan-price{display:flex;align-items:flex-end;gap:7px;margin:18px 0 0;color:var(--navy)}
-.plan-price strong{font-size:48px;line-height:.92;letter-spacing:-.055em}
-.plan-price span{padding-bottom:5px;color:var(--muted);font-size:12px;font-weight:700}
-.plan-summary{min-height:116px;margin:20px 0 0;color:var(--muted);font-size:13px;line-height:1.7}
-.plan-limits{display:grid;gap:0;margin:24px 0 0}
-.plan-limits>div{display:grid;grid-template-columns:92px 1fr;gap:12px;padding:12px 0;border-top:1px solid var(--line)}
-.plan-limits dt{color:var(--muted);font-size:11px;font-weight:800;text-transform:uppercase;letter-spacing:.08em}
-.plan-limits dd{margin:0;color:var(--navy);font-size:13px;font-weight:750}
-.plan-actions{margin-top:24px}
-.plan-actions .site-button{width:100%}
+.popular-badge{position:absolute;top:-1px;right:14px;padding:7px 9px;background:var(--green);color:#fff;font-size:8px;font-weight:900;letter-spacing:.11em;text-transform:uppercase}
+.plan-price{display:flex;align-items:flex-end;gap:6px;margin:18px 0 0;color:var(--navy)}
+.plan-price strong{font-size:44px;line-height:.92;letter-spacing:-.055em}
+.plan-price span{padding-bottom:5px;color:var(--muted);font-size:11px;font-weight:700;white-space:nowrap}
+.plan-summary{min-height:132px;margin:18px 0 0;color:var(--muted);font-size:12.5px;line-height:1.65}
+.plan-limits{display:grid;gap:0;margin:22px 0 0}
+.plan-limits>div{display:block;padding:11px 0;border-top:1px solid var(--line)}
+.plan-limits dt{color:var(--muted);font-size:10px;font-weight:800;text-transform:uppercase;letter-spacing:.08em}
+.plan-limits dd{margin:4px 0 0;color:var(--navy);font-size:13px;font-weight:750;line-height:1.4}
+.plan-actions{margin-top:auto;padding-top:24px}
+.plan-actions .site-button{width:100%;padding:0 14px}
 .included-panel{display:grid;grid-template-columns:.65fr 1.35fr;gap:55px;margin-top:72px;padding:48px 0;border-top:2px solid var(--navy);border-bottom:1px solid var(--line)}
 .included-panel h2,.usage-panel h2,.capacity-panel h2,.fair-use-panel h2{margin:12px 0 0;color:var(--navy);font-size:clamp(32px,4vw,46px);line-height:1.05;letter-spacing:-.045em}
 .included-panel p,.usage-panel p,.capacity-panel p,.fair-use-panel p{margin:18px 0 0;color:var(--muted);font-size:14px;line-height:1.8}
@@ -35,5 +35,5 @@
 .fair-use-panel{margin-top:36px;padding:38px;border:1px solid var(--line);background:#fff}
 .fair-use-panel p{max-width:980px}
 .pricing-footer-note{margin-top:36px;padding:20px 0;border-top:1px solid var(--line);color:var(--muted);font-size:12px;line-height:1.75}
-@media (max-width:1050px){.pricing-cards{grid-template-columns:repeat(2,minmax(0,1fr))}.plan-summary{min-height:0}}
-@media (max-width:800px){.pricing-shell{width:min(100% - 36px,1240px)}.pricing-cards{grid-template-columns:1fr}.included-panel,.usage-panel{grid-template-columns:1fr}.included-grid{grid-template-columns:1fr}.usage-steps{grid-template-columns:1fr}.plan-card,.usage-panel,.capacity-panel,.fair-use-panel{padding:26px}}
+@media (max-width:980px){.pricing-cards{grid-template-columns:repeat(2,minmax(0,1fr))}.plan-summary{min-height:0}}
+@media (max-width:640px){.pricing-shell{width:min(100% - 28px,1360px)}.pricing-cards{grid-template-columns:1fr}.included-panel,.usage-panel{grid-template-columns:1fr}.included-grid{grid-template-columns:1fr}.usage-steps{grid-template-columns:1fr}.plan-card,.usage-panel,.capacity-panel,.fair-use-panel{padding:24px}.plan-summary{min-height:0}}
