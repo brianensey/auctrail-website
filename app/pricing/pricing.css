@@ -1,4 +1,6 @@
 .pricing-shell{width:min(1360px,calc(100% - 48px));margin:0 auto}
+.pricing-hero .status-pill{background:#f4e7a1;border-color:#ddca68;color:#5f5318;padding:10px 14px}
+.pricing-hero .status-pill>span{background:#b99a19}
 .pricing-intro{max-width:860px}
 .pricing-intro h2{margin:14px 0 0;color:var(--navy);font-size:clamp(38px,5vw,58px);line-height:1.04;letter-spacing:-.05em}
 .pricing-intro p{max-width:780px;margin:20px 0 0;color:var(--muted);font-size:15px;line-height:1.8}
