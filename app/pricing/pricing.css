@@ -1,0 +1,17 @@
+.pricing-grid{display:grid;grid-template-columns:minmax(0,1.15fr) minmax(280px,.85fr);gap:34px;align-items:start;margin-top:40px}
+.pricing-card{padding:38px;background:#fff;border:1px solid var(--line);border-top:7px solid var(--green)}
+.pricing-card h2{margin:10px 0 0;color:var(--navy);font-size:34px;letter-spacing:-.04em}
+.pricing-amount{display:flex;align-items:flex-end;gap:8px;margin:20px 0 0;color:var(--navy)}
+.pricing-amount strong{font-size:62px;line-height:.9;letter-spacing:-.055em}
+.pricing-amount span{padding-bottom:7px;color:var(--muted);font-size:14px;font-weight:700}
+.pricing-summary{margin:20px 0 0;color:var(--muted);font-size:15px;line-height:1.75}
+.pricing-list{display:grid;gap:12px;margin:28px 0 0;padding:0;list-style:none}
+.pricing-list li{position:relative;padding-left:25px;color:#34424d;font-size:14px;line-height:1.65}
+.pricing-list li:before{content:"✓";position:absolute;left:0;top:0;color:var(--green-dark);font-weight:900}
+.pricing-note{padding:30px;background:var(--navy);color:#d9e0e5}
+.pricing-note h3{margin:10px 0 0;color:#fff;font-size:27px;letter-spacing:-.035em}
+.pricing-note p{margin:18px 0 0;color:#c0cbd3;font-size:14px;line-height:1.75}
+.pricing-note ul{display:grid;gap:10px;margin:22px 0 0;padding-left:18px;color:#d9e0e5;font-size:13px;line-height:1.6}
+.pricing-disclaimer{margin-top:34px;padding-top:26px;border-top:1px solid var(--line);color:var(--muted);font-size:13px;line-height:1.75}
+.pricing-actions{display:flex;flex-wrap:wrap;gap:18px;margin-top:28px}
+@media (max-width:800px){.pricing-grid{grid-template-columns:1fr}.pricing-card{padding:28px}.pricing-amount strong{font-size:52px}}
