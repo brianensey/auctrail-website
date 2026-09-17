@@ -43,8 +43,3 @@ services:
       - type: redirect
         source: /under-development/*
         destination: /
-    envVars:
-      - key: NEXT_PUBLIC_DEMO_REQUEST_ENDPOINT
-        value: https://formsubmit.co/ajax/info@auctrail.com
-      - key: NEXT_PUBLIC_CONTACT_REQUEST_ENDPOINT
-        value: https://formsubmit.co/ajax/info@auctrail.com
