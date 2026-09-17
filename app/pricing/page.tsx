@@ -36,8 +36,8 @@ const plans = [
     price: "$249",
     users: "15 active users",
     storage: "100 GB file storage",
-    assets: "750 assets / month",
-    property: "750 property records / month",
+    assets: "500 assets / month",
+    property: "500 property records / month",
     summary: "For established surplus programs, multi-department teams, refurbishers, and higher-volume organizations.",
   },
   {
@@ -45,8 +45,8 @@ const plans = [
     price: "$499",
     users: "40 active users",
     storage: "500 GB file storage",
-    assets: "2,000 assets / month",
-    property: "2,000 property records / month",
+    assets: "1,500 assets / month",
+    property: "1,500 property records / month",
     summary: "For large organizations with substantial monthly throughput, larger teams, and heavier operational requirements.",
   },
 ];
@@ -134,7 +134,7 @@ export default function PricingPage() {
 
           <section className="capacity-panel">
             <span className="section-label">Additional capacity</span>
-            <h2>Need more than 2,000 records per month?</h2>
+            <h2>Need more than 1,500 records per month?</h2>
             <p>Organizations that exceed the Enterprise monthly allowances can contact Auctrail for additional capacity. Higher-volume pricing will be published before it is offered. Enterprise does not mean unlimited usage.</p>
             <Link className="secondary-button site-button" href="/contact">Contact Auctrail</Link>
           </section>
