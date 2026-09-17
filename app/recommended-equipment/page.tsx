@@ -57,7 +57,7 @@ export default function RecommendedEquipmentPage() {
 
               <article className={styles.card}>
                 <div className={styles.visual}>
-                  <img src="/td-4420tn.webp" alt="Brother TD-4420TN thermal transfer label printer" />
+                  <img src="https://bie-p-001.sitecorecontenthub.cloud/api/public/content/TD4420TN_main-webp?v=f5351bca" alt="Brother TD-4420TN thermal transfer label printer" />
                 </div>
                 <div className={styles.body}>
                   <span className={styles.tag}>Outdoor / heavy duty</span>
