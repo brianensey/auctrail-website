@@ -76,7 +76,7 @@ export default function PricingPage() {
         <div className="site-shell narrow">
           <div className="status-pill"><span /> Under development</div>
           <h1>Simple plans that grow with your operation.</h1>
-          <p>Auctrail is still under active development. The prices and limits below represent the current planned launch structure so organizations can evaluate fit before online purchasing is enabled.</p>
+          <p className="pricing-development-note">Auctrail is still under active development. The prices and limits below represent the current planned launch structure so organizations can evaluate fit before online purchasing is enabled.</p>
         </div>
       </section>
 
