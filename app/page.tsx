@@ -63,7 +63,7 @@ export default function HomePage() {
             <div className="hero-product">
               <div className="product-stamp">Live product view</div>
               <div className="raw-screen">
-                <Image src="/product-screenshots/dashboard.webp" alt="Auctrail surplus asset disposition software dashboard" width={1440} height={960} priority />
+                <Image src="/product-screenshots/dashboard.webp" alt="Auctrail surplus asset disposition software dashboard" width={1200} height={750} priority />
               </div>
             </div>
           </div>
