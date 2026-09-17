@@ -4,9 +4,9 @@ import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useState } from "react";
+import "./header-dropdown.css";
 
 const links = [
-  ["Product", "/#auction-workflow"],
   ["Pricing", "/pricing"],
   ["FAQ", "/faq"],
   ["About", "/about"],
@@ -16,6 +16,7 @@ const links = [
 export default function SiteHeader() {
   const pathname = usePathname();
   const [open, setOpen] = useState(false);
+  const productActive = pathname === "/" || pathname === "/recommended-equipment";
 
   return (
     <header className="site-header">
@@ -31,8 +32,21 @@ export default function SiteHeader() {
         </button>
         <div className={open ? "nav-panel open" : "nav-panel"} id="site-menu">
           <nav className="nav-links" aria-label="Main navigation">
+            <details className={productActive ? "nav-product active" : "nav-product"}>
+              <summary>Product</summary>
+              <div className="nav-product-menu">
+                <Link className={pathname === "/" ? "active" : ""} href="/#auction-workflow" onClick={() => setOpen(false)}>
+                  Overview
+                  <small>See the Auctrail workflow and product experience.</small>
+                </Link>
+                <Link className={pathname === "/recommended-equipment" ? "active" : ""} href="/recommended-equipment" onClick={() => setOpen(false)}>
+                  Recommended Equipment
+                  <small>Hardware and supplies that work well with Auctrail.</small>
+                </Link>
+              </div>
+            </details>
             {links.map(([label, href]) => (
-              <Link className={label === "Product" ? (pathname === "/" ? "active" : "") : (pathname === href ? "active" : "")} href={href} key={href} onClick={(event) => { setOpen(false); if (label === "Product") { event.preventDefault(); window.location.assign(href); } }}>{label}</Link>
+              <Link className={pathname === href ? "active" : ""} href={href} key={href} onClick={() => setOpen(false)}>{label}</Link>
             ))}
           </nav>
           <Link className="site-button nav-cta" href="/demo" onClick={() => setOpen(false)}>Request demo</Link>
