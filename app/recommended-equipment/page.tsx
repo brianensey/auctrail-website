@@ -86,7 +86,12 @@ export default function RecommendedEquipmentPage() {
         <section className={styles.section}>
           <div className={`${styles.shell} ${styles.ipadGrid}`}>
             <div className={styles.ipadVisual}>
-              <img src="https://www.apple.com/v/ipad-11/d/images/overview/hero/hero__crzh9misvcuq_large.jpg" alt="Apple 11-inch iPad models" />
+              <div className={styles.ipadComposite}>
+                <img className={styles.ipadHardware} src="https://www.apple.com/v/ipad-11/d/images/overview/hero/hero__crzh9misvcuq_large.jpg" alt="Apple 11-inch iPad models" />
+                <div className={styles.ipadScreenWindow} aria-label="Auctrail running on the foreground iPad">
+                  <img src="/product-screenshots/dashboard.webp" alt="Current Auctrail application dashboard" />
+                </div>
+              </div>
             </div>
             <div className={styles.ipadCopy}>
               <p className={styles.eyebrow}>Auctrail mobile platform</p>
