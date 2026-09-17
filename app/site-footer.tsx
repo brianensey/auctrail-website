@@ -20,6 +20,7 @@ export default function SiteFooter() {
           <a href="/#auction-workflow">Product</a>
           <Link href="/pricing">Pricing</Link>
           <Link href="/faq">FAQ</Link>
+          <Link href="/recommended-equipment">Recommended Equipment</Link>
           <Link href="/contact">Contact</Link>
           <Link href="/demo">Request a demo</Link>
           <Link href="/about">About</Link>
