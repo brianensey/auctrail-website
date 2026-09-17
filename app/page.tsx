@@ -63,7 +63,7 @@ export default function HomePage() {
             <div className="hero-product">
               <div className="product-stamp">Live product view</div>
               <div className="raw-screen">
-                <Image src="/product-screenshots/dashboard.webp" alt="Auctrail surplus asset disposition software dashboard" width={1200} height={750} priority />
+                <Image src="/product-screenshots/dashboard.webp" alt="Auctrail surplus asset disposition software dashboard" width={700} height={438} priority />
               </div>
             </div>
           </div>
@@ -106,7 +106,7 @@ export default function HomePage() {
             <p>Cases, assets, photos, documents, deadlines, reports, and completed history stay connected for the whole team.</p>
             <ul><li>Shared case visibility</li><li>Complete supporting records</li><li>Reports, labels, and supported exports</li></ul>
           </div>
-          <div className="offset-screen"><Image src="/product-screenshots/cases.webp" alt="Auctrail surplus property cases and workflow" width={1440} height={960} /></div>
+          <div className="offset-screen"><Image src="/product-screenshots/cases.webp" alt="Auctrail surplus property cases and workflow" width={560} height={350} /></div>
         </div>
       </section>
 
