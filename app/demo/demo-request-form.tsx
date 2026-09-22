@@ -83,7 +83,7 @@ export default function DemoRequestForm() {
       <button className="site-button form-button" type="submit" disabled={status === "submitting"}>
         {status === "submitting" ? "Preparing access…" : "Request demo access"}
       </button>
-      {status === "success" && <p className="form-status success" role="status">{message}</p>}
+      {status === "success" && <p className="form-status success" role="status">{message}<span className="demo-spam-note">Check spam folder if not showing in the inbox</span></p>}
       {status === "error" && <p className="form-status error" role="alert">{message}</p>}
     </form>
   );

@@ -172,6 +172,7 @@
 .form-button{justify-self:start}.form-button:hover{color:var(--navy)!important}
 .form-status{margin:0;padding:12px 14px;border-left:4px solid #8aa0af;background:#1b3a53;color:#d9e3e9;font-size:12px;line-height:1.5}
 .form-status.success{border-color:var(--green);color:#d9f2d6}.form-status.error{border-color:#d36b6b;color:#ffdede}
+.demo-spam-note{display:block;width:fit-content;margin-top:8px;padding:3px 6px;background:#ffe36b;color:var(--navy);font-weight:800}
 .honeypot{position:absolute!important;width:1px!important;height:1px!important;overflow:hidden!important;clip:rect(0,0,0,0)!important}
 
 .site-footer{background:var(--logo-navy);color:#8999a5;border-top:1px solid rgba(255,255,255,.1)}
