@@ -153,7 +153,7 @@
 .form-intro:after{content:"";position:absolute;right:0;top:80px;bottom:80px;width:1px;background:#cdd0ca}
 .form-intro h1{font-size:clamp(52px,6vw,78px)}
 .form-intro>p{max-width:570px;margin:25px 0 0;color:#56636b;font-size:15px;line-height:1.8}
-.form-aside{max-width:470px;margin-top:42px;padding:28px 0;border-top:2px solid var(--navy)}
+.form-aside{max-width:470px;margin-top:42px;padding:28px 24px;border-top:2px solid var(--navy);background:var(--white)}
 .form-aside strong{color:var(--navy);font-size:16px}.form-aside p{margin:7px 0 14px;color:var(--muted);font-size:13px}
 .form-benefits{display:grid;gap:12px;margin:34px 0;padding:0;list-style:none}
 .form-benefits li{position:relative;padding-left:26px;color:#3f4d56;font-size:13px}.form-benefits li:before{content:"→";position:absolute;left:0;color:var(--green-dark);font-weight:900}
