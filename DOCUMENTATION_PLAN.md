@@ -1,5 +1,7 @@
 # Auctrail customer documentation plan
 
+> The customer Knowledge Base now lives at https://support.auctrail.com/hc/2528629480. The pages under `docs-site/` forward existing links there; publish new customer guides in FreeScout rather than expanding this retired static-site outline.
+
 ## Writing standard
 
 - Write for a first-time user with no technical background.
