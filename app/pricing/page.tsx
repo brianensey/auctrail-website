@@ -14,7 +14,6 @@ export const metadata: Metadata = {
 const plans = [
   {
     name: "Starter",
-    price: "$49",
     users: "2 active users",
     storage: "5 GB file storage",
     assets: "50 assets / month",
@@ -23,7 +22,6 @@ const plans = [
   },
   {
     name: "Growth",
-    price: "$149",
     users: "5 active users",
     storage: "25 GB file storage",
     assets: "250 assets / month",
@@ -33,7 +31,6 @@ const plans = [
   },
   {
     name: "Professional",
-    price: "$249",
     users: "15 active users",
     storage: "100 GB file storage",
     assets: "500 assets / month",
@@ -42,7 +39,6 @@ const plans = [
   },
   {
     name: "Enterprise",
-    price: "$499",
     users: "40 active users",
     storage: "500 GB file storage",
     assets: "1,500 assets / month",
@@ -93,7 +89,6 @@ export default function PricingPage() {
               <article className={plan.featured ? "plan-card featured" : "plan-card"} key={plan.name}>
                 {plan.featured ? <div className="popular-badge">Most Popular</div> : null}
                 <span className="section-label">{plan.name}</span>
-                <div className="plan-price"><strong>{plan.price}</strong><span>/ month</span></div>
                 <p className="plan-summary">{plan.summary}</p>
                 <dl className="plan-limits">
                   <div><dt>Users</dt><dd>{plan.users}</dd></div>
