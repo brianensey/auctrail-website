@@ -42,6 +42,17 @@
   letter-spacing: -.055em;
 }
 
+.under-development-billing-link {
+  margin-top: 36px;
+  background: #047857;
+  border-color: #047857;
+}
+
+.under-development-billing-link:focus-visible {
+  outline: 3px solid #fff;
+  outline-offset: 4px;
+}
+
 @media (max-width: 600px) {
   .under-development-brand img {
     width: 52px;

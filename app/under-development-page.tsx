@@ -27,6 +27,12 @@ export default function UnderDevelopmentPage() {
         </div>
         <div className="under-development-rule" aria-hidden="true" />
         <h1>Auctrail is currently under development.</h1>
+        <a
+          className="site-button under-development-billing-link"
+          href="https://billing.stripe.com/p/login/28E00idl6ejYatqeNo3oA00"
+        >
+          Billing login
+        </a>
       </div>
     </main>
   );
