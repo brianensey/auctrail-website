@@ -44,6 +44,8 @@
 
 .under-development-billing-link {
   margin-top: 36px;
+  background: #047857;
+  border-color: #047857;
 }
 
 .under-development-billing-link:focus-visible {
